@@ -14,6 +14,7 @@ h2 {
 .background {
   padding: 80px 0 0 0;
   position: relative;
+  height: 100vh;
 
   .actions {
     text-align: center;
@@ -48,13 +49,20 @@ h2 {
     overflow-wrap: break-word;
     z-index: 1;
     overflow: hidden;
+  }
 
-    code {
-      font-size: 0.9em;
-      display: inline-block;
-      word-wrap: break-word;
-      white-space: normal;
-      margin: 0 0 10px 0;
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    .feature-row {
+      padding: 220px 40px;
+    }
+
+    .feature-row-text {
+      width: 50%;
+    }
+
+    .feature-row-image-crop {
+      width: 320px;
+      height: 320px;
     }
   }
 
@@ -85,13 +93,36 @@ h2 {
   }
 
   .container {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate3d(0, -50%, 0);
+    z-index: 7;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
 .follow-releases {
   max-width: 700px;
   margin: 0 auto 60px auto;
+
+  .feature-row {
+    background-color: #f3f4f3;
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+
+    .feature-row-item {
+      padding: 220px 40px;
+      width: 50%;
+    }
+
+    .feature-row-text {
+      margin: 0 auto;
+      max-width: 500px;
+    }
+  }
 
   p {
     line-height: 40px;
