@@ -61,5 +61,6 @@
   "thng.settings.themes.title": "Thema",
   "thng.settings.title": "Einstellungen",
   "thng.title.long": "Angular NgRx Material Vorlage",
-  "thng.title.short": "Angular Vorlage"
+  "thng.title.short": "Angular Vorlage",
+  "thng.subtitle": "Got Nuts?"
 }

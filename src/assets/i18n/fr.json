@@ -61,5 +61,6 @@
   "thng.settings.themes.title": "Thèmes",
   "thng.settings.title": "Paramètres",
   "thng.title.long": "Kit de démarrage Angular NgRx Material",
-  "thng.title.short": "Kit de démarrage"
+  "thng.title.short": "Kit de démarrage",
+  "thng.subtitle": "Got Nuts?"
 }

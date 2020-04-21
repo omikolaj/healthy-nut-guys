@@ -61,5 +61,6 @@
   "thng.settings.themes.title": "主题",
   "thng.settings.title": "设置",
   "thng.title.long": "Angular NgRx Material 起步模版",
-  "thng.title.short": "Angular 起步模版"
+  "thng.title.short": "Angular 起步模版",
+  "thng.subtitle": "Got Nuts?"
 }

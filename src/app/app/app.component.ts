@@ -35,8 +35,7 @@ export class AppComponent implements OnInit {
   languages = ['en', 'de', 'sk', 'fr', 'es', 'pt-br', 'zh-cn', 'he'];
   navigation = [
     { link: 'about', label: 'thng.menu.about' },
-    { link: 'feature-list', label: 'thng.menu.shop' },
-    { link: 'examples', label: 'thng.menu.examples' }
+    { link: 'feature-list', label: 'thng.menu.shop' }
   ];
   navigationSideMenu = [
     ...this.navigation,

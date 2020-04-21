@@ -61,5 +61,6 @@
   "thng.settings.themes.title": "Témy",
   "thng.settings.title": "Nastavenia",
   "thng.title.long": "Angular NgRx Material Štartér",
-  "thng.title.short": "Angular Štartér"
+  "thng.title.short": "Angular Štartér",
+  "thng.subtitle": "Got Nuts?"
 }

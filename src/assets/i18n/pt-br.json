@@ -61,5 +61,6 @@
   "thng.settings.themes.title": "Themes",
   "thng.settings.title": "Configurações",
   "thng.title.long": "Angular Ngrx Material Início",
-  "thng.title.short": "Angular Starter"
+  "thng.title.short": "Angular Starter",
+  "thng.subtitle": "Got Nuts?"
 }
