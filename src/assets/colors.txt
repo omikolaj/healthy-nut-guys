@@ -1,0 +1,7 @@
+accent:
+HTML/HEX code: #f1e4d5
+RGB code: rgb(241, 228, 213)
+Hsl code: hsl(32, 50%, 89%)
+Hwb code: hwb(32, 84%, 5%)
+cmyk code: cmyk(0%, 5%, 12%, 5%)
+ncol code: R54, 84%, 5%
