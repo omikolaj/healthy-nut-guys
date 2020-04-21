@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-const APP_PREFIX = 'hng-';
+const APP_PREFIX = 'thng-';
 
 @Injectable({
   providedIn: 'root'

@@ -5,16 +5,16 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SharedModule } from '../../shared.module';
 
 @Component({
-  selector: 'hng-host-for-test',
+  selector: 'thng-host-for-test',
   template: `
-    <hng-big-input
+    <thng-big-input
       placeholder="I am going to do..."
       [value]="newValue"
       (keyup)="onKeyEvent($event)"
       (keyup.enter)="onKeyEvent($event)"
       (keyup.escape)="onKeyEvent($event)"
     >
-    </hng-big-input>
+    </thng-big-input>
   `
 })
 class HostComponent {

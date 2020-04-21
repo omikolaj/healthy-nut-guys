@@ -21,7 +21,7 @@ import {
 } from '../core/settings/settings.actions';
 
 @Component({
-  selector: 'hng-root',
+  selector: 'thng-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [routeAnimations]
@@ -34,13 +34,13 @@ export class AppComponent implements OnInit {
   logo = require('../../assets/logo.png');
   languages = ['en', 'de', 'sk', 'fr', 'es', 'pt-br', 'zh-cn', 'he'];
   navigation = [
-    { link: 'about', label: 'hng.menu.about' },
-    { link: 'feature-list', label: 'hng.menu.features' },
-    { link: 'examples', label: 'hng.menu.examples' }
+    { link: 'about', label: 'thng.menu.about' },
+    { link: 'feature-list', label: 'thng.menu.features' },
+    { link: 'examples', label: 'thng.menu.examples' }
   ];
   navigationSideMenu = [
     ...this.navigation,
-    { link: 'settings', label: 'hng.menu.settings' }
+    { link: 'settings', label: 'thng.menu.settings' }
   ];
 
   isAuthenticated$: Observable<boolean>;

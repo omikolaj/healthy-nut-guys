@@ -37,7 +37,7 @@ import { State } from './settings.model';
 
 export const SETTINGS_KEY = 'SETTINGS';
 
-const INIT = of('hng-init-effect-trigger');
+const INIT = of('thng-init-effect-trigger');
 
 @Injectable()
 export class SettingsEffects {

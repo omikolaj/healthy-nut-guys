@@ -1,9 +1,9 @@
 @import '~@angular/material/theming';
 
-@mixin hng-child-component-theme($theme) {
+@mixin thng-child-component-theme($theme) {
   $warn: map-get($theme, warn);
 
-  hng-child {
+  thng-child {
     > div {
       border-color: mat-color($warn);
 

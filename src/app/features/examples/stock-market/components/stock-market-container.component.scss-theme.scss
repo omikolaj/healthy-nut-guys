@@ -1,9 +1,9 @@
 @import '~@angular/material/theming';
 
-@mixin hng-stock-market-container-component-theme($theme) {
+@mixin thng-stock-market-container-component-theme($theme) {
   $warn: map-get($theme, warn);
 
-  hng-stock-market {
+  thng-stock-market {
     mat-card {
       .negative {
         color: mat-color($warn);

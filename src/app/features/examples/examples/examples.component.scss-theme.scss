@@ -1,10 +1,10 @@
 @import '~@angular/material/theming';
 
-@mixin hng-examples-component-theme($theme) {
+@mixin thng-examples-component-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
-  hng-examples {
+  thng-examples {
     .nav-responsive {
       border-bottom: 1px solid mat-color($primary);
 

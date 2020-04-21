@@ -10,7 +10,7 @@ import {
 import { State } from '../examples.state';
 
 @Component({
-  selector: 'hng-examples',
+  selector: 'thng-examples',
   templateUrl: './examples.component.html',
   styleUrls: ['./examples.component.scss'],
   animations: [routeAnimations],
@@ -20,18 +20,18 @@ export class ExamplesComponent implements OnInit {
   isAuthenticated$: Observable<boolean>;
 
   examples = [
-    { link: 'todos', label: 'hng.examples.menu.todos' },
-    { link: 'stock-market', label: 'hng.examples.menu.stocks' },
-    { link: 'theming', label: 'hng.examples.menu.theming' },
-    { link: 'crud', label: 'hng.examples.menu.crud' },
+    { link: 'todos', label: 'thng.examples.menu.todos' },
+    { link: 'stock-market', label: 'thng.examples.menu.stocks' },
+    { link: 'theming', label: 'thng.examples.menu.theming' },
+    { link: 'crud', label: 'thng.examples.menu.crud' },
     {
       link: 'simple-state-management',
-      label: 'hng.examples.menu.simple-state-management'
+      label: 'thng.examples.menu.simple-state-management'
     },
-    { link: 'form', label: 'hng.examples.menu.form' },
-    { link: 'notifications', label: 'hng.examples.menu.notifications' },
-    { link: 'elements', label: 'hng.examples.menu.elements' },
-    { link: 'authenticated', label: 'hng.examples.menu.auth', auth: true }
+    { link: 'form', label: 'thng.examples.menu.form' },
+    { link: 'notifications', label: 'thng.examples.menu.notifications' },
+    { link: 'elements', label: 'thng.examples.menu.elements' },
+    { link: 'authenticated', label: 'thng.examples.menu.auth', auth: true }
   ];
 
   constructor(private store: Store<State>) {}

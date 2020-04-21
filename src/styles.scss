@@ -25,34 +25,34 @@
 @import './app/features/examples/examples/examples.component.scss-theme';
 
 @mixin custom-components-theme($theme) {
-  @include hng-styles-reset-theme($theme);
-  @include hng-app-component-theme($theme);
-  @include hng-about-component-theme($theme);
-  @include hng-big-input-component-theme($theme);
-  @include hng-notifications-component-theme($theme);
-  @include hng-todos-container-component-theme($theme);
-  @include hng-stock-market-container-component-theme($theme);
-  @include hng-parent-component-theme($theme);
-  @include hng-child-component-theme($theme);
-  @include hng-examples-component-theme($theme);
+  @include thng-styles-reset-theme($theme);
+  @include thng-app-component-theme($theme);
+  @include thng-about-component-theme($theme);
+  @include thng-big-input-component-theme($theme);
+  @include thng-notifications-component-theme($theme);
+  @include thng-todos-container-component-theme($theme);
+  @include thng-stock-market-container-component-theme($theme);
+  @include thng-parent-component-theme($theme);
+  @include thng-child-component-theme($theme);
+  @include thng-examples-component-theme($theme);
 }
 
 .default-theme {
-  @include angular-material-theme($hng-theme);
-  @include custom-components-theme($hng-theme);
+  @include angular-material-theme($thng-theme);
+  @include custom-components-theme($thng-theme);
 }
 
 .light-theme {
-  @include angular-material-theme($hng-light-theme);
-  @include custom-components-theme($hng-light-theme);
+  @include angular-material-theme($thng-light-theme);
+  @include custom-components-theme($thng-light-theme);
 }
 
 .black-theme {
-  @include angular-material-theme($hng-black-theme);
-  @include custom-components-theme($hng-black-theme);
+  @include angular-material-theme($thng-black-theme);
+  @include custom-components-theme($thng-black-theme);
 }
 
 .nature-theme {
-  @include angular-material-theme($hng-nature-theme);
-  @include custom-components-theme($hng-nature-theme);
+  @include angular-material-theme($thng-nature-theme);
+  @include custom-components-theme($thng-nature-theme);
 }

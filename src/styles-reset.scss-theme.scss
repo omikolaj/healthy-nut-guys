@@ -1,6 +1,6 @@
 @import '.~@angular/material/theming';
 
-@mixin hng-styles-reset-theme($theme) {
+@mixin thng-styles-reset-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
   $foreground: map-get($theme, foreground);

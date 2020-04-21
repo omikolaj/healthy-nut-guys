@@ -6,7 +6,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SharedModule } from '../../shared.module';
 
 @Component({
-  selector: 'hng-host-for-test',
+  selector: 'thng-host-for-test',
   template: ''
 })
 class HostComponent {
@@ -40,13 +40,13 @@ describe('BigInputActionComponent', () => {
   );
 
   it('should be created', () => {
-    const template = '<hng-big-input-action></hng-big-input-action>';
+    const template = '<thng-big-input-action></thng-big-input-action>';
     fixture = createHostComponent(template);
     expect(component).toBeTruthy();
   });
 
   it('should initially not be disabled and show no icon or label', () => {
-    const template = '<hng-big-input-action></hng-big-input-action>';
+    const template = '<thng-big-input-action></thng-big-input-action>';
     fixture = createHostComponent(template);
     expect(getButton().nativeElement.disabled).toBeFalsy();
     expect(getIcon()).toBeNull();
@@ -55,13 +55,13 @@ describe('BigInputActionComponent', () => {
 
   it('should disable button if disabled property is set', () => {
     const template =
-      '<hng-big-input-action [disabled]="true"></hng-big-input-action>';
+      '<thng-big-input-action [disabled]="true"></thng-big-input-action>';
     fixture = createHostComponent(template);
     expect(getButton().nativeElement.disabled).toBeTruthy();
   });
 
   it('should display icon if fontSet and fontIcon properties are set', () => {
-    const template = `<hng-big-input-action fontSet="fas" fontIcon="fa-trash"></hng-big-input-action>`;
+    const template = `<thng-big-input-action fontSet="fas" fontIcon="fa-trash"></thng-big-input-action>`;
     fixture = createHostComponent(template);
     expect(getIcon()).toBeTruthy();
     expect(getIcon().nativeElement.classList.contains('fa-trash')).toBeTruthy();
@@ -69,14 +69,14 @@ describe('BigInputActionComponent', () => {
   });
 
   it('should display label with provided text when label property is set', () => {
-    const template = `<hng-big-input-action label="delete"></hng-big-input-action>`;
+    const template = `<thng-big-input-action label="delete"></thng-big-input-action>`;
     fixture = createHostComponent(template);
     expect(getLabel()).toBeTruthy();
     expect(getLabel().nativeElement.textContent).toBe('delete');
   });
 
   it('should emit action event on button click', () => {
-    const template = `<hng-big-input-action (action)="actionHandler()"></hng-big-input-action>`;
+    const template = `<thng-big-input-action (action)="actionHandler()"></thng-big-input-action>`;
     fixture = createHostComponent(template);
     spyOn(component, 'actionHandler').and.callThrough();
     getButton().triggerEventHandler('click', {});

@@ -1,9 +1,9 @@
 @import '~@angular/material/theming';
 
-@mixin hng-parent-component-theme($theme) {
+@mixin thng-parent-component-theme($theme) {
   $accent: map-get($theme, accent);
 
-  hng-parent {
+  thng-parent {
     > .container {
       > .row {
         > .col-md-6 {

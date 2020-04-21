@@ -1,8 +1,8 @@
 {
   "rulesDirectory": ["node_modules/codelyzer"],
   "rules": {
-    "directive-selector": [true, "attribute", "hng", "camelCase"],
-    "component-selector": [true, "element", "hng", "kebab-case"],
+    "directive-selector": [true, "attribute", "thng", "camelCase"],
+    "component-selector": [true, "element", "thng", "kebab-case"],
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,

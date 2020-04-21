@@ -6,7 +6,7 @@ import {
 } from '../../../../core/core.module';
 
 @Component({
-  selector: 'hng-notifications',
+  selector: 'thng-notifications',
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

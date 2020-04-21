@@ -13,28 +13,28 @@ export const features: Feature[] = [
   {
     name: 'Angular',
     version: env.versions.angular,
-    description: 'hng.features.angular',
+    description: 'thng.features.angular',
     github: 'https://github.com/angular/angular',
     documentation: 'https://angular.io/docs/ts/latest/'
   },
   {
     name: 'Angular Material',
     version: env.versions.material,
-    description: 'hng.features.angular-material',
+    description: 'thng.features.angular-material',
     github: 'https://github.com/angular/material2/',
     documentation: 'https://material.angular.io/'
   },
   {
     name: 'Angular Cli',
     version: env.versions.angularCli,
-    description: 'hng.features.angular-cli',
+    description: 'thng.features.angular-cli',
     github: 'https://github.com/angular/angular-cli',
     documentation: 'https://cli.angular.io/'
   },
   {
     name: 'NgRx',
     version: env.versions.ngrx,
-    description: 'hng.features.ngrx',
+    description: 'thng.features.ngrx',
     github: 'https://github.com/ngrx/platform',
     documentation: 'http://ngrx.github.io/',
     medium:
@@ -43,7 +43,7 @@ export const features: Feature[] = [
   {
     name: 'RxJS',
     version: env.versions.rxjs,
-    description: 'hng.features.rxjs',
+    description: 'thng.features.rxjs',
     github: 'https://github.com/ReactiveX/RxJS',
     documentation: 'http://reactivex.io/rxjs/',
     medium:
@@ -52,7 +52,7 @@ export const features: Feature[] = [
   {
     name: 'Bootstrap',
     version: env.versions.bootstrap,
-    description: 'hng.features.bootstrap',
+    description: 'thng.features.bootstrap',
     github: 'https://github.com/twbs/bootstrap',
     documentation: 'https://getbootstrap.com/docs/4.0/layout/grid/',
     medium:
@@ -61,41 +61,41 @@ export const features: Feature[] = [
   {
     name: 'Typescript',
     version: env.versions.typescript,
-    description: 'hng.features.typescript',
+    description: 'thng.features.typescript',
     github: 'https://github.com/Microsoft/TypeScript',
     documentation: 'https://www.typescriptlang.org/docs/home.html'
   },
   {
     name: 'I18n',
     version: env.versions.ngxtranslate,
-    description: 'hng.features.ngxtranslate',
+    description: 'thng.features.ngxtranslate',
     github: 'https://github.com/ngx-translate/core',
     documentation: 'http://www.ngx-translate.com/'
   },
   {
     name: 'Font Awesome 5',
     version: env.versions.fontAwesome,
-    description: 'hng.features.fontawesome',
+    description: 'thng.features.fontawesome',
     github: 'https://github.com/FortAwesome/Font-Awesome',
     documentation: 'https://fontawesome.com/icons'
   },
   {
     name: 'Cypress',
     version: env.versions.cypress,
-    description: 'hng.features.cypress',
+    description: 'thng.features.cypress',
     github: 'https://github.com/cypress-io/cypress',
     documentation: 'https://www.cypress.io/'
   },
   {
-    name: 'hng.features.themes.title',
-    description: 'hng.features.themes.description',
+    name: 'thng.features.themes.title',
+    description: 'thng.features.themes.description',
     documentation: 'https://material.angular.io/guide/theming',
     medium:
       'https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1'
   },
   {
-    name: 'hng.features.lazyloading.title',
-    description: 'hng.features.lazyloading.description',
+    name: 'thng.features.lazyloading.title',
+    description: 'thng.features.lazyloading.description',
     documentation:
       'https://angular.io/guide/router#lazy-loading-route-configuration'
   }

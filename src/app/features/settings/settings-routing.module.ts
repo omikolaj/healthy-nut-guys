@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: SettingsContainerComponent,
-    data: { title: 'hng.menu.settings' }
+    data: { title: 'thng.menu.settings' }
   }
 ];
 

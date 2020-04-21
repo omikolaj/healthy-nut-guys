@@ -1,9 +1,9 @@
-$hng-light-primary: mat-palette($mat-grey, 200, 500, 300);
-$hng-light-accent: mat-palette($mat-brown, 200);
-$hng-light-warn: mat-palette($mat-deep-orange, 200);
+$thng-light-primary: mat-palette($mat-grey, 200, 500, 300);
+$thng-light-accent: mat-palette($mat-brown, 200);
+$thng-light-warn: mat-palette($mat-deep-orange, 200);
 
-$hng-light-theme: mat-light-theme(
-  $hng-light-primary,
-  $hng-light-accent,
-  $hng-light-warn
+$thng-light-theme: mat-light-theme(
+  $thng-light-primary,
+  $thng-light-accent,
+  $thng-light-warn
 );

@@ -1,5 +1,5 @@
-$hng-primary: mat-palette($mat-indigo, 800, 300, 900);
-$hng-accent: mat-palette($mat-light-blue);
-$hng-warn: mat-palette($mat-pink, 600);
+$thng-primary: mat-palette($mat-indigo, 800, 300, 900);
+$thng-accent: mat-palette($mat-light-blue);
+$thng-warn: mat-palette($mat-pink, 600);
 
-$hng-theme: mat-light-theme($hng-primary, $hng-accent, $hng-warn);
+$thng-theme: mat-light-theme($thng-primary, $thng-accent, $thng-warn);
