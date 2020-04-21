@@ -1,0 +1,9 @@
+$hng-black-primary: mat-palette($mat-grey, 700, 300, 900);
+$hng-black-accent: mat-palette($mat-blue-grey, 400);
+$hng-black-warn: mat-palette($mat-red, 500);
+
+$hng-black-theme: mat-dark-theme(
+  $hng-black-primary,
+  $hng-black-accent,
+  $hng-black-warn
+);
