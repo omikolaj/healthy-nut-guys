@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: FeatureListComponent,
-    data: { title: 'thng.menu.features' }
+    data: { title: 'thng.menu.shop' }
   }
 ];
 

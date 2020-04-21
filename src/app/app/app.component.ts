@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
   languages = ['en', 'de', 'sk', 'fr', 'es', 'pt-br', 'zh-cn', 'he'];
   navigation = [
     { link: 'about', label: 'thng.menu.about' },
-    { link: 'feature-list', label: 'thng.menu.features' },
+    { link: 'feature-list', label: 'thng.menu.shop' },
     { link: 'examples', label: 'thng.menu.examples' }
   ];
   navigationSideMenu = [
@@ -69,7 +69,8 @@ export class AppComponent implements OnInit {
 
     this.isAuthenticated$ = this.store.pipe(select(selectIsAuthenticated));
     this.stickyHeader$ = this.store.pipe(select(selectSettingsStickyHeader));
-    this.language$ = this.store.pipe(select(selectSettingsLanguage));
+    // if commented back in don't forget to comment back in HTML template code for this
+    // this.language$ = this.store.pipe(select(selectSettingsLanguage));
     this.theme$ = this.store.pipe(select(selectEffectiveTheme));
   }
 
