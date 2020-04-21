@@ -56,3 +56,9 @@
   @include angular-material-theme($thng-nature-theme);
   @include custom-components-theme($thng-nature-theme);
 }
+
+///////////////////////////////////////////////////////
+// ============== Styles Overrides ================ //
+body {
+  font-family: 'Kalam', cursive !important;
+}
