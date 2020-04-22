@@ -4,7 +4,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { environment as env } from '../../environments/environment';
-
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import {
   authLogin,
   authLogout,
@@ -27,6 +27,7 @@ import {
   animations: [routeAnimations]
 })
 export class AppComponent implements OnInit {
+  faFacebookF = faFacebookF;
   isProd = env.production;
   envName = env.envName;
   version = env.versions.app;

@@ -45,7 +45,11 @@ import {
   faStream,
   faBook
 } from '@fortawesome/free-solid-svg-icons';
-import { faMediumM, faGithub } from '@fortawesome/free-brands-svg-icons';
+import {
+  faMediumM,
+  faGithub,
+  faFacebookF
+} from '@fortawesome/free-brands-svg-icons';
 
 import { BigInputComponent } from './big-input/big-input/big-input.component';
 import { BigInputActionComponent } from './big-input/big-input-action/big-input-action.component';
@@ -118,6 +122,7 @@ export class SharedModule {
   constructor(faIconLibrary: FaIconLibrary) {
     faIconLibrary.addIcons(
       faGithub,
+      faFacebookF,
       faMediumM,
       faPlus,
       faEdit,

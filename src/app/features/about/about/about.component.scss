@@ -51,21 +51,6 @@ h2 {
     overflow: hidden;
   }
 
-  @media (min-width: map-get($grid-breakpoints, md)) {
-    .feature-row {
-      padding: 220px 40px;
-    }
-
-    .feature-row-text {
-      width: 50%;
-    }
-
-    .feature-row-image-crop {
-      width: 320px;
-      height: 320px;
-    }
-  }
-
   &::before {
     position: absolute;
     top: 0;
@@ -106,23 +91,6 @@ h2 {
 .follow-releases {
   max-width: 700px;
   margin: 0 auto 60px auto;
-
-  .feature-row {
-    background-color: #f3f4f3;
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-
-    .feature-row-item {
-      padding: 220px 40px;
-      width: 50%;
-    }
-
-    .feature-row-text {
-      margin: 0 auto;
-      max-width: 500px;
-    }
-  }
 
   p {
     line-height: 40px;
@@ -227,5 +195,87 @@ h2 {
 
   .follow-releases {
     margin: 0 auto 40px auto;
+  }
+}
+
+// =============
+
+@media (min-width: map-get($grid-breakpoints, md)) {
+  .feature-row {
+  }
+
+  .feature-row-text {
+    width: 50%;
+  }
+
+  .feature-row-image-crop {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+.feature-row {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  -ms-align-items: stretch;
+  -o-align-items: stretch;
+  align-items: stretch;
+
+  .feature-row-item {
+    padding: 220px 40px;
+    width: 50%;
+  }
+
+  #feature-row-item-text {
+    background-color: #f3f4f3;
+  }
+
+  .feature-row-text {
+    margin: 0 auto;
+    max-width: 500px;
+  }
+
+  .feature-row-image img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
+.variety-nuts-image {
+  background-image: url('../../../../assets/variety-of-brown-nuts-on-brown-wooden-panel.jpg');
+  position: relative;
+  display: table;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
+  .variety-nuts-image-inner {
+    padding: 220px 0;
+  }
+}
+
+.integrity-container {
+  padding-bottom: 12%;
+  padding-top: 12%;
+  display: block;
+}
+
+.integrity-container-inner {
+  position: relative;
+  left: 16.66667%;
+  width: 66.66667%;
+  text-align: center;
+}
+
+@media screen and (min-width: 750px) {
+  .feature-row--feature-row-0 .feature-row__image-wrapper {
+    background-color: #ffffff;
   }
 }
