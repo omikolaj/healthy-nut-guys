@@ -8,8 +8,6 @@ if (environment.production) {
   enableProdMode();
 }
 
-setTimeout(function() {
-  platformBrowserDynamic()
-    .bootstrapModule(AppModule)
-    .catch(err => console.error(err));
-}, 3000);
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch(err => console.error(err));
