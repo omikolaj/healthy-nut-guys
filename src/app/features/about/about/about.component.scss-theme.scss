@@ -43,4 +43,15 @@
       }
     }
   }
+
+  .material-divider {
+    width: 35px;
+    margin: 16px 0;
+    color: mat-color($primary);
+  }
+
+  .mat-divider {
+    border-top-color: rgb(93, 64, 55) !important;
+    border-top-width: 5px !important;
+  }
 }
