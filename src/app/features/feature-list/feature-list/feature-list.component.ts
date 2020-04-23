@@ -4,6 +4,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ROUTE_ANIMATIONS_ELEMENTS } from '../../../core/core.module';
 
 import { Feature, features } from '../feature-list.data';
+import { ShopItem } from 'app/core/models/shop-item.model';
 
 @Component({
   selector: 'thng-feature-list',
@@ -13,7 +14,7 @@ import { Feature, features } from '../feature-list.data';
 })
 export class FeatureListComponent implements OnInit {
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
-  features: Feature[] = features;
+  features: ShopItem[] = features;
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 
@@ -23,7 +24,7 @@ export class FeatureListComponent implements OnInit {
     window.open(link, '_blank');
   }
 
-  onViewProductDetail(feature: Feature): void {
+  onViewProductDetail(feature: ShopItem): void {
     this.router.navigate([`${feature.id}`], {
       relativeTo: this.route.parent
     });

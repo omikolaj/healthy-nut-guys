@@ -1,4 +1,5 @@
 import { environment as env } from '../../../environments/environment';
+import { ShopItem } from 'app/core/models/shop-item.model';
 
 export interface Feature {
   id: string;
@@ -11,7 +12,7 @@ export interface Feature {
   imageSrc?: string;
 }
 
-export const features: Feature[] = [
+export const features: ShopItem[] = [
   {
     id: '1',
     description: 'Healthy Nut Guys',
