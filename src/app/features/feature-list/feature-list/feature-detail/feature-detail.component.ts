@@ -9,7 +9,5 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 export class FeatureDetailComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {
-    console.log('inside ngonit');
-  }
+  ngOnInit(): void {}
 }

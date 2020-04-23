@@ -19,6 +19,7 @@
         <!-- <a mat-list-item href="https://github.com/tomastrajan/angular-ngrx-material-starter" target="_blank">
           Github
         </a> -->
+                 
       </mat-nav-list>
     </mat-sidenav>
 
@@ -28,7 +29,6 @@
         <mat-toolbar color="primary">
           <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
             <fa-icon icon="bars"></fa-icon>
-
           </button>
 
           <span routerLink="" class="branding spacer center d-inline d-sm-none">
@@ -47,6 +47,7 @@
               {{item.label | translate}}
             </button>
           </span>
+          
 
           <!------------------------------------------------->
           <!-- Temporarily disable the login functionality -->
@@ -66,11 +67,9 @@
               <mat-icon><fa-icon icon="power-off"></fa-icon></mat-icon>
               <span>{{ 'thng.menu.logout' | translate }}</span>
             </button>
-          </mat-menu> -->
+          </mat-menu> --> 
 
-          <button mat-icon-button routerLink="settings" class="d-none d-sm-inline">
-            <fa-icon icon="cog"></fa-icon>
-          </button>
+          
 
           <!----------------------------->
           <!-- Disable the github link -->
@@ -84,6 +83,16 @@
              target="_blank">
             <fa-icon [icon]="['fab','github']"></fa-icon>
           </a> -->
+
+          <button mat-icon-button routerLink="settings" class="d-none d-sm-inline">
+            <mat-icon matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon>
+          </button> 
+
+          <!-------------------------------->
+          <!-- Using as padding for overflow -->
+          <!-------------------------------->
+          <button mat-icon-button  class="d-none d-sm-inline">
+          </button>
 
           <!-------------------------------->
           <!-- Disable language selection -->

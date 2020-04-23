@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -45,11 +46,7 @@ import {
   faStream,
   faBook
 } from '@fortawesome/free-solid-svg-icons';
-import {
-  faMediumM,
-  faGithub,
-  faFacebookF
-} from '@fortawesome/free-brands-svg-icons';
+import { faMediumM, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import { BigInputComponent } from './big-input/big-input/big-input.component';
 import { BigInputActionComponent } from './big-input/big-input-action/big-input-action.component';
@@ -77,6 +74,7 @@ import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
     MatSnackBarModule,
     MatSlideToggleModule,
     MatDividerModule,
+    MatBadgeModule,
 
     FontAwesomeModule
   ],
@@ -110,6 +108,7 @@ import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
     MatSliderModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatBadgeModule,
 
     FontAwesomeModule,
 
@@ -122,7 +121,6 @@ export class SharedModule {
   constructor(faIconLibrary: FaIconLibrary) {
     faIconLibrary.addIcons(
       faGithub,
-      faFacebookF,
       faMediumM,
       faPlus,
       faEdit,
