@@ -1,3 +1,5 @@
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { LoadingSpinnerComponent } from './app/loading-spinner/loading-spinner.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +23,7 @@ import { HttpStatusInterceptor } from './core/http-interceptors/http-status.inte
 
     // material icon for shopping cart
     MatBadgeModule,
+    MatProgressBarModule,
 
     // core
     CoreModule,
@@ -28,7 +31,7 @@ import { HttpStatusInterceptor } from './core/http-interceptors/http-status.inte
     // app
     AppRoutingModule
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoadingSpinnerComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

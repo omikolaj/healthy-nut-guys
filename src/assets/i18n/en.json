@@ -38,6 +38,7 @@
   "thng.menu.login": "Sign in",
   "thng.menu.logout": "Logout",
   "thng.menu.settings": "Settings",
+  "thng.menu.cart": "Cart",
   "thng.settings.animations.elements": "Navigation page elements slide up",
   "thng.settings.animations.page": "Navigation whole page transition",
   "thng.settings.animations.title": "Animations",

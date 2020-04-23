@@ -1,6 +1,6 @@
 export interface ItemDetails {
   id?: string;
-  imgSrc?: string;
+  imageSrc?: string;
   price?: number;
   inStock?: boolean;
   title?: string;

@@ -44,7 +44,6 @@ export class HttpStatusInterceptor implements HttpInterceptor {
       // if we are loading increment if we are not increment decrement
       val ? this.actingCalls++ : this.actingCalls--;
       // if we still have acting requests happening
-      this.httpStatusService.acting = this.actingCalls > 0;
     } else if (method === 'GET') {
       val ? this.loadingCalls++ : this.loadingCalls--;
       this.httpStatusService.loading = this.loadingCalls > 0;

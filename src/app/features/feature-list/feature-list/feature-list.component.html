@@ -6,13 +6,14 @@
   </div>
   <div class="row align-items-end">
     <div *ngFor="let feature of features" class="col-md-6 col-lg-4" [ngClass]="routeAnimationsElements">
-      <mat-card>
-        <mat-card-title>          
+      <mat-card>        
+        <img mat-card-image [src]="feature.imageSrc" [alt]=feature.description>
+        <mat-card-title>  
+          {{ feature?.name }}        
         </mat-card-title>
         <mat-card-subtitle rtl>
           {{ feature.description | translate }}
-        </mat-card-subtitle>
-        <img mat-card-image [src]="feature.imageSrc" [alt]=feature.description>
+        </mat-card-subtitle>        
         <mat-card-actions>
           <button mat-raised-button color="primary" (click)="onViewProductDetail(feature)">View</button>          
         </mat-card-actions>

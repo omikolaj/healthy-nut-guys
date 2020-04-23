@@ -1,3 +1,4 @@
+import { HttpStatusInterceptorService } from 'app/core/http-interceptors/http-status.interceptor.service';
 import browser from 'browser-detect';
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
@@ -19,6 +20,7 @@ import {
   actionSettingsChangeAnimationsPageDisabled,
   actionSettingsChangeLanguage
 } from '../core/settings/settings.actions';
+import { Loading } from 'app/core/decorators/loading.decorator';
 
 @Component({
   selector: 'thng-root',
@@ -27,6 +29,7 @@ import {
   animations: [routeAnimations]
 })
 export class AppComponent implements OnInit {
+  loading$ = this.httpStatusService.loading$;
   faFacebookF = faFacebookF;
   isProd = env.production;
   envName = env.envName;
@@ -40,7 +43,7 @@ export class AppComponent implements OnInit {
   ];
   navigationSideMenu = [
     ...this.navigation,
-    { link: 'settings', label: 'thng.menu.settings' }
+    { link: 'cart', label: 'thng.menu.cart' }
   ];
 
   isAuthenticated$: Observable<boolean>;
@@ -50,7 +53,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private store: Store,
-    private storageService: LocalStorageService
+    private storageService: LocalStorageService,
+    private httpStatusService: HttpStatusInterceptorService
   ) {}
 
   private static isIEorEdgeOrSafari() {

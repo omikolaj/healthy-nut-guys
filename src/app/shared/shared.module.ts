@@ -22,7 +22,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import {
   FontAwesomeModule,
@@ -53,7 +52,6 @@ import { BigInputComponent } from './big-input/big-input/big-input.component';
 import { BigInputActionComponent } from './big-input/big-input-action/big-input-action.component';
 import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
 import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.component';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   imports: [
@@ -78,7 +76,6 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     MatSlideToggleModule,
     MatDividerModule,
     MatBadgeModule,
-    MatProgressBarModule,
 
     FontAwesomeModule
   ],
@@ -86,8 +83,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     BigInputComponent,
     BigInputActionComponent,
     RtlSupportDirective,
-    ActingSpinnerComponent,
-    LoadingSpinnerComponent
+    ActingSpinnerComponent
   ],
   exports: [
     CommonModule,
@@ -120,7 +116,8 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 
     BigInputComponent,
     BigInputActionComponent,
-    RtlSupportDirective
+    RtlSupportDirective,
+    ActingSpinnerComponent
   ]
 })
 export class SharedModule {
