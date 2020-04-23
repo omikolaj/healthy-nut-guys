@@ -22,6 +22,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import {
   FontAwesomeModule,
@@ -51,6 +52,8 @@ import { faMediumM, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { BigInputComponent } from './big-input/big-input/big-input.component';
 import { BigInputActionComponent } from './big-input/big-input-action/big-input-action.component';
 import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
+import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   imports: [
@@ -75,13 +78,16 @@ import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
     MatSlideToggleModule,
     MatDividerModule,
     MatBadgeModule,
+    MatProgressBarModule,
 
     FontAwesomeModule
   ],
   declarations: [
     BigInputComponent,
     BigInputActionComponent,
-    RtlSupportDirective
+    RtlSupportDirective,
+    ActingSpinnerComponent,
+    LoadingSpinnerComponent
   ],
   exports: [
     CommonModule,
