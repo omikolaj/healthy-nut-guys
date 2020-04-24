@@ -1,40 +1,24 @@
 import { FeaturesFacadeService } from './../../features-facade.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { tap } from 'rxjs/operators';
 import { CartItem } from 'app/core/models/cart-items.model';
 
 @Component({
-  selector: 'thng-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss'],
+  selector: 'thng-checkout',
+  templateUrl: './checkout.component.html',
+  styleUrls: ['./checkout.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CartComponent implements OnInit {
-  isLinear = true;
+export class CheckoutComponent implements OnInit {
   cartItems$ = this.facade.cartItems$.pipe(tap(cartItems => this.initForms(cartItems)));
   overviewFormGroup: FormGroup;
   infoFormGroup: FormGroup;
   checkoutFormGroup: FormGroup;
   confirmationFormGroup: FormGroup;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  constructor(private breakpointObserver: BreakpointObserver, private fb: FormBuilder, private facade: FeaturesFacadeService) {}
+  constructor(private fb: FormBuilder, private facade: FeaturesFacadeService) {}
 
-  ngOnInit(): void {
-    this.breakpointObserver.observe([Breakpoints.Small]).subscribe(result => {
-      if (result.matches) {
-      } else {
-      }
-    });
-    this.firstFormGroup = this.fb.group({
-      firstCtrl: ['']
-    });
-    this.secondFormGroup = this.fb.group({
-      secondCtrl: ['']
-    });
-  }
+  ngOnInit(): void {}
 
   private initForms(cartItems: CartItem[]): void {
     this.initOverviewForm(cartItems);

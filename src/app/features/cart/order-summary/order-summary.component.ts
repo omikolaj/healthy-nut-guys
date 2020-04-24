@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'thng-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss'],
+  selector: 'thng-order-summary',
+  templateUrl: './order-summary.component.html',
+  styleUrls: ['./order-summary.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class OverviewComponent implements OnInit {
+export class OrderSummaryComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}

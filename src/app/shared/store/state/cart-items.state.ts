@@ -22,42 +22,33 @@ export class CartItemsState {
 
   @Selector()
   static getCartItems(state: CartItemsStateModel): CartItem[] {
-    return Object.values(state.entities);
+    return Object.values(state.entities) || [];
   }
 
   @Action(Cart.AddToCart)
-  addToCart(
-    ctx: StateContext<CartItemsStateModel>,
-    action: Cart.AddToCart
-  ): void {
+  addToCart(ctx: StateContext<CartItemsStateModel>, action: Cart.AddToCart): void {
     ctx.setState(
       produce((draft: CartItemsStateModel) => {
-        draft.entities[action.item.id] = action.item;
+        draft.entities[action.item.cartItemId] = action.item;
       })
     );
   }
 
-  @Action(Cart.IncrementQuantity)
-  incrementQuantity(
-    ctx: StateContext<CartItemsStateModel>,
-    action: Cart.IncrementQuantity
-  ): void {
-    ctx.setState(
-      produce((draft: CartItemsStateModel) => {
-        draft.entities[action.itemId].quantity += 1;
-      })
-    );
-  }
+  // @Action(Cart.IncrementQuantity)
+  // incrementQuantity(ctx: StateContext<CartItemsStateModel>, action: Cart.IncrementQuantity): void {
+  //   ctx.setState(
+  //     produce((draft: CartItemsStateModel) => {
+  //       draft.entities[action.itemId].quantity += 1;
+  //     })
+  //   );
+  // }
 
-  @Action(Cart.DecrementQuantity)
-  decrementQuantity(
-    ctx: StateContext<CartItemsStateModel>,
-    action: Cart.DecrementQuantity
-  ): void {
-    ctx.setState(
-      produce((draft: CartItemsStateModel) => {
-        draft.entities[action.itemId].quantity -= 1;
-      })
-    );
-  }
+  // @Action(Cart.DecrementQuantity)
+  // decrementQuantity(ctx: StateContext<CartItemsStateModel>, action: Cart.DecrementQuantity): void {
+  //   ctx.setState(
+  //     produce((draft: CartItemsStateModel) => {
+  //       draft.entities[action.itemId].quantity -= 1;
+  //     })
+  //   );
+  // }
 }

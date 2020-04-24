@@ -85,7 +85,9 @@
           </a> -->
 
           <button mat-icon-button routerLink="settings" class="d-none d-sm-inline">
-            <mat-icon matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon>
+            <ng-container *ngIf="cartItems$ | async as cartItems">
+              <mat-icon [matBadge]="cartItems?.length" matBadgeColor="accent">shopping_cart</mat-icon>
+            </ng-container>            
           </button> 
 
           <!-------------------------------->

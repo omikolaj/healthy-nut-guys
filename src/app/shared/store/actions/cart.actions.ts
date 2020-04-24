@@ -20,3 +20,8 @@ export class DecrementQuantity {
   static readonly type = '[Cart] DecrementQuantity';
   constructor(public itemId: string) {}
 }
+
+export class InitializeCart {
+  static readonly type = '[Cart] InitializeCart';
+  constructor(public payload: []) {}
+}

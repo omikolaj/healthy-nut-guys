@@ -1,3 +1,44 @@
+@import '../../../../styles-variables.scss';
+
 .wrapper {
   padding: 0 16px;
+
+  .logo {
+    padding: 40px 0;
+    img {
+      width: 60%;
+      height: 60%;
+      max-height: 326px;
+      max-width: 326px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      margin-bottom: 16px;
+    }
+  }
+
+  .mat-divider {
+    border-top-color: rgba(0, 0, 0, 0.12);
+    border-top-width: 1px;
+  }
+
+  .grid-item {
+  }
+
+  .mat-flat-button {
+    background-color: #fafafa;
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, sm)) {
+  .logo img {
+    display: none !important;
+  }
+  .wrapper {
+    padding: 0 32px;
+  }
+
+  .your-cart #your-cart-title {
+    margin-bottom: 3.5rem;
+  }
 }

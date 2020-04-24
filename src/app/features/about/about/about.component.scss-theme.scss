@@ -13,11 +13,7 @@
 
       .gradient {
         &::before {
-          background: linear-gradient(
-            to bottom,
-            mat-color($background, background, 0) 0%,
-            mat-color($background, background, 1) 100%
-          );
+          background: linear-gradient(to bottom, mat-color($background, background, 0) 0%, mat-color($background, background, 1) 100%);
         }
       }
     }
@@ -51,7 +47,7 @@
   }
 
   .mat-divider {
-    border-top-color: rgb(93, 64, 55) !important;
-    border-top-width: 5px !important;
+    border-top-color: rgb(93, 64, 55);
+    border-top-width: 5px;
   }
 }
