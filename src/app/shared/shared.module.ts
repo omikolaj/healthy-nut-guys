@@ -22,6 +22,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatStepperModule } from '@angular/material/stepper';
 
 import {
   FontAwesomeModule,
@@ -76,6 +77,7 @@ import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.componen
     MatSlideToggleModule,
     MatDividerModule,
     MatBadgeModule,
+    MatStepperModule,
 
     FontAwesomeModule
   ],
@@ -111,6 +113,7 @@ import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.componen
     MatDatepickerModule,
     MatNativeDateModule,
     MatBadgeModule,
+    MatStepperModule,
 
     FontAwesomeModule,
 

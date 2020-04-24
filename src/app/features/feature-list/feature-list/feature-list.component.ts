@@ -1,3 +1,4 @@
+import { FeaturesFacadeService } from './../../features-facade.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 

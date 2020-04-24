@@ -6,4 +6,8 @@ import { ProductsAsyncService } from 'app/core/products/products-async.service';
 })
 export class FeaturesFacadeService {
   constructor(private productsService: ProductsAsyncService) {}
+
+  addToCart(id: string): void {
+    console.log('fired', id);
+  }
 }
