@@ -5,25 +5,59 @@
   </div>
   <div class="your-cart">
     <h1 id="your-cart-title">Your Cart</h1>
+    <mat-divider></mat-divider>
     <div class="grid-item">      
       <div class="cart-row">
         <div class="grid-item-details">
-          <img src="" alt="" >
-          <div>
+          <img id="product-image" src="../../../../assets/energy_nut_sack.png" alt="" >
+          <div class="spacer"></div>
+          <div class=item-summary-details>
             <h3>Item title</h3>
+            <span>10 oz</span>
             <button mat-flat-button>Remove</button>
           </div>
-        </div>
-        <div>
+        </div> 
+        <div class="item-meta-info">
           <!-- price Quantity Total-->
-          
-        </div>
+          <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input matInput readonly=true [value]="'$27.99'" readonly="true">
+          </mat-form-field>
+          </div>
+          <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Quantity</mat-label>
+            <input matInput readonly=true [value]="'3'">
+          </mat-form-field>
+          </div>
+          <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Total</mat-label>
+            <input matInput readonly=true [value]="'$83.97'" readonly="true">
+          </mat-form-field>
+          </div>
+        </div>       
       </div>
     </div>
-    <mat-divider></mat-divider>
+    
     <div class="grid-item">
-      <!-- value value value-->
-
+      
+      <mat-divider></mat-divider>
+      <div class="subtotal-info">
+      <mat-form-field appearance="none">
+        <mat-label>Subtotal</mat-label>
+        <input matInput readonly=true [value]="'$83.97'" readonly="true">
+        </mat-form-field>
+        <p><i>Taxes and shipping calculated at checkout</i></p>
     </div>
   </div>
+  <div class="cart-navigation">
+    <div></div>
+    <button mat-stroked-button color="accent" (click)="onContinueShopping()">Continue Shopping</button>
+    <div></div>
+    <button mat-raised-button color="accent" (click)="onUpdateCart()">Update Cart</button>
+    <button mat-raised-button color="primary" (click)="onCheckOut()">Check Out</button>
+  </div>
+  
 </div>
