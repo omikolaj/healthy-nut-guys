@@ -7,6 +7,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OrderSummaryComponent implements OnInit {
+  panelOpenState = false;
   constructor() {}
 
   ngOnInit(): void {}

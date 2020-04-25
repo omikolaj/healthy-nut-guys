@@ -9,30 +9,23 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    loadChildren: () =>
-      import('./features/about/about.module').then(m => m.AboutModule)
+    loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule)
   },
   {
     path: 'feature-list',
-    loadChildren: () =>
-      import('./features/feature-list/feature-list.module').then(
-        m => m.FeatureListModule
-      )
+    loadChildren: () => import('./features/feature-list/feature-list.module').then(m => m.FeatureListModule)
   },
   {
     path: 'settings',
-    loadChildren: () =>
-      import('./features/settings/settings.module').then(m => m.SettingsModule)
+    loadChildren: () => import('./features/settings/settings.module').then(m => m.SettingsModule)
   },
   {
     path: 'cart',
-    loadChildren: () =>
-      import('./features/cart/cart.module').then(m => m.CartModule)
+    loadChildren: () => import('./features/cart/cart.module').then(m => m.CartModule)
   },
   {
-    path: 'examples',
-    loadChildren: () =>
-      import('./features/examples/examples.module').then(m => m.ExamplesModule)
+    path: 'checkout',
+    loadChildren: () => import('./features/checkout/checkout.module').then(m => m.CheckoutModule)
   },
   {
     path: '**',
@@ -44,6 +37,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       scrollPositionRestoration: 'enabled',
+      enableTracing: false,
       useHash: false,
       preloadingStrategy: PreloadAllModules
     })

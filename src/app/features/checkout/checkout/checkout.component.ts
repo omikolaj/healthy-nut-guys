@@ -1,4 +1,4 @@
-import { FeaturesFacadeService } from './../../features-facade.service';
+import { FeaturesFacadeService } from '../../features-facade.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { tap } from 'rxjs/operators';
@@ -11,14 +11,15 @@ import { CartItem } from 'app/core/models/cart-items.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckoutComponent implements OnInit {
-  cartItems$ = this.facade.cartItems$.pipe(tap(cartItems => this.initForms(cartItems)));
   overviewFormGroup: FormGroup;
   infoFormGroup: FormGroup;
   checkoutFormGroup: FormGroup;
   confirmationFormGroup: FormGroup;
-  constructor(private fb: FormBuilder, private facade: FeaturesFacadeService) {}
+  constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('inside checkoutcomponent ngoninit');
+  }
 
   private initForms(cartItems: CartItem[]): void {
     this.initOverviewForm(cartItems);

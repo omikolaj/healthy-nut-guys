@@ -23,11 +23,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatExpansionModule } from '@angular/material/expansion';
 
-import {
-  FontAwesomeModule,
-  FaIconLibrary
-} from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import {
   faPlus,
   faEdit,
@@ -78,15 +76,11 @@ import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.componen
     MatDividerModule,
     MatBadgeModule,
     MatStepperModule,
+    MatExpansionModule,
 
     FontAwesomeModule
   ],
-  declarations: [
-    BigInputComponent,
-    BigInputActionComponent,
-    RtlSupportDirective,
-    ActingSpinnerComponent
-  ],
+  declarations: [BigInputComponent, BigInputActionComponent, RtlSupportDirective, ActingSpinnerComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -114,6 +108,7 @@ import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.componen
     MatNativeDateModule,
     MatBadgeModule,
     MatStepperModule,
+    MatExpansionModule,
 
     FontAwesomeModule,
 

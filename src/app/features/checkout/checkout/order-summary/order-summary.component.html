@@ -1,0 +1,57 @@
+<mat-accordion>  
+  <mat-expansion-panel class="mat-elevation-z0" id="expansion-panel" (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header id="expansion-panel-header">
+      <mat-panel-title>
+        <mat-icon>shopping_cart</mat-icon>
+      </mat-panel-title>
+      <mat-panel-description>
+        {{panelOpenState ? 'Hide' : 'Show'}} order summary
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!-- Content goes here-->
+
+    <div class="content-wrapper">
+    <!--Individual items go here-->
+    <ng-container>
+    <div class="summary-content">
+
+    <div class="thumbnail-product" matBadge="3" matBadgeColor="accent">
+      <img src="../../../../../assets/energy_nut_sack.png" alt="Energy Sack">
+    </div>
+    <div class="spacer">
+
+    </div>
+    <div class="thumbnail-info">
+      <h3>Nut Sack</h3>
+      <p>Hard</p>
+    </div>
+    <div class="thumbnail-total">
+      <span><strong>$32.00</strong>        
+      </span>
+    </div>      
+    </div>
+    </ng-container>     
+    
+    <!--Discount codes section-->
+    <mat-divider>     
+    </mat-divider>
+    <div class="discount">
+      <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Discount Code</mat-label>
+        <input matInput >
+      </mat-form-field>
+      </div>
+      
+      <div class="discount-button">
+      <button mat-raised-button color="primary" [disabled]="true">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>      
+      </div>
+    </div>
+    </div>
+    <mat-divider>     
+    </mat-divider>
+  </mat-expansion-panel>
+</mat-accordion>

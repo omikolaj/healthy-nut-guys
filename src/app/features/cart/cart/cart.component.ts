@@ -1,9 +1,5 @@
-import { FeaturesFacadeService } from './../../features-facade.service';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { tap } from 'rxjs/operators';
-import { CartItem } from 'app/core/models/cart-items.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'thng-cart',
@@ -12,9 +8,7 @@ import { CartItem } from 'app/core/models/cart-items.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CartComponent implements OnInit {
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  constructor() {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {}
 
@@ -22,5 +16,8 @@ export class CartComponent implements OnInit {
 
   onUpdateCart(): void {}
 
-  onCheckOut(): void {}
+  onCheckOut(): void {
+    console.log('this.route', this.route);
+    this.router.navigate(['checkout']);
+  }
 }
