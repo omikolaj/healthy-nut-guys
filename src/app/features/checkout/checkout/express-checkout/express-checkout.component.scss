@@ -1,0 +1,29 @@
+.wrapper {
+  .mat-divider {
+    border-top-color: rgba(0, 0, 0, 0.12);
+    border-top-width: 1px;
+  }
+  .action-buttons {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5em;
+  }
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .line {
+    flex: 1;
+  }
+
+  .text {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

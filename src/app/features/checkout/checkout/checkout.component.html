@@ -1,6 +1,56 @@
 <div class="wrapper">
-<div class="order-summary">
-<thng-order-summary></thng-order-summary>
-</div>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <div class="order-summary">
+    <thng-order-summary></thng-order-summary>
+  </div>
+  <div class="checkout-flow">
+    <mat-horizontal-stepper linear="true" #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Shipping</ng-template>
+        <div>
+          <thng-express-checkout></thng-express-checkout>
+          <div class="container">
+            <div class="line">
+              <mat-divider></mat-divider>
+            </div>
+            <div class="text mat-typography">OR</div>
+            <div class="line">
+              <mat-divider></mat-divider>
+            </div>
+          </div>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's
+            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+            make a
+            type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+            containing
+            Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
+            versions
+            of Lorem Ipsum.</p>
+        </div>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Payment</ng-template>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Confirmation</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+  <mat-divider vertical="true"></mat-divider>
 </div>

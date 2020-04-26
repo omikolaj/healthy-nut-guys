@@ -1,21 +1,20 @@
 @import '../../../../../styles-variables.scss';
 
+mat-expansion-panel-header {
+  background: #fafafa !important;
+}
+
 #expansion-panel {
   background-color: #fafafa;
   border-radius: 0;
   border-bottom: 1px solid #e6e6e6;
   border-top: 1px solid #e6e6e6;
-
-  #expansion-panel-header {
-    background-color: #fafafa;
-  }
+  margin-top: 1em;
+  margin-bottom: 1em;
 
   .mat-expansion-panel-header-description {
     justify-content: space-between;
     align-items: center;
-  }
-
-  .content-wrapper {
   }
 
   .mat-divider {
@@ -127,4 +126,13 @@
 }
 
 @media (min-width: map-get($grid-breakpoints, lg)) {
+  #expansion-panel {
+    height: 100vh;
+    border-top: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    .mat-expansion-panel-header-description {
+      justify-content: flex-end;
+    }
+  }
 }

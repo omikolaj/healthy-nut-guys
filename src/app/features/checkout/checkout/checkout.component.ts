@@ -1,8 +1,10 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { FeaturesFacadeService } from '../../features-facade.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { tap } from 'rxjs/operators';
+import { tap, takeUntil } from 'rxjs/operators';
 import { CartItem } from 'app/core/models/cart-items.model';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'thng-checkout',
@@ -15,11 +17,9 @@ export class CheckoutComponent implements OnInit {
   infoFormGroup: FormGroup;
   checkoutFormGroup: FormGroup;
   confirmationFormGroup: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private breakpointObserver: BreakpointObserver) {}
 
-  ngOnInit(): void {
-    console.log('inside checkoutcomponent ngoninit');
-  }
+  ngOnInit(): void {}
 
   private initForms(cartItems: CartItem[]): void {
     this.initOverviewForm(cartItems);

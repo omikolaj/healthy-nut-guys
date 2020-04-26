@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InformationComponent } from './information.component';
+import { ExpressCheckoutComponent } from './express-checkout.component';
 
-describe('InformationComponent', () => {
-  let component: InformationComponent;
-  let fixture: ComponentFixture<InformationComponent>;
+describe('ExpressCheckoutComponent', () => {
+  let component: ExpressCheckoutComponent;
+  let fixture: ComponentFixture<ExpressCheckoutComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [InformationComponent]
+      declarations: [ExpressCheckoutComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InformationComponent);
+    fixture = TestBed.createComponent(ExpressCheckoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
