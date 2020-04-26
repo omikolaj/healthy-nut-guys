@@ -7,6 +7,7 @@
       </mat-panel-title>
       <mat-panel-description>
         {{panelOpenState ? 'Hide' : 'Show'}} order summary
+        <span><strong>$183.43</strong></span>
       </mat-panel-description>
     </mat-expansion-panel-header>
     <!-- Content goes here-->
@@ -38,9 +39,9 @@
     </mat-divider>
     <div class="discount">
       <div>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" id="discount-code">
         <mat-label>Discount Code</mat-label>
-        <input matInput >
+        <input matInput>
       </mat-form-field>
       </div>
       
@@ -50,8 +51,28 @@
       </button>      
       </div>
     </div>
+    <mat-divider>     
+    </mat-divider>
+    <div class="meta-total">
+      <div class="subtotal">
+        <span>Subtotal</span>
+        <span><strong>$113.43</strong></span>
+      </div>
+      <div class="shipping">
+        <span>Shipping</span>
+        <span><small>Calculated at next step</small></span>
+      </div>
+      <div class="taxes">
+        <span>Taxes (estimated)</span>
+        <span><strong>$4.32</strong></span>
+      </div>
     </div>
     <mat-divider>     
     </mat-divider>
+    <div class="total">
+      <span id="totalLabel">Total</span>
+      <span id="totalCost">$119.49</span>
+    </div>
+    </div>
   </mat-expansion-panel>
 </mat-accordion>

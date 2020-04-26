@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'thng-order-summary',
@@ -8,7 +9,9 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class OrderSummaryComponent implements OnInit {
   panelOpenState = false;
-  constructor() {}
+  constructor(breakpointObserver: BreakpointObserver) {
+    breakpointObserver.observe([Breakpoints.Large]);
+  }
 
   ngOnInit(): void {}
 }

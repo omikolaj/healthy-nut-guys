@@ -1,3 +1,5 @@
+@import '../../../../../styles-variables.scss';
+
 #expansion-panel {
   background-color: #fafafa;
   border-radius: 0;
@@ -8,16 +10,17 @@
     background-color: #fafafa;
   }
 
+  .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .content-wrapper {
   }
 
   .mat-divider {
     border-top-color: rgba(0, 0, 0, 0.12);
     border-top-width: 1px;
-  }
-
-  .mat-form-field {
-    margin-top: 18.813px;
   }
 
   .summary-content {
@@ -66,6 +69,11 @@
         width: 100%;
       }
     }
+
+    #discount-code {
+      margin-top: 18.813px;
+    }
+
     .discount-button {
       display: inline-block;
       text-align: right;
@@ -77,4 +85,46 @@
       }
     }
   }
+
+  .meta-total {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    .subtotal {
+      padding: 6px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .shipping {
+      padding: 6px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .taxes {
+      padding: 6px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .total {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+
+    #totalLabel {
+      font-size: larger;
+    }
+
+    #totalCost {
+      font-size: x-large;
+      font-weight: 600;
+    }
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
 }
