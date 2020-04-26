@@ -1,0 +1,54 @@
+@import '../../../../../styles-variables.scss';
+::ng-deep .mat-checkbox {
+  .mat-checkbox-layout {
+    white-space: normal;
+  }
+}
+
+.shipping-info {
+  .spacer {
+    margin: 0 8px;
+  }
+  .exclusive-offers {
+    margin-bottom: 1.25em;
+  }
+  .mat-form-field {
+    width: 100%;
+  }
+  .readonly-wrapper {
+    cursor: not-allowed;
+  }
+
+  .readonly-wrapper .readonly-block {
+    pointer-events: none;
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, md)) {
+  ::ng-deep .mat-checkbox {
+    .mat-checkbox-layout {
+      white-space: nowrap;
+    }
+  }
+  .shipping-info {
+    .mat-form-field {
+      width: auto;
+      min-width: 0;
+    }
+    .fields-container {
+      display: flex;
+      width: 100%;
+      .mat-form-field {
+        width: 100%;
+      }
+    }
+    .full-width {
+      width: 100%;
+    }
+
+    .exclusive-offers {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
