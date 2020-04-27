@@ -5,6 +5,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { tap, takeUntil } from 'rxjs/operators';
 import { CartItem } from 'app/core/models/cart-items.model';
 import { Subject } from 'rxjs';
+import { StepperSelectionEvent } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'thng-checkout',
@@ -13,7 +14,10 @@ import { Subject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckoutComponent implements OnInit {
+  shippingAddress = 'Shipping Address';
+  elementFocus: '' | 'contact' | 'shipping';
   overviewFormGroup: FormGroup;
+  tabIndex: number;
   infoFormGroup: FormGroup;
   checkoutFormGroup: FormGroup;
   confirmationFormGroup: FormGroup;
@@ -76,4 +80,13 @@ export class CheckoutComponent implements OnInit {
   }
 
   private initConfirmationForm(): void {}
+
+  onUpdateInfo(event: { tabIndex: number; focusOn: 'contact' | 'shipping' }): void {
+    this.tabIndex = event.tabIndex;
+    this.elementFocus = event.focusOn;
+  }
+
+  onTabSelectionChange(event: StepperSelectionEvent): void {
+    this.tabIndex = event.selectedIndex;
+  }
 }

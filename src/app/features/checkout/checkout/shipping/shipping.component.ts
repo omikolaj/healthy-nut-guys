@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, TemplateRef, Input, ViewChild, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'thng-shipping',
@@ -7,7 +8,33 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShippingComponent implements OnInit {
+  @Input() title: string;
+  @Input() emailFormTemplate: TemplateRef<HTMLElement>;
+  @Input() emailOfferCheckbox: TemplateRef<HTMLElement>;
+  @Input() set focusOn(value: '' | 'contact' | 'shipping') {
+    if (value !== '') {
+      setTimeout(() => {
+        // this will make the execution after the above boolean has changed
+        this.onEditInfo(value);
+      }, 0);
+    }
+  }
+  @ViewChild('contactInfo', { static: true }) contactInfoFirstNode: ElementRef;
+  @ViewChild('shippingInfo', { static: true }) shippingInfoFirstNode: ElementRef;
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  onEditInfo(focusOn: 'contact' | 'shipping'): void {
+    if (focusOn === 'contact') {
+      setTimeout(() => {
+        this.contactInfoFirstNode.nativeElement.focus();
+      }, 100);
+    } else if (focusOn === 'shipping') {
+      setTimeout(() => {
+        this.shippingInfoFirstNode.nativeElement.focus();
+      }, 100);
+    }
+  }
 }

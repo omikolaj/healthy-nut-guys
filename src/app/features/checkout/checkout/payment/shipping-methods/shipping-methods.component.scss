@@ -1,0 +1,28 @@
+.wrapper {
+  .shipping-method {
+    margin-top: 3em;
+    h3 {
+      font-weight: normal;
+    }
+
+    .shipping-method-selection {
+      border-radius: 8px;
+      border: 1px solid #d9d9d9;
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+
+      #shipping-days {
+        display: block;
+        font-size: smaller;
+        padding-left: 28px;
+      }
+
+      .shipping-cost {
+        span {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

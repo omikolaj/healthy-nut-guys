@@ -1,32 +1,21 @@
 .wrapper {
-  .summary-info {
-    padding: 6px 6px 0 6px;
-    border-radius: 8px;
-    border: 1px solid #d9d9d9;
+  .subscription {
+    margin-top: 1.5em;
+  }
 
-    .mat-divider {
-      border-top-color: rgba(0, 0, 0, 0.12);
-      border-top-width: 1px;
+  h3 {
+    font-weight: normal;
+  }
+
+  .card-info {
+    .mat-form-field {
+      width: 100%;
     }
+  }
 
-    .info {
-      padding: 5px;
-      .title {
-        color: #737373;
-      }
-
-      .edit {
-        display: flex;
-        justify-content: space-between;
-
-        #edit-icon {
-          font-size: 18px;
-        }
-      }
-
-      address {
-        margin-bottom: 0;
-      }
+  .billing-address {
+    .billing {
+      margin-bottom: 1.5em;
     }
   }
 }

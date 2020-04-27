@@ -8,9 +8,22 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { CheckoutRoutingModule } from './checkout-routing.module';
 import { ExpressCheckoutComponent } from './checkout/express-checkout/express-checkout.component';
 import { PaymentComponent } from './checkout/payment/payment.component';
+import { PersonalSummaryInfoComponent } from './checkout/payment/personal-summary-info/personal-summary-info.component';
+import { ShippingMethodsComponent } from './checkout/payment/shipping-methods/shipping-methods.component';
+import { JoinSubscriptionComponent } from './checkout/payment/join-subscription/join-subscription.component';
 
 @NgModule({
-  declarations: [ConfirmationComponent, ShippingComponent, OrderSummaryComponent, CheckoutComponent, ExpressCheckoutComponent, PaymentComponent],
+  declarations: [
+    ConfirmationComponent,
+    ShippingComponent,
+    OrderSummaryComponent,
+    CheckoutComponent,
+    ExpressCheckoutComponent,
+    PaymentComponent,
+    PersonalSummaryInfoComponent,
+    ShippingMethodsComponent,
+    JoinSubscriptionComponent
+  ],
   imports: [CommonModule, CheckoutRoutingModule, SharedModule]
 })
 export class CheckoutModule {}

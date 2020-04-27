@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="title">
+    <mat-slide-toggle #toggle>
+      <h3>Join the Sack Squad!</h3>
+    </mat-slide-toggle>
+    <div class="squad-perks-frequencies">
+      <ul class="perks">
+        <li>Free Shipping</li>
+        <li>20% discount on recurring orders</li>
+        <li>
+          <mat-form-field>
+            <mat-label>Frequency</mat-label>
+            <mat-select [disabled]="!toggle.checked" [(value)]="selected">
+              <mat-option value="weekly">Weekly</mat-option>
+              <mat-option value="bi-weekly">Bi-weekly</mat-option>
+              <mat-option value="monthly">Monthly</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

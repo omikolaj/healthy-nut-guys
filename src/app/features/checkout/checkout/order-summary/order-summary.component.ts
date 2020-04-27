@@ -53,10 +53,4 @@ export class OrderSummaryComponent implements OnInit {
   onPanelStateChange(): void {
     this.panelOpenState = !this.panelOpenState;
   }
-
-  shouldShowDescription(): string {
-    let orderSummary = this.panelOpenState ? 'Hide' : 'Show';
-    orderSummary += ' order summary';
-    return this.isLargeScreen ? '' : orderSummary;
-  }
 }

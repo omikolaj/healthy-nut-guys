@@ -24,6 +24,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import {
@@ -77,6 +78,7 @@ import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.componen
     MatBadgeModule,
     MatStepperModule,
     MatExpansionModule,
+    MatRadioModule,
 
     FontAwesomeModule
   ],
@@ -109,6 +111,7 @@ import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.componen
     MatBadgeModule,
     MatStepperModule,
     MatExpansionModule,
+    MatRadioModule,
 
     FontAwesomeModule,
 

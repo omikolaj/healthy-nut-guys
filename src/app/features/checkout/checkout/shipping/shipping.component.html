@@ -1,12 +1,12 @@
 <div class="wrapper">
   <div class="title">
-    <h2>Shipping Address</h2>
+    <h2>{{ title }}</h2>
   </div>
   <div class="shipping-info">
     <div class="fields-container">
       <mat-form-field appearance="outline" floatLabel="true">
         <mat-label>First Name</mat-label>
-        <input matInput placeholder="First Name" required>
+        <input #contactInfo matInput placeholder="First Name" required>
       </mat-form-field>
       <div class="spacer">
 
@@ -17,14 +17,17 @@
       </mat-form-field>
     </div>
     
-    <div class="fields-container">
+    <div *ngIf="emailFormTemplate || emailOfferCheckbox" class="fields-container">
       <div class="exclusive-offers">
-        <mat-form-field appearance="outline" floatLabel="true">
+        <ng-container [ngTemplateOutlet]="emailFormTemplate">          
+        </ng-container>
+        <!-- <mat-form-field appearance="outline" floatLabel="true">
           <mat-label>Email</mat-label>
           <input matInput placeholder="Email" required>
-        </mat-form-field>
+        </mat-form-field> -->
         <div>
-        <mat-checkbox id="checkbox">Keep me up to date on exclusive offers</mat-checkbox>
+        <!-- <mat-checkbox id="checkbox">Keep me up to date on exclusive offers</mat-checkbox> -->
+        <ng-container [ngTemplateOutlet]="emailOfferCheckbox"></ng-container>
         </div>
       </div>
       <div class="spacer">
@@ -35,10 +38,10 @@
       </mat-form-field>
     </div>
 
-  <div >
+  <div>
     <mat-form-field class="full-width" appearance="outline" floatLabel="true">
       <mat-label>Address 1</mat-label>
-      <input matInput placeholder="Address 1" required>
+      <input #shippingInfo matInput placeholder="Address 1" required>
     </mat-form-field>
     <mat-form-field class="full-width" appearance="outline" floatLabel="true">
       <mat-label>Address 2(Apt. Unit. Ste, Etc)</mat-label>

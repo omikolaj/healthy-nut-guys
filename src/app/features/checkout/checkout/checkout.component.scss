@@ -3,6 +3,12 @@
 .mat-stepper-horizontal {
   max-width: 560px;
   margin: 0 auto;
+
+  .action-buttons {
+    button {
+      margin-right: 6px;
+    }
+  }
 }
 
 .checkout-flow {
