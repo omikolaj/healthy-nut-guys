@@ -7,9 +7,10 @@ import { OrderSummaryComponent } from './checkout/order-summary/order-summary.co
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CheckoutRoutingModule } from './checkout-routing.module';
 import { ExpressCheckoutComponent } from './checkout/express-checkout/express-checkout.component';
+import { PaymentComponent } from './checkout/payment/payment.component';
 
 @NgModule({
-  declarations: [ConfirmationComponent, ShippingComponent, OrderSummaryComponent, CheckoutComponent, ExpressCheckoutComponent],
+  declarations: [ConfirmationComponent, ShippingComponent, OrderSummaryComponent, CheckoutComponent, ExpressCheckoutComponent, PaymentComponent],
   imports: [CommonModule, CheckoutRoutingModule, SharedModule]
 })
 export class CheckoutModule {}
