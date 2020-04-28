@@ -17,17 +17,15 @@
       </mat-form-field>
     </div>
     
-    <div *ngIf="emailFormTemplate || emailOfferCheckbox" class="fields-container">
+    <ng-container *ngIf="!isBilling">
+    <div  class="fields-container">
       <div class="exclusive-offers">
-        <ng-container [ngTemplateOutlet]="emailFormTemplate">          
-        </ng-container>
-        <!-- <mat-form-field appearance="outline" floatLabel="true">
+        <mat-form-field appearance="outline" floatLabel="true">
           <mat-label>Email</mat-label>
           <input matInput placeholder="Email" required>
-        </mat-form-field> -->
+        </mat-form-field>
         <div>
-        <!-- <mat-checkbox id="checkbox">Keep me up to date on exclusive offers</mat-checkbox> -->
-        <ng-container [ngTemplateOutlet]="emailOfferCheckbox"></ng-container>
+        <mat-checkbox id="checkbox">Keep me up to date on exclusive offers</mat-checkbox>        
         </div>
       </div>
       <div class="spacer">
@@ -37,6 +35,8 @@
         <input matInput placeholder="Phone Number">
       </mat-form-field>
     </div>
+    </ng-container>
+    
 
   <div>
     <mat-form-field class="full-width" appearance="outline" floatLabel="true">

@@ -1,11 +1,12 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { FeaturesFacadeService } from '../../../../features-facade.service';
+import { FeaturesFacadeService } from '../../features-facade.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { tap, takeUntil } from 'rxjs/operators';
 import { CartItem } from 'app/core/models/cart-items.model';
 import { Subject } from 'rxjs';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
+import { ROUTE_ANIMATIONS_ELEMENTS } from 'app/core/core.module';
 
 @Component({
   selector: 'thng-checkout',

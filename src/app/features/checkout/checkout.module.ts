@@ -1,8 +1,8 @@
-import { SharedModule } from '../../../../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConfirmationComponent } from './checkout/confirmation/confirmation.component';
-import { ShippingComponent } from './checkout/shipping/shipping.component';
+import { PersonalInfoComponent } from './checkout/personal-info/personal-info.component';
 import { OrderSummaryComponent } from './checkout/order-summary/order-summary.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CheckoutRoutingModule } from './checkout-routing.module';
@@ -15,7 +15,7 @@ import { JoinSubscriptionComponent } from './checkout/join-subscription/join-sub
 @NgModule({
   declarations: [
     ConfirmationComponent,
-    ShippingComponent,
+    PersonalInfoComponent,
     OrderSummaryComponent,
     CheckoutComponent,
     ExpressCheckoutComponent,

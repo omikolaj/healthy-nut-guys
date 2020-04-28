@@ -20,6 +20,6 @@ export class CartComponent implements OnInit {
 
   onCheckOut(): void {
     console.log('this.route', this.route);
-    this.router.navigate(['checkout'], { relativeTo: this.route.parent });
+    this.router.navigate(['checkout']);
   }
 }

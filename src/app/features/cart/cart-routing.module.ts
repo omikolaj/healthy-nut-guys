@@ -6,10 +6,6 @@ const routes: Routes = [
   {
     path: '',
     component: CartComponent
-  },
-  {
-    path: 'checkout',
-    loadChildren: () => import('./cart/checkout/checkout.module').then(m => m.CheckoutModule)
   }
 ];
 

@@ -42,7 +42,7 @@
         <mat-checkbox (change)="onCheckboxChange($event)" [checked]="sameAsShipping">Same as shipping address</mat-checkbox>
       </div>
       <div *ngIf="!sameAsShipping" [@slideInOut]>
-        <thng-shipping [title]="billingAddress"></thng-shipping>
+        <thng-personal-info [isBilling]="true" [title]="billingAddress"></thng-personal-info>
       </div>           
     </div>
   </div>

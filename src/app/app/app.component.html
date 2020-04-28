@@ -84,7 +84,7 @@
             <fa-icon [icon]="['fab','github']"></fa-icon>
           </a> -->
 
-          <button mat-icon-button routerLink="settings" class="d-none d-sm-inline">
+          <button mat-icon-button routerLink="cart" class="d-none d-sm-inline">
             <ng-container *ngIf="cartItems$ | async as cartItems">
               <mat-icon [matBadge]="cartItems?.length" matBadgeColor="accent">shopping_cart</mat-icon>
             </ng-container>            

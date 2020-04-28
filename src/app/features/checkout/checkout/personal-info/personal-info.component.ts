@@ -2,15 +2,16 @@ import { Component, OnInit, ChangeDetectionStrategy, TemplateRef, Input, ViewChi
 import { MatInput } from '@angular/material/input';
 
 @Component({
-  selector: 'thng-shipping',
-  templateUrl: './shipping.component.html',
-  styleUrls: ['./shipping.component.scss'],
+  selector: 'thng-personal-info',
+  templateUrl: './personal-info.component.html',
+  styleUrls: ['./personal-info.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShippingComponent implements OnInit {
+export class PersonalInfoComponent implements OnInit {
   @Input() title: string;
-  @Input() emailFormTemplate: TemplateRef<HTMLElement>;
-  @Input() emailOfferCheckbox: TemplateRef<HTMLElement>;
+  @Input() isBilling: boolean = false;
+  //@Input() emailFormTemplate: TemplateRef<HTMLElement>;
+  //@Input() emailOfferCheckbox: TemplateRef<HTMLElement>;
   @Input() set focusOn(value: 'contact' | 'shipping') {
     this.onEditInfo(value);
   }
