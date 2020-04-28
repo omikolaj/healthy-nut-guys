@@ -15,7 +15,7 @@ import { StepperSelectionEvent } from '@angular/cdk/stepper';
 })
 export class CheckoutComponent implements OnInit {
   shippingAddress = 'Shipping Address';
-  elementFocus: '' | 'contact' | 'shipping';
+  elementFocus: 'contact' | 'shipping';
   overviewFormGroup: FormGroup;
   tabIndex: number;
   infoFormGroup: FormGroup;

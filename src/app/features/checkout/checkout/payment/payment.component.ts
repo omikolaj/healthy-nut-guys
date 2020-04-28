@@ -30,4 +30,11 @@ export class PaymentComponent implements OnInit {
   onChangeInfoClicked(event: { tabIndex: number; focusOn: 'contact' | 'shipping' }): void {
     this.updateInfo.emit(event);
   }
+
+  checkNumberFieldLength(event): void {
+    console.log('event', event);
+    if (event.value.length > 3) {
+      event.value = event.value.slice(0, 3);
+    }
+  }
 }

@@ -8,6 +8,10 @@
   }
 
   .card-info {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 16px 16px 0;
+
     .mat-form-field {
       width: 100%;
     }
@@ -15,7 +19,7 @@
 
   .billing-address {
     .billing {
-      margin-bottom: 1.5em;
+      margin: 1.5em 0 1.5em 0;
     }
   }
 }

@@ -22,24 +22,18 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Exp Month</mat-label>
-        <mat-select required>
-          <mat-option [value]="'Jan'">
-            Jan
-          </mat-option>
-        </mat-select>
+        <mat-label>Name On Card</mat-label>
+        <input matInput placeholder="Name On Card" required>
       </mat-form-field>
+
       <mat-form-field appearance="outline">
-        <mat-label>Exp Year</mat-label>
-        <mat-select required>
-          <mat-option [value]="'2020'">
-            2020
-          </mat-option>
-        </mat-select>
+        <mat-label>Expiration date (MM/YY)</mat-label>
+        <input matInput placeholder="MM/YY" required>
       </mat-form-field>
+
       <mat-form-field appearance="outline" required="true">
         <mat-label>Security Code</mat-label>
-        <input matInput placeholder="Security Code" required>
+        <input matInput type="number" placeholder="Security Code" required>
       </mat-form-field>
     </div>
     <div class="billing-address">

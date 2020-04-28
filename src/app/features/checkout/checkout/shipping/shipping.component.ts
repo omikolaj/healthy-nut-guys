@@ -11,13 +11,8 @@ export class ShippingComponent implements OnInit {
   @Input() title: string;
   @Input() emailFormTemplate: TemplateRef<HTMLElement>;
   @Input() emailOfferCheckbox: TemplateRef<HTMLElement>;
-  @Input() set focusOn(value: '' | 'contact' | 'shipping') {
-    if (value !== '') {
-      setTimeout(() => {
-        // this will make the execution after the above boolean has changed
-        this.onEditInfo(value);
-      }, 0);
-    }
+  @Input() set focusOn(value: 'contact' | 'shipping') {
+    this.onEditInfo(value);
   }
   @ViewChild('contactInfo', { static: true }) contactInfoFirstNode: ElementRef;
   @ViewChild('shippingInfo', { static: true }) shippingInfoFirstNode: ElementRef;
