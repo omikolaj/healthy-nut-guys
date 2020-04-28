@@ -24,10 +24,6 @@ const routes: Routes = [
     loadChildren: () => import('./features/cart/cart.module').then(m => m.CartModule)
   },
   {
-    path: 'checkout',
-    loadChildren: () => import('./features/checkout/checkout.module').then(m => m.CheckoutModule)
-  },
-  {
     path: '**',
     redirectTo: 'about'
   }
