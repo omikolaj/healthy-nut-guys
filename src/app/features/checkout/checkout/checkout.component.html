@@ -30,7 +30,7 @@
           <thng-payment (updateInfo)="onUpdateInfo($event)"></thng-payment>
         <div class="action-buttons">
           <button mat-flat-button matStepperPrevious color="accent">Back</button>
-          <button mat-flat-button matStepperNext color="warn"><mat-icon>lock</mat-icon> Complete Order</button>
+          <button mat-flat-button matStepperNext color="warn" (click)="onCompleteOrder()"><mat-icon>lock</mat-icon> Complete Order</button>
         </div>
 
       </mat-step>

@@ -1,0 +1,109 @@
+@import '../../../../../styles-variables.scss';
+
+.wrapper {
+  .order-confirmation {
+    max-width: 750px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 24px;
+    .logo {
+      width: 250px;
+      height: 250px;
+      margin: 0 auto;
+
+      .logo-background {
+        background-image: url('../../../../../assets/logo_w_circle.png');
+        background-size: contain;
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+    .confirmation {
+      h3 {
+        font-weight: normal;
+      }
+    }
+    .order {
+      margin-top: 1em;
+      .mat-divider {
+        border-top-color: rgba(0, 0, 0, 0.12);
+        border-top-width: 1px;
+      }
+      .order-details {
+        padding: 16px 0 16px 0;
+        .items {
+          display: flex;
+          justify-content: space-between;
+          span {
+            display: inline-block;
+          }
+          span:last-child {
+            font-size: larger;
+          }
+        }
+        p {
+          padding-top: 8px;
+          font-size: smaller;
+        }
+
+        .item-cost-info {
+          padding-top: 16px;
+          font-size: larger;
+          .subtotal {
+            display: flex;
+            justify-content: space-between;
+          }
+          .discount {
+            display: flex;
+            justify-content: space-between;
+          }
+          .shipping {
+            display: flex;
+            justify-content: space-between;
+          }
+          .sales-tax {
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+
+        .order-total {
+          padding-top: 6px;
+          display: flex;
+          justify-content: space-between;
+          span {
+            font-size: larger;
+          }
+        }
+        .addresses {
+          padding-top: 18px;
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, md)) {
+  .wrapper {
+    .order-confirmation {
+      .order {
+        .order-details {
+          .addresses {
+            flex-direction: row;
+            justify-content: space-between;
+            .billing {
+              width: 40%;
+            }
+            .shipping {
+              width: 40%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

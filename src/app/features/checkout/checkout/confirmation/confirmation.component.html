@@ -1,1 +1,61 @@
-<p>confirmation works!</p>
+<div class="wrapper">
+  <div class="order-confirmation">
+    <div class="logo">
+    <div class="logo-background">      
+    </div>
+    </div>
+    <div class="confirmation">
+      <h3>Thank you for your order!</h3>
+      <h4>Your order number is: {{ orderId }}</h4>
+      <div class="order">
+        <h3>Order Details</h3>
+        <mat-divider></mat-divider>
+          <div class="order-details">
+            <!--loop through items here-->
+            <ng-container>
+            <h4>Succulent Nut Sack</h4>
+            <div class="items">
+              <span>Quantity: 1</span>
+              <span>Price: $44.99</span>
+            </div>
+            </ng-container>        
+            <p color="warn" class="shipping-info">This item will ship within 5-7 business days</p>
+            <mat-divider></mat-divider>
+            <div class="item-cost-info">
+              <div class="subtotal">
+                <span>Subtotal</span>
+                <span>$33.99</span>
+              </div>
+              <div class="discount">
+                <span>Discount</span>
+                <span>$0</span>
+              </div>
+              <div class="shipping">
+                <span>Shipping</span>
+                <span>$23.99</span>
+              </div>
+              <div class="sales-tax">
+                <span>Sales Tax</span>
+                <span>$44.00</span>
+              </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="order-total">
+              <h3><strong>Order Total</strong></h3>
+              <span>$5530.94</span>
+            </div>
+            <div class="addresses">
+              <div class="billing">
+                <h3><strong>Billing Address</strong></h3>
+                <address>Jordan Sprage 123 Main St, Houston, TX 77080</address>
+              </div>
+              <div class="shipping">
+                <h3><strong>Shipping Address</strong></h3>
+                <address>Jordan Sprage 123 Main St, Houston, TX 77080</address>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

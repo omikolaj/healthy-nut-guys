@@ -7,6 +7,7 @@ import { CartItem } from 'app/core/models/cart-items.model';
 import { Subject } from 'rxjs';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
 import { ROUTE_ANIMATIONS_ELEMENTS } from 'app/core/core.module';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'thng-checkout',
@@ -22,7 +23,7 @@ export class CheckoutComponent implements OnInit {
   infoFormGroup: FormGroup;
   checkoutFormGroup: FormGroup;
   confirmationFormGroup: FormGroup;
-  constructor(private fb: FormBuilder, private breakpointObserver: BreakpointObserver) {}
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {}
 
@@ -89,5 +90,9 @@ export class CheckoutComponent implements OnInit {
 
   onTabSelectionChange(event: StepperSelectionEvent): void {
     this.tabIndex = event.selectedIndex;
+  }
+
+  onCompleteOrder(): void {
+    this.router.navigate(['confirmation', 3], { relativeTo: this.route.parent });
   }
 }

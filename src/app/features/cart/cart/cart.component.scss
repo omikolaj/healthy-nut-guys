@@ -6,9 +6,10 @@
   margin: 0 auto;
 
   .logo {
-    padding: 40px 0;
+    padding: 20px 0;
     img {
-      width: 30%;
+      width: 50%;
+      height: 30%;
       height: 30%;
       max-height: 326px;
       max-width: 326px;
@@ -78,9 +79,6 @@
       height: 134px;
       justify-content: space-evenly;
       margin-bottom: 1.5em;
-      button:not(:last-child) {
-        margin-right: 6px;
-      }
     }
   }
 
@@ -104,6 +102,9 @@
         flex-direction: row;
         justify-content: flex-end;
         height: 100%;
+        button:not(:last-child) {
+          margin-right: 6px;
+        }
       }
     }
   }
