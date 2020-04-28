@@ -78,6 +78,9 @@
       height: 134px;
       justify-content: space-evenly;
       margin-bottom: 1.5em;
+      button:not(:last-child) {
+        margin-right: 6px;
+      }
     }
   }
 

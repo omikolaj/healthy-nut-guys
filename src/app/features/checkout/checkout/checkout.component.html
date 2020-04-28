@@ -20,7 +20,7 @@
           <thng-shipping [focusOn]="elementFocus" [title]="shippingAddress" [emailFormTemplate]="emailField" [emailOfferCheckbox]="emailCheckbox"></thng-shipping>          
         </div>
         <div>
-          <button mat-flat-button color="accent" matStepperNext><mat-icon>lock</mat-icon> Continue Checkout</button>
+          <button mat-flat-button color="warn" matStepperNext><mat-icon>lock</mat-icon> Continue Checkout</button>
         </div>
 
       </mat-step>
@@ -29,8 +29,8 @@
           <thng-express-checkout></thng-express-checkout>
           <thng-payment (updateInfo)="onUpdateInfo($event)"></thng-payment>
         <div class="action-buttons">
-          <button mat-flat-button matStepperPrevious color="primary">Back</button>
-          <button mat-flat-button matStepperNext color="accent"><mat-icon>lock</mat-icon> Complete Order</button>
+          <button mat-flat-button matStepperPrevious color="accent">Back</button>
+          <button mat-flat-button matStepperNext color="warn"><mat-icon>lock</mat-icon> Complete Order</button>
         </div>
 
       </mat-step>

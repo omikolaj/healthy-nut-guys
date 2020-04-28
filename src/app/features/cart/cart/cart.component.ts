@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ROUTE_ANIMATIONS_ELEMENTS } from 'app/core/core.module';
 
 @Component({
   selector: 'thng-cart',
@@ -8,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CartComponent implements OnInit {
+  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {}
