@@ -73,5 +73,16 @@ export const itemDetails: ItemDetails[] = [
     description:
       "Energize your Nut Sack with this awesome mix! Almonds, peanuts, and cashews provide long-lasting energy (you're welcome ladies) while the bananas, apple rings, and raisins will provide a quick boost in energy levels! For even more energy, we've topped it off with coconut, dark chocolate chips, and pumpkin seeds. All ingredients are organic so you can enjoy the natural stamina without the crash.",
     labelSrc: '../../../assets/energy_nut_sack_label.png'
+  },
+  {
+    id: '4',
+    imageSrc: '../../../assets/succulent_nut_sack.png',
+    price: 17.99,
+    inStock: true,
+    title: 'Custom Nut Sack',
+    subtitle: 'Healthy Nut Guys',
+    description:
+      "This savory, Succulent Nut Sack will leave you drooling! A decadent mix of white and milk chocolate chips, raisins, dried cranberries, peanuts, almonds, and cashews. As if that wasn't enough to make you nut...I mean, go nuts...we've topped it off with our delicious honey cashew vanilla granola. This organic Succulent Nut Sack is the thing of your wildest trail mix dreams!",
+    labelSrc: '../../../assets/succulent_nut_sack_label.png'
   }
 ];

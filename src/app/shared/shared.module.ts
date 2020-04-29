@@ -52,6 +52,7 @@ import { BigInputComponent } from './big-input/big-input/big-input.component';
 import { BigInputActionComponent } from './big-input/big-input-action/big-input-action.component';
 import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
 import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -79,6 +80,7 @@ import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.componen
     MatStepperModule,
     MatExpansionModule,
     MatRadioModule,
+    MatProgressBarModule,
 
     FontAwesomeModule
   ],
@@ -112,6 +114,7 @@ import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.componen
     MatStepperModule,
     MatExpansionModule,
     MatRadioModule,
+    MatProgressBarModule,
 
     FontAwesomeModule,
 

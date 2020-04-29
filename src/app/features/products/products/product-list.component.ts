@@ -25,9 +25,14 @@ export class ProductListComponent implements OnInit {
     window.open(link, '_blank');
   }
 
-  onViewProductDetail(feature: ShopItem): void {
-    this.router.navigate([`${feature.id}`], {
-      relativeTo: this.route.parent
-    });
+  onViewProductDetail(item: ShopItem): void {
+    if (item.name.toLocaleLowerCase().includes('custom')) {
+      // route to custom detail page
+      this.router.navigate(['custom-sack'], { relativeTo: this.route.parent });
+    } else {
+      this.router.navigate([`${item.id}`], {
+        relativeTo: this.route.parent
+      });
+    }
   }
 }

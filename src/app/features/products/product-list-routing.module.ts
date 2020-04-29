@@ -4,6 +4,7 @@ import { ProductListResolverService } from './product-list-resolver.service';
 import { ProductDetailResolverService } from './products/product-detail/product-detail-resolver.service';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { NgModule } from '@angular/core';
+import { ProductDetailCustomSackComponent } from './products/product-detail-custom-sack/product-detail-custom-sack.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
     component: ProductListComponent,
     resolve: [ProductListResolverService],
     data: { title: 'thng.menu.shop' }
+  },
+  {
+    path: 'custom-sack',
+    component: ProductDetailCustomSackComponent
   },
   {
     path: ':id',

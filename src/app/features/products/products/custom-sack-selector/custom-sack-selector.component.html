@@ -1,0 +1,100 @@
+<mat-horizontal-stepper [linear]="true" #stepper>
+  <mat-step>
+    <ng-template matStepLabel>Sack Size</ng-template>
+    <h4>Select your Nut Sack size!</h4>
+    <mat-form-field>
+      <mat-label>Size</mat-label>
+      <mat-select>
+        <mat-option [value]="'4oz'">
+          4oz
+        </mat-option>
+        <mat-option [value]="'4oz'">
+          8oz
+        </mat-option>
+        <mat-option [value]="'4oz'">
+          16oz
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <h4>Choose your mix</h4>
+    <mat-chip-list multiple id="chipList" [selectable]="true">
+      <mat-chip color="accent" selected="true">
+        Nuts
+      </mat-chip>
+      <mat-chip>
+        Fruits
+      </mat-chip>
+      <mat-chip>
+        Granola
+      </mat-chip>
+    </mat-chip-list>
+    <div style="margin-top:1.5em;">
+      <button mat-raised-button color="primary" matStepperNext>Next</button>
+    </div>
+
+  </mat-step>
+  <mat-step>
+
+    <ng-template matStepLabel>Ingredients</ng-template>
+    <div style="display:flex; flex-direction: row;">
+      <mat-progress-bar color="warn" mode="determinate" value="40"></mat-progress-bar><span>16oz</span>
+    </div>
+
+
+    <h4>Nuts</h4>
+    <div class="outline">
+      <mat-form-field appearance="outline">
+        <mat-label>Oz</mat-label>
+        <mat-icon matPrefix>remove</mat-icon>
+        <input matInput placeholder="oz">
+        <mat-icon matSuffix>add</mat-icon>
+      </mat-form-field>
+      <div>
+        <p>Ingredients</p>
+        <mat-form-field>
+          <mat-label>Mix</mat-label>
+          <mat-select multiple>
+            <mat-option value="Almond">Almond</mat-option>
+            <mat-option value="Cachew">Cachew</mat-option>
+            <mat-option value="walnut">Walnut</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <h4>Fruit</h4>
+    <div class="outline">
+      <mat-form-field appearance="outline">
+        <mat-label>Oz</mat-label>
+        <mat-icon matPrefix>remove</mat-icon>
+        <input matInput placeholder="oz">
+        <mat-icon matSuffix>add</mat-icon>
+      </mat-form-field>
+      <div>
+        <p>Ingredients</p>
+        <mat-form-field>
+          <mat-label>Mix</mat-label>
+          <mat-select multiple>
+            <mat-option value="Bananas">Bananas</mat-option>
+            <mat-option value="Apples">Apples</mat-option>
+            <mat-option value="Peaches">Peaches</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <button mat-raised-button matStepperPrevious>Back</button>
+      <button mat-raised-button matStepperNext color="accent">Add to cart</button>
+    </div>
+
+  </mat-step>
+  <!-- <mat-step>
+    <ng-template matStepLabel>Summary</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step> -->
+</mat-horizontal-stepper>
