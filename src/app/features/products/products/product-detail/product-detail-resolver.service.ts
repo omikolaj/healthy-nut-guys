@@ -10,7 +10,7 @@ import * as Product from '../../../../shared/store/actions/product.actions';
 @Injectable({
   providedIn: 'root'
 })
-export class ItemDetailResolverService implements Resolve<ItemDetails> {
+export class ProductDetailResolverService implements Resolve<ItemDetails> {
   constructor(private productService: ProductsAsyncService, private router: Router, private store: Store) {}
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): ItemDetails | Observable<ItemDetails> | Promise<ItemDetails> {
     const itemId = route.paramMap.get('id');

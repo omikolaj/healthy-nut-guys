@@ -1,24 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
-
 import { SharedModule } from '../../../shared/shared.module';
+import { ProductListComponent } from './product-list.component';
 
-import { FeatureListComponent } from './feature-list.component';
-
-describe('FeatureListComponent', () => {
-  let component: FeatureListComponent;
-  let fixture: ComponentFixture<FeatureListComponent>;
+describe('ProductListComponent', () => {
+  let component: ProductListComponent;
+  let fixture: ComponentFixture<ProductListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule, NoopAnimationsModule, TranslateModule.forRoot()],
-      declarations: [FeatureListComponent]
+      declarations: [ProductListComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FeatureListComponent);
+    fixture = TestBed.createComponent(ProductListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,17 +5,17 @@
     </div>
   </div>
   <div class="row align-items-end">
-    <div *ngFor="let feature of features" class="col-md-6 col-lg-4" [ngClass]="routeAnimationsElements">
+    <div *ngFor="let shopItem of products" class="col-md-6 col-lg-4" [ngClass]="routeAnimationsElements">
       <mat-card>        
-        <img mat-card-image [src]="feature.imageSrc" [alt]=feature.description>
+        <img mat-card-image [src]="shopItem?.imageSrc" [alt]=shopItem.description>
         <mat-card-title>  
-          {{ feature?.name }}        
+          {{ shopItem?.name }}        
         </mat-card-title>
         <mat-card-subtitle rtl>
-          {{ feature.description | translate }}
+          {{ shopItem.description | translate }}
         </mat-card-subtitle>        
         <mat-card-actions>
-          <button mat-raised-button color="primary" (click)="onViewProductDetail(feature)">View</button>          
+          <button mat-raised-button color="primary" (click)="onViewProductDetail(shopItem)">View</button>          
         </mat-card-actions>
       </mat-card>
     </div>

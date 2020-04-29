@@ -13,7 +13,7 @@ export interface Feature {
   imageSrc?: string;
 }
 
-export const features: ShopItem[] = [
+export const shopItems: ShopItem[] = [
   {
     id: '1',
     description: 'Healthy Nut Guys',

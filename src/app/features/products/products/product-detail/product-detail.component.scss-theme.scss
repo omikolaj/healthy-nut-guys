@@ -1,6 +1,6 @@
 @import '~@angular/material/theming';
 
-@mixin thng-feature-detail-component-theme($theme) {
+@mixin thng-product-detail-component-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
   $foreground: map-get($theme, foreground);

@@ -4,10 +4,7 @@ import { Observable, of } from 'rxjs';
 import { ShopItem } from '../models/shop-item.model';
 import { ItemDetails } from '../models/item-details.model';
 import { delay } from 'rxjs/operators';
-import {
-  features,
-  itemDetails
-} from 'app/features/feature-list/feature-list.data';
+import { itemDetails, shopItems } from 'app/features/products/product-list.data';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +20,7 @@ export class ProductsAsyncService {
 
   fetchShopItems(): Observable<ShopItem[]> {
     // this.http.get<ShopItem[]>('products', this.headers)
-    return of(features).pipe(delay(500));
+    return of(shopItems).pipe(delay(500));
   }
 
   fetchItemDetails(id: string): Observable<ItemDetails> {

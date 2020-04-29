@@ -1,9 +1,10 @@
-import { CartItemsState } from './../../../../shared/store/state/cart-items.state';
-import { itemDetails } from './../../feature-list.data';
-import { FeaturesFacadeService } from './../../../features-facade.service';
+import { ItemDetails } from './../../../../core/models/item-details.model';
+import { CartItemsState } from '../../../../shared/store/state/cart-items.state';
+
+import { FeaturesFacadeService } from '../../../features-facade.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ChangeDetectionStrategy, EventEmitter, Output } from '@angular/core';
-import { ItemDetails } from 'app/core/models/item-details.model';
+
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { CartItem } from 'app/core/models/cart-items.model';
@@ -11,12 +12,12 @@ import { tap } from 'rxjs/operators';
 import { v4 as uuid } from 'uuid';
 
 @Component({
-  selector: 'thng-feature-detail',
-  templateUrl: './feature-detail.component.html',
-  styleUrls: ['./feature-detail.component.scss'],
+  selector: 'thng-product-detail',
+  templateUrl: './product-detail.component.html',
+  styleUrls: ['./product-detail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FeatureDetailComponent implements OnInit {
+export class ProductDetailComponent implements OnInit {
   itemDetails: ItemDetails;
   constructor(private route: ActivatedRoute, private facade: FeaturesFacadeService) {}
 

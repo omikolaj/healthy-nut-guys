@@ -13,7 +13,7 @@ import { normalize } from 'normalizr';
 @Injectable({
   providedIn: 'root'
 })
-export class FeatureListResolverService implements Resolve<ShopItem[]> {
+export class ProductListResolverService implements Resolve<ShopItem[]> {
   constructor(private store: Store, private productService: ProductsAsyncService, private router: Router) {}
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): ShopItem[] | Observable<ShopItem[]> | Promise<ShopItem[]> {
     // dispatch an actiont o update the store once we have fetched items

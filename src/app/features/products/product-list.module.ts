@@ -1,0 +1,16 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { SharedModule } from '../../shared/shared.module';
+import { NgxsModule } from '@ngxs/store';
+import { CartItemsState } from 'app/shared/store/state/cart-items.state';
+import { ShopItemsState } from 'app/shared/store/state/shop-items.state';
+import { ProductListComponent } from './products/product-list.component';
+import { ProductListRoutingModule } from './product-list-routing.module';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+
+@NgModule({
+  declarations: [ProductListComponent, ProductDetailComponent],
+  imports: [CommonModule, SharedModule, ProductListRoutingModule, NgxsModule.forFeature([ShopItemsState, CartItemsState])]
+})
+export class ProductListModule {}

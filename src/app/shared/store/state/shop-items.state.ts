@@ -1,9 +1,9 @@
-import { ItemDetails } from 'app/core/models/item-details.model';
 import { ShopItem } from 'app/core/models/shop-item.model';
 import { Injectable } from '@angular/core';
 import { Action, StateContext, State, Selector } from '@ngxs/store';
 import * as Product from '../actions/product.actions';
 import produce from 'immer';
+import { ItemDetails } from 'app/core/models/item-details.model';
 
 export interface ShopItemsStateModel {
   entities: {

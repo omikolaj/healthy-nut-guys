@@ -23,7 +23,7 @@
 @import './app/features/examples/theming/parent/parent.component.scss-theme';
 @import './app/features/examples/theming/child/child.component.scss-theme';
 @import './app/features/examples/examples/examples.component.scss-theme';
-@import './app/features//feature-list//feature-list//feature-detail/feature-detail.scss-theme.scss';
+@import './app/features/products/products/product-detail/product-detail.component.scss-theme.scss';
 @import './app/features/cart/cart/cart.component.scss-theme.scss';
 
 @mixin custom-components-theme($theme) {
@@ -37,7 +37,7 @@
   @include thng-parent-component-theme($theme);
   @include thng-child-component-theme($theme);
   @include thng-examples-component-theme($theme);
-  @include thng-feature-detail-component-theme($theme);
+  @include thng-product-detail-component-theme($theme);
   @include thng-cart-component-theme($theme);
 }
 

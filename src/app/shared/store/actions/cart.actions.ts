@@ -1,5 +1,4 @@
 import { CartItem } from './../../../core/models/cart-items.model';
-import { ItemDetails } from 'app/core/models/item-details.model';
 
 export class AddToCart {
   static readonly type = '[Cart] AddToCart';

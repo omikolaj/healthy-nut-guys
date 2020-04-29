@@ -1,8 +1,8 @@
-import { CartItem } from 'app/core/models/cart-items.model';
 import { Injectable } from '@angular/core';
 import { Selector, State, Action, StateContext } from '@ngxs/store';
 import * as Cart from 'app/shared/store/actions/cart.actions';
 import produce from 'immer';
+import { CartItem } from 'app/core/models/cart-items.model';
 
 export interface CartItemsStateModel {
   entities: {
