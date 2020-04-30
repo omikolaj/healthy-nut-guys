@@ -1,6 +1,25 @@
-.outline {
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  padding: 21.5px 16px 0;
-  margin-bottom: 8px;
+.wrapper {
+  .custom-sack {
+    .sack-size-selection {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .node-collection {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      .node-item {
+        align-self: center;
+      }
+      .align-center {
+        text-align: center;
+      }
+      ::ng-deep .mat-form-field-label-wrapper {
+        text-align: right;
+      }
+      .mat-form-field {
+        width: 80px;
+      }
+    }
+  }
 }
