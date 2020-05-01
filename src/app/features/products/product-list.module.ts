@@ -11,9 +11,16 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { ProductDetailCustomSackComponent } from './products/product-detail-custom-sack/product-detail-custom-sack.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { CustomSackSelectorComponent } from './products/custom-sack-selector/custom-sack-selector.component';
+import { CustomSackNutritionLabelComponent } from './products/custom-sack-nutrition-label/custom-sack-nutrition-label.component';
 
 @NgModule({
-  declarations: [ProductListComponent, ProductDetailComponent, ProductDetailCustomSackComponent, CustomSackSelectorComponent],
+  declarations: [
+    ProductListComponent,
+    ProductDetailComponent,
+    ProductDetailCustomSackComponent,
+    CustomSackSelectorComponent,
+    CustomSackNutritionLabelComponent
+  ],
   imports: [CommonModule, SharedModule, ProductListRoutingModule, NgxsModule.forFeature([ShopItemsState, CartItemsState])]
 })
 export class ProductListModule {}
