@@ -8,6 +8,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'users/:id',
+    loadChildren: () => import('./features/user/user.module').then(m => m.UserModule)
+  },
+  {
     path: 'about',
     loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule)
   },

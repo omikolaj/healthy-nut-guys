@@ -16,6 +16,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpStatusInterceptorService } from './core/http-interceptors/http-status.interceptor.service';
 import { HttpStatusInterceptor } from './core/http-interceptors/http-status.interceptor';
 import { NgxsModule } from '@ngxs/store';
+import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { environment } from 'environments/environment';
 
 @NgModule({
@@ -42,6 +43,7 @@ import { environment } from 'environments/environment';
         strictContentSecurityPolicy: true
       }
     }),
+    NgxsRouterPluginModule.forRoot(),
 
     // app
     AppRoutingModule

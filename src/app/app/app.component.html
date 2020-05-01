@@ -48,26 +48,25 @@
             </button>
           </span>
           
-
-          <!------------------------------------------------->
-          <!-- Temporarily disable the login functionality -->
-          <!------------------------------------------------->
-
-          <!-- <button mat-button mat-stroked-button color="accent" *ngIf="!(isAuthenticated$ | async)" (click)="onLoginClick()">
+          <button mat-button mat-stroked-button *ngIf="!(isAuthenticated$ | async)" (click)="onLoginClick()">
             {{ 'thng.menu.login' | translate }}
-          </button> -->
+          </button>
 
-          <!-- <button *ngIf="(isAuthenticated$ | async)"
+          <button *ngIf="(isAuthenticated$ | async)"
                   mat-icon-button
                   [matMenuTriggerFor]="toolbarUserMenu">
             <fa-icon icon="user-circle"></fa-icon>
           </button>
           <mat-menu #toolbarUserMenu="matMenu">
             <button mat-menu-item (click)="onLogoutClick()">
-              <mat-icon><fa-icon icon="power-off"></fa-icon></mat-icon>
+              <mat-icon>power_off</mat-icon>
               <span>{{ 'thng.menu.logout' | translate }}</span>
             </button>
-          </mat-menu> --> 
+            <button mat-menu-item (click)="onDashboardClick()">
+              <mat-icon>dashboard</mat-icon>
+              <span>Dashboard</span>
+            </button>
+          </mat-menu>
 
           
 
