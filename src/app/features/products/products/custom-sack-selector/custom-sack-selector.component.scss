@@ -1,8 +1,17 @@
 .wrapper {
   .custom-sack {
+    mat-tree {
+      background: #fafafa;
+    }
     .sack-size-selection {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-evenly;
+      .mat-form-field {
+        width: 40%;
+      }
+      .spacer {
+        margin: 6px;
+      }
     }
     .node-collection {
       width: 80%;
@@ -10,6 +19,10 @@
       justify-content: space-between;
       .node-item {
         align-self: center;
+
+        .update-mix {
+          cursor: pointer;
+        }
       }
       .align-center {
         text-align: center;

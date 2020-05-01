@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatTreeFlattener, MatTreeFlatDataSource } from '@angular/material/tree';
 import { FlatTreeControl } from '@angular/cdk/tree';
+import { NotificationService } from 'app/core/core.module';
 
 /**
  * Food data with nested structure.
@@ -101,9 +102,15 @@ export class CustomSackSelectorComponent implements OnInit {
     { value: '16-oz', viewValue: '16oz' }
   ];
 
-  constructor() {
+  constructor(private notificationService: NotificationService) {
     this.dataSource.data = TREE_DATA;
   }
 
   ngOnInit(): void {}
+
+  onRemoveFromMix(): void {}
+
+  onAddToMix(): void {
+    this.notificationService.info('5oz / 16oz. Remaining 14oz');
+  }
 }

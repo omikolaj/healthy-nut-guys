@@ -9,32 +9,28 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <div class=spacer></div>
+      <mat-form-field appearance="outline">
+        <mat-label>Mix (in oz)</mat-label>
+        <input matInput placeholder="Mix (in oz)" value="5oz" readonly>                
+      </mat-form-field>
     </div>
     <div>
       <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
         <!-- This is the tree node template for leaf nodes -->
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-          <!-- <button mat-icon-button disabled></button> -->
           <!-- use a disabled button to provide padding for tree leaf -->
           <div class="node-collection">
             <div class="node-item">
-              
+
               {{node.name}}
             </div>
             <mat-form-field appearance="standard">
-                <mat-label class="align-right">Oz</mat-label>
-                <mat-icon matPrefix>remove</mat-icon>
-                <input class="align-center" matInput placeholder="Oz" readonly value="0">
-                <mat-icon matSuffix>add</mat-icon>
-              </mat-form-field>
-            <!-- <div class="weight-field">
-              <mat-form-field appearance="standard">
-                <mat-label>Oz</mat-label>
-                <mat-icon matPrefix>remove</mat-icon>
-                <input matInput placeholder="Oz">
-                <mat-icon matSuffix>add</mat-icon>
-              </mat-form-field>
-            </div> -->
+              <mat-label class="align-right">Oz</mat-label>
+              <mat-icon (click)="onRemoveFromMix()" class="update-mix" matPrefix>remove</mat-icon>
+              <input class="align-center" matInput placeholder="Oz" readonly value="0">
+              <mat-icon (click)="onAddToMix()" class="update-mix" matSuffix>add</mat-icon>
+            </mat-form-field>
           </div>
         </mat-tree-node>
         <!-- This is the tree node template for expandable nodes -->

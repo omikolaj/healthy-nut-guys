@@ -27,6 +27,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatTableModule } from '@angular/material/table';
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import {
@@ -83,6 +84,7 @@ import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.componen
     MatRadioModule,
     MatProgressBarModule,
     MatTreeModule,
+    MatTableModule,
 
     FontAwesomeModule
   ],
@@ -118,6 +120,7 @@ import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.componen
     MatRadioModule,
     MatProgressBarModule,
     MatTreeModule,
+    MatTableModule,
 
     FontAwesomeModule,
 

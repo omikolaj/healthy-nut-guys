@@ -76,13 +76,13 @@ export const itemDetails: ItemDetails[] = [
   },
   {
     id: '4',
-    imageSrc: '../../../assets/succulent_nut_sack.png',
+    imageSrc: '../../../assets/custom_nut_sack.png',
     price: 17.99,
     inStock: true,
     title: 'Custom Nut Sack',
     subtitle: 'Healthy Nut Guys',
     description:
-      "This savory, Succulent Nut Sack will leave you drooling! A decadent mix of white and milk chocolate chips, raisins, dried cranberries, peanuts, almonds, and cashews. As if that wasn't enough to make you nut...I mean, go nuts...we've topped it off with our delicious honey cashew vanilla granola. This organic Succulent Nut Sack is the thing of your wildest trail mix dreams!",
-    labelSrc: '../../../assets/succulent_nut_sack_label.png'
+      "You tell us how you want our Nut Sack! With the Custom Nut Sack, you get to choose from all of our ingredients to create the Nut Sack you've always wanted! As always, we will fill this Nut Sack with only organic ingredients to provide you with the highest quality, best tasting Nut Sack you have ever had!",
+    labelSrc: '../../../assets/custom_nut_sack.png'
   }
 ];
