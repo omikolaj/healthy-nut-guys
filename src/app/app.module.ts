@@ -1,13 +1,10 @@
-import { CartItemsState } from 'app/shared/store/state/cart-items.state';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { LoadingSpinnerComponent } from './app/loading-spinner/loading-spinner.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Injector } from '@angular/core';
-
 import { CoreModule } from './core/core.module';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -17,7 +14,9 @@ import { HttpStatusInterceptorService } from './core/http-interceptors/http-stat
 import { HttpStatusInterceptor } from './core/http-interceptors/http-status.interceptor';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { environment } from 'environments/environment';
+import { CartState } from './shared/store/state/cart.state';
 
 @NgModule({
   imports: [
@@ -33,7 +32,7 @@ import { environment } from 'environments/environment';
     CoreModule,
 
     // NGXS Store
-    NgxsModule.forRoot([CartItemsState], {
+    NgxsModule.forRoot([CartState], {
       developmentMode: !environment.production,
       selectorOptions: {
         suppressErrors: false,
@@ -42,6 +41,9 @@ import { environment } from 'environments/environment';
       compatibility: {
         strictContentSecurityPolicy: true
       }
+    }),
+    NgxsStoragePluginModule.forRoot({
+      key: CartState
     }),
     NgxsRouterPluginModule.forRoot(),
 

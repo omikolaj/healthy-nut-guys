@@ -1,4 +1,3 @@
-import { CartItemsState } from './../shared/store/state/cart-items.state';
 import { HttpStatusInterceptorService } from 'app/core/http-interceptors/http-status.interceptor.service';
 import browser from 'browser-detect';
 import { Component, OnInit } from '@angular/core';
@@ -19,10 +18,11 @@ import {
 } from '../core/core.module';
 import { actionSettingsChangeAnimationsPageDisabled, actionSettingsChangeLanguage } from '../core/settings/settings.actions';
 import { Loading } from 'app/core/decorators/loading.decorator';
-import { CartItem } from 'app/core/models/cart-items.model';
 import { Select, Store } from '@ngxs/store';
 import { Navigate } from '@ngxs/router-plugin';
 import { Store as ngrxStore, select } from '@ngrx/store';
+import { CartItem } from 'app/core/models/cart-item.model';
+import { CartState } from 'app/shared/store/state/cart.state';
 
 @Component({
   selector: 'thng-root',
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
   stickyHeader$: Observable<boolean>;
   language$: Observable<string>;
   theme$: Observable<string>;
-  @Select(CartItemsState.getCartItems) cartItems$: Observable<CartItem[]>;
+  @Select(CartState.getCartItems) cartItems$: Observable<CartItem[]>;
 
   constructor(
     private store: Store,

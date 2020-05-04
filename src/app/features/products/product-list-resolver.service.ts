@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 import { ProductsAsyncService } from 'app/core/products/products-async.service';
 import { tap } from 'rxjs/internal/operators/tap';
 import { Store } from '@ngxs/store';
-import * as Product from '../../shared/store/actions/product.actions';
+import * as Product from '../../shared/store/actions/shop.actions';
 import { shopItemsSchema } from 'app/shared/store/state/schemas/shop-items.schema';
 import { normalize } from 'normalizr';
 

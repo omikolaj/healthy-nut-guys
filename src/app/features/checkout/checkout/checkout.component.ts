@@ -3,11 +3,11 @@ import { FeaturesFacadeService } from '../../features-facade.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { tap, takeUntil } from 'rxjs/operators';
-import { CartItem } from 'app/core/models/cart-items.model';
 import { Subject } from 'rxjs';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
 import { ROUTE_ANIMATIONS_ELEMENTS } from 'app/core/core.module';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CartItem } from 'app/core/models/cart-item.model';
 
 @Component({
   selector: 'thng-checkout',
@@ -38,8 +38,7 @@ export class CheckoutComponent implements OnInit {
     // have to be created based on what has been added to the cart
     const cartItemsQuantitiesControls = cartItems.map(item => {
       return this.fb.group({
-        id: item.id,
-        quantity: cartItems.reduce((total, x) => (x.cartItemId === item.cartItemId ? total + 1 : total), 0)
+        quantity: item.quantity
       });
     });
 

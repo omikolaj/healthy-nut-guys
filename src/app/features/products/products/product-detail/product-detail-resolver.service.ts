@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { ProductsAsyncService } from 'app/core/products/products-async.service';
 import { Store } from '@ngxs/store';
 import { tap } from 'rxjs/operators';
-import * as Product from '../../../../shared/store/actions/product.actions';
+import * as Product from '../../../../shared/store/actions/shop.actions';
 
 @Injectable({
   providedIn: 'root'

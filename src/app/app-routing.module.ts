@@ -20,10 +20,6 @@ const routes: Routes = [
     loadChildren: () => import('./features/products/product-list.module').then(m => m.ProductListModule)
   },
   {
-    path: 'settings',
-    loadChildren: () => import('./features/settings/settings.module').then(m => m.SettingsModule)
-  },
-  {
     path: 'cart',
     loadChildren: () => import('./features/cart/cart.module').then(m => m.CartModule)
   },

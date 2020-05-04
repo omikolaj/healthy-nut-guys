@@ -3,7 +3,6 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ItemDetails } from 'app/core/models/item-details.model';
 import { ActivatedRoute } from '@angular/router';
 import { FeaturesFacadeService } from 'app/features/features-facade.service';
-import { CartItem } from 'app/core/models/cart-items.model';
 import * as uuid from 'uuid';
 
 export interface PeriodicElement {
@@ -42,11 +41,5 @@ export class ProductDetailCustomSackComponent implements OnInit {
     this.itemDetails = itemDetails.find(i => i.title.toLocaleLowerCase().includes('custom'));
   }
 
-  onAddToCart(): void {
-    const cartItem: CartItem = {
-      ...this.itemDetails,
-      cartItemId: uuid()
-    };
-    this.facade.addToCart(cartItem);
-  }
+  onAddToCart(): void {}
 }

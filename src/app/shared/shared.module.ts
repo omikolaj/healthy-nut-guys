@@ -53,7 +53,6 @@ import { faMediumM, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import { BigInputComponent } from './big-input/big-input/big-input.component';
 import { BigInputActionComponent } from './big-input/big-input-action/big-input-action.component';
-import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
 import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.component';
 
 @NgModule({
@@ -88,7 +87,7 @@ import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.componen
 
     FontAwesomeModule
   ],
-  declarations: [BigInputComponent, BigInputActionComponent, RtlSupportDirective, ActingSpinnerComponent],
+  declarations: [BigInputComponent, BigInputActionComponent, ActingSpinnerComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -126,7 +125,6 @@ import { ActingSpinnerComponent } from './acting-spinner/acting-spinner.componen
 
     BigInputComponent,
     BigInputActionComponent,
-    RtlSupportDirective,
     ActingSpinnerComponent
   ]
 })
