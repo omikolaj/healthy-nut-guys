@@ -1,3 +1,4 @@
+import { ProductListFacadeService } from './../product-list-facade.service';
 import { FeaturesFacadeService } from '../../features-facade.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
@@ -15,9 +16,9 @@ import { shopItems } from '../product-list.data';
 })
 export class ProductListComponent implements OnInit {
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
-  products: ShopItem[] = shopItems;
+  productList$ = this.facade.products$;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute, private facade: ProductListFacadeService) {}
 
   ngOnInit() {}
 

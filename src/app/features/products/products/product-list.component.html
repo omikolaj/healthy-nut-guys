@@ -5,6 +5,7 @@
     </div>
   </div>
   <div class="row align-items-end">
+    <ng-container *ngIf="(productList$ | async) as products">
     <div *ngFor="let shopItem of products" class="col-md-6 col-lg-4" [ngClass]="routeAnimationsElements">
       <mat-card>        
         <img mat-card-image [src]="shopItem?.imageSrc" [alt]=shopItem.description>
@@ -19,5 +20,6 @@
         </mat-card-actions>
       </mat-card>
     </div>
+    </ng-container>
   </div>
 </div>

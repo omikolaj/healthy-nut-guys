@@ -26,7 +26,6 @@ export class AboutComponent implements OnInit {
       .pipe(
         takeUntil(this.unsubscribed$),
         filter(offer => offer !== null),
-        tap(offer => console.log('offer: ', offer)),
         tap(offer => {
           const message = this.offer.determineOfferMessage(offer);
           this.notification.banner(message, 'Dismiss');
