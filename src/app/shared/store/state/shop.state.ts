@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Selector, State, Action, StateContext } from '@ngxs/store';
 import produce from 'immer';
-import * as CartActions from '../actions/cart.actions';
+import * as Shop from '../actions/shop.actions';
+
 import { Product } from 'app/core/models/product.model';
 import { ProductDetails } from 'app/core/models/product-details.model';
 import { ProductOffer } from 'app/core/models/product-offer.model';
@@ -18,7 +19,7 @@ export interface ShopStateModel {
     productOffers: {
       [key: string]: ProductOffer;
     };
-    shopOffers: {
+    shopOffer: {
       [key: string]: ShopOffer;
     };
   };
@@ -31,11 +32,20 @@ export interface ShopStateModel {
       products: {},
       productDetails: {},
       productOffers: {},
-      shopOffers: {}
+      shopOffer: {}
     }
   }
 })
 @Injectable()
 export class ShopState {
   constructor() {}
+
+  @Action(Shop.AddShopOffer)
+  addShopOffer(ctx: StateContext<ShopStateModel>, action: Shop.AddShopOffer): void {
+    ctx.setState(
+      produce((draft: ShopStateModel) => {
+        draft.entities.shopOffer[action.payload.id] = action.payload;
+      })
+    );
+  }
 }
