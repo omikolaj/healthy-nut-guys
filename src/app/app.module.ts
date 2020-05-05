@@ -1,3 +1,4 @@
+import { ShopState } from './shared/store/state/shop.state';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { LoadingSpinnerComponent } from './app/loading-spinner/loading-spinner.component';
 import { SharedModule } from './shared/shared.module';
@@ -13,7 +14,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpStatusInterceptorService } from './core/http-interceptors/http-status.interceptor.service';
 import { HttpStatusInterceptor } from './core/http-interceptors/http-status.interceptor';
 import { NgxsModule } from '@ngxs/store';
-import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { environment } from 'environments/environment';
 import { CartState } from './shared/store/state/cart.state';
@@ -32,7 +32,7 @@ import { CartState } from './shared/store/state/cart.state';
     CoreModule,
 
     // NGXS Store
-    NgxsModule.forRoot([CartState], {
+    NgxsModule.forRoot([CartState, ShopState], {
       developmentMode: !environment.production,
       selectorOptions: {
         suppressErrors: false,
@@ -45,7 +45,6 @@ import { CartState } from './shared/store/state/cart.state';
     NgxsStoragePluginModule.forRoot({
       key: CartState
     }),
-    NgxsRouterPluginModule.forRoot(),
 
     // app
     AppRoutingModule

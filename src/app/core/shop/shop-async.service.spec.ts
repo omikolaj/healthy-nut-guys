@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AboutAsyncService } from './about-async.service';
+import { ShopAsyncService } from './shop-async.service';
 
-describe('AboutAsyncService', () => {
-  let service: AboutAsyncService;
+describe('ShopAsyncService', () => {
+  let service: ShopAsyncService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AboutAsyncService);
+    service = TestBed.inject(ShopAsyncService);
   });
 
   it('should be created', () => {

@@ -1,6 +1,6 @@
-import { ShopOffer } from './../../../core/models/shop-offer.model';
 import { ShopItem } from 'app/core/models/shop-item.model';
 import { ItemDetails } from 'app/core/models/item-details.model';
+import { SpecialOffer } from 'app/core/models/special-offer.model';
 
 export class InitializeProducts {
   static readonly type = '[Products] InitializeProducts';
@@ -14,5 +14,5 @@ export class AddProductDetails {
 
 export class AddShopOffer {
   static readonly type = '[Shop] AddShopOffer';
-  constructor(public payload: ShopOffer) {}
+  constructor(public payload: SpecialOffer) {}
 }

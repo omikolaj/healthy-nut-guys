@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpStatusInterceptorService } from 'app/core/http-interceptors/http-status.interceptor.service';
 import browser from 'browser-detect';
 import { Component, OnInit } from '@angular/core';
@@ -19,10 +20,11 @@ import {
 import { actionSettingsChangeAnimationsPageDisabled, actionSettingsChangeLanguage } from '../core/settings/settings.actions';
 import { Loading } from 'app/core/decorators/loading.decorator';
 import { Select, Store } from '@ngxs/store';
-import { Navigate } from '@ngxs/router-plugin';
 import { Store as ngrxStore, select } from '@ngrx/store';
 import { CartItem } from 'app/core/models/cart-item.model';
 import { CartState } from 'app/shared/store/state/cart.state';
+import { ShopServiceFacadeService } from '../core/shop/shop-service-facade.service';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'thng-root',
@@ -52,10 +54,11 @@ export class AppComponent implements OnInit {
   @Select(CartState.getCartItems) cartItems$: Observable<CartItem[]>;
 
   constructor(
-    private store: Store,
+    private router: Router,
     private ngrxStore: ngrxStore,
     private storageService: LocalStorageService,
-    private httpStatusService: HttpStatusInterceptorService
+    private httpStatusService: HttpStatusInterceptorService,
+    private facade: ShopServiceFacadeService
   ) {}
 
   private static isIEorEdgeOrSafari() {
@@ -65,7 +68,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.storageService.testLocalStorage();
     if (AppComponent.isIEorEdgeOrSafari()) {
-      this.store.dispatch(
+      this.ngrxStore.dispatch(
         actionSettingsChangeAnimationsPageDisabled({
           pageAnimationsDisabled: true
         })
@@ -76,6 +79,9 @@ export class AppComponent implements OnInit {
     // if commented back in don't forget to comment back in HTML template code for this
     // this.language$ = this.store.pipe(select(selectSettingsLanguage));
     this.theme$ = this.ngrxStore.pipe(select(selectEffectiveTheme));
+
+    // see if there are any shop offers
+    this.facade.getShopOffer();
   }
 
   onLoginClick() {
@@ -91,6 +97,6 @@ export class AppComponent implements OnInit {
   }
 
   onDashboardClick(): void {
-    this.store.dispatch(new Navigate(['users', `${1}`, 'dashboard']));
+    this.router.navigate(['users', `${1}`, 'dashboard']);
   }
 }

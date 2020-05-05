@@ -67,4 +67,30 @@
     color: mat-color($warning-colors, default-contrast);
     background-color: mat-color($warning-colors);
   }
+
+  .banner-notification-overlay {
+    color: mat-color($primary, default-contrast);
+    background-color: mat-color($warn);
+  }
+
+  .cdk-global-overlay-wrapper {
+    .banner-notification-overlay {
+      width: 100vw;
+      max-width: 100%;
+      margin-top: 56px;
+      margin-left: 0px;
+      margin-right: 0px;
+      .mat-simple-snackbar-action {
+        color: white;
+      }
+    }
+  }
+}
+
+@media (min-width: 599px) {
+  .cdk-global-overlay-wrapper {
+    .banner-notification-overlay {
+      margin-top: 64px;
+    }
+  }
 }

@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ShopOffer } from 'app/core/models/shop-offer.model';
 import { Observable } from 'rxjs';
+import { SpecialOffer } from '../models/special-offer.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AboutAsyncService {
+export class ShopAsyncService {
   constructor(private http: HttpClient) {}
 
-  fetchShopOffer(): Observable<ShopOffer | null> {
-    return this.http.get<ShopOffer | null>('api/shop/offer');
+  fetchShopOffer(): Observable<SpecialOffer | null> {
+    return this.http.get<SpecialOffer | null>('api/shop/offer');
   }
 }
