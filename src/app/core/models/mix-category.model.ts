@@ -1,3 +1,6 @@
 export interface MixCategory {
-  id: string;
+  id?: string;
+  customProductId?: string;
+  inStock?: boolean;
+  name?: string;
 }

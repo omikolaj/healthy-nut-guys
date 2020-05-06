@@ -8,6 +8,7 @@ import { ProductDetails } from 'app/core/models/product-details.model';
 import { SpecialOffer } from 'app/core/models/special-offer.model';
 import { Category } from 'app/core/models/category.model';
 import { Tag } from 'app/core/models/tag.model';
+import { SaleItem } from 'app/core/models/sale-item.model';
 
 export interface ShopStateModel {
   entities: {
@@ -17,8 +18,8 @@ export interface ShopStateModel {
     productDetails: {
       [key: string]: ProductDetails;
     };
-    productOffers: {
-      [key: string]: SpecialOffer;
+    sales: {
+      [key: string]: SaleItem;
     };
     categories: {
       [key: string]: Category;
@@ -40,7 +41,7 @@ export const SHOP_STATE_TOKEN = new StateToken<ShopStateModel>('shop');
     entities: {
       products: {},
       productDetails: {},
-      productOffers: {},
+      sales: {},
       categories: {},
       tags: {},
       shopOffer: {}
@@ -79,11 +80,11 @@ export class ShopState {
     );
   }
 
-  @Action(Shop.InitializeProductOffers)
-  populateProductOffers(ctx: StateContext<ShopStateModel>, action: Shop.InitializeProductOffers): void {
+  @Action(Shop.InitializeProductSales)
+  populateProductOffers(ctx: StateContext<ShopStateModel>, action: Shop.InitializeProductSales): void {
     ctx.setState(
       produce((draft: ShopStateModel) => {
-        draft.entities.productOffers = action.payload;
+        draft.entities.sales = action.payload;
       })
     );
   }
@@ -97,8 +98,8 @@ export class ShopState {
     );
   }
 
-  @Action(Shop.InitializeTags)
-  populateTags(ctx: StateContext<ShopStateModel>, action: Shop.InitializeTags): void {
+  @Action(Shop.InitializeProductTags)
+  populateTags(ctx: StateContext<ShopStateModel>, action: Shop.InitializeProductTags): void {
     ctx.setState(
       produce((draft: ShopStateModel) => {
         draft.entities.tags = action.payload;

@@ -1,3 +1,8 @@
+import { SelectOption } from './select-option.model';
+
 export interface ProductDetails {
-  id: string;
+  id?: string;
+  productId?: string;
+  labelSrc?: string;
+  selectOption?: SelectOption;
 }

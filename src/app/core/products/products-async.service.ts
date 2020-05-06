@@ -6,6 +6,7 @@ import { ItemDetails } from '../models/item-details.model';
 import { delay } from 'rxjs/operators';
 import { itemDetails, shopItems } from 'app/features/products/product-list.data';
 import { Product } from '../models/product.model';
+import { CustomProduct } from '../models/custom-product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class ProductsAsyncService {
 
   fetchProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('api/shop/products', this.headers);
+  }
+
+  fetchCustomProducts(): Observable<CustomProduct[]> {
+    return this.http.get<CustomProduct[]>('api/shop/custom-products', this.headers);
   }
 
   fetchItemDetails(id: string): Observable<ItemDetails> {
