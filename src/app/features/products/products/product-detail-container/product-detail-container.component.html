@@ -1,0 +1,10 @@
+<ng-container *ngIf="(productDetails$ | async) as detailView">  
+  <ng-container *ngIf="detailView?.isCustomProduct; else productDetails">
+    <thng-product-detail-custom-sack [itemDetails]="detailView"></thng-product-detail-custom-sack>
+  </ng-container>
+  <ng-template #productDetails>
+    <thng-product-detail [itemDetails]="detailView">
+    </thng-product-detail>
+  </ng-template>
+</ng-container>
+

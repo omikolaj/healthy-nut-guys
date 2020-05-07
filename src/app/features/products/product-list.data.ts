@@ -1,6 +1,7 @@
 import { environment as env } from '../../../environments/environment';
 import { ShopItem } from 'app/core/models/shop-item.model';
 import { ItemDetails } from 'app/core/models/item-details.model';
+import { ActivatedRouteSnapshot } from '@angular/router';
 
 export interface Feature {
   id: string;
@@ -11,6 +12,12 @@ export interface Feature {
   documentation?: string;
   medium?: string;
   imageSrc?: string;
+}
+
+export function runResolver(from: ActivatedRouteSnapshot, to: ActivatedRouteSnapshot): boolean {
+  console.log('from', from);
+  console.log('to', to);
+  return false;
 }
 
 export const shopItems: ShopItem[] = [

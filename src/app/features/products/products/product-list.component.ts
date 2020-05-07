@@ -1,12 +1,14 @@
-import { ProductListFacadeService } from './../product-list-facade.service';
-import { FeaturesFacadeService } from '../../features-facade.service';
+import { Product } from 'app/core/models/product.model';
+import { CustomProduct } from 'app/core/models/custom-product.model';
+import { combineLatest } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-
 import { ROUTE_ANIMATIONS_ELEMENTS } from '../../../core/core.module';
 
 import { ShopItem } from 'app/core/models/shop-item.model';
 import { shopItems } from '../product-list.data';
+import { map } from 'rxjs/operators';
+import { ProductFacadeService } from '../product-facade.service';
 
 @Component({
   selector: 'thng-product-list',
@@ -16,9 +18,13 @@ import { shopItems } from '../product-list.data';
 })
 export class ProductListComponent implements OnInit {
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
-  productList$ = this.facade.products$;
+  productList$ = combineLatest([this.facade.products$, this.facade.customProducts$]).pipe(
+    map(([products, customProducts]: [Product[], CustomProduct[]]) => {
+      return [...products, ...customProducts] as Product[];
+    })
+  );
 
-  constructor(private router: Router, private route: ActivatedRoute, private facade: ProductListFacadeService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private facade: ProductFacadeService) {}
 
   ngOnInit() {}
 
@@ -27,13 +33,8 @@ export class ProductListComponent implements OnInit {
   }
 
   onViewProductDetail(item: ShopItem): void {
-    if (item.name.toLocaleLowerCase().includes('custom')) {
-      // route to custom detail page
-      this.router.navigate(['custom-sack'], { relativeTo: this.route.parent });
-    } else {
-      this.router.navigate([`${item.id}`], {
-        relativeTo: this.route.parent
-      });
-    }
+    this.router.navigate([`${item.id}`], {
+      relativeTo: this.route.parent
+    });
   }
 }

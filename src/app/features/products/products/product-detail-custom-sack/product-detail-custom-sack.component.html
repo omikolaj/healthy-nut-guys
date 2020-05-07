@@ -3,7 +3,7 @@
     <img mat-card-image [src]="itemDetails?.imageSrc" [alt]=itemDetails?.description>
     <mat-card-subtitle rtl>{{ itemDetails?.subtitle }}</mat-card-subtitle>
     <mat-card-title>
-      {{ itemDetails?.title }}
+      {{ itemDetails?.name }}
     </mat-card-title>
 
     <p>${{ itemDetails?.price }}</p>
@@ -28,7 +28,7 @@
       <div class="action-btns">
         <div class="add-to-card">
           <button mat-raised-button color="primary" (click)="onAddToCart()"
-            [disabled]="!itemDetails?.inStock">{{ itemDetails?.inStock ? 'Add To Cart' : 'Sold Out' }}</button>
+            [disabled]="!itemDetails?.isInStock">{{ itemDetails?.isInStock ? 'Add To Cart' : 'Sold Out' }}</button>
         </div>
       </div>
     </div>    

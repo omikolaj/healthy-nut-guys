@@ -11,4 +11,5 @@ export interface SpecialOffer extends Offer {
   scope?: OfferScope;
   promoCode?: PromoCode;
   discountValue?: number;
+  salePrice?: number;
 }

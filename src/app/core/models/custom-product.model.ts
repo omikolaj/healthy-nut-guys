@@ -20,4 +20,6 @@ export interface CustomProduct {
   mixCategories?: MixCategory[];
   tags?: Tag[];
   selectOptions?: SelectOption[];
+  isInStock?: boolean;
+  salePrice?: number;
 }

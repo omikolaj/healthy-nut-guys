@@ -1,3 +1,4 @@
+import { ProductState } from './../../shared/store/state/products.state';
 import { ShopState } from './../../shared/store/state/shop.state';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,6 +12,7 @@ import { ProductDetailCustomSackComponent } from './products/product-detail-cust
 import { TranslateModule } from '@ngx-translate/core';
 import { CustomSackSelectorComponent } from './products/custom-sack-selector/custom-sack-selector.component';
 import { CustomSackNutritionLabelComponent } from './products/custom-sack-nutrition-label/custom-sack-nutrition-label.component';
+import { ProductDetailContainerComponent } from './products/product-detail-container/product-detail-container.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +20,9 @@ import { CustomSackNutritionLabelComponent } from './products/custom-sack-nutrit
     ProductDetailComponent,
     ProductDetailCustomSackComponent,
     CustomSackSelectorComponent,
-    CustomSackNutritionLabelComponent
+    CustomSackNutritionLabelComponent,
+    ProductDetailContainerComponent
   ],
-  imports: [CommonModule, SharedModule, ProductListRoutingModule, NgxsModule.forFeature([ShopState])]
+  imports: [CommonModule, SharedModule, ProductListRoutingModule, NgxsModule.forFeature([ProductState])]
 })
 export class ProductListModule {}

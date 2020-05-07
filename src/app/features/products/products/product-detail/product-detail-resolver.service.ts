@@ -22,7 +22,6 @@ export class ProductDetailResolverService implements Resolve<ItemDetails> {
     // dispatch action to update store
     return this.productService.fetchItemDetails(itemId).pipe(
       tap((itemDetails: ItemDetails) => {
-        console.log('resolver', itemDetails);
         this.store.dispatch(new Product.AddProductDetails(itemDetails));
       })
     );

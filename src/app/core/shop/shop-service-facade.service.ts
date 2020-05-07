@@ -1,4 +1,4 @@
-import { ShopState, ShopStateModel, SHOP_STATE_TOKEN } from '../../shared/store/state/shop.state';
+import { ShopState } from '../../shared/store/state/shop.state';
 import { tap, filter, take } from 'rxjs/operators';
 import { Store, Selector, Select } from '@ngxs/store';
 import { ShopAsyncService } from './shop-async.service';

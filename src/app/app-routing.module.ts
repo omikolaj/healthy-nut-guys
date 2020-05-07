@@ -39,6 +39,8 @@ const routes: Routes = [
       scrollPositionRestoration: 'enabled',
       enableTracing: false,
       useHash: false,
+      // enables router events to be triggered on refresh
+      onSameUrlNavigation: 'reload',
       preloadingStrategy: PreloadAllModules
     })
   ],

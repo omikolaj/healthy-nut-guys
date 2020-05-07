@@ -14,4 +14,5 @@ export interface SaleItem {
   discountValue?: number;
   specialOffer?: SpecialOffer;
   promoCode?: PromoCode;
+  salePrice?: number;
 }

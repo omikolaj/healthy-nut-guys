@@ -1,9 +1,10 @@
 import { shopItems, itemDetails } from './../../product-list.data';
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { ItemDetails } from 'app/core/models/item-details.model';
 import { ActivatedRoute } from '@angular/router';
 import { FeaturesFacadeService } from 'app/features/features-facade.service';
 import * as uuid from 'uuid';
+import { ViewCustomProductDetails } from 'app/core/models/view-custom-product-details.model';
 
 export interface PeriodicElement {
   name: string;
@@ -32,14 +33,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductDetailCustomSackComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-  itemDetails: ItemDetails;
-  constructor(private route: ActivatedRoute, private facade: FeaturesFacadeService) {}
+  @Input() itemDetails: ViewCustomProductDetails;
+  constructor() {}
 
-  ngOnInit(): void {
-    this.itemDetails = itemDetails.find(i => i.title.toLocaleLowerCase().includes('custom'));
-  }
+  ngOnInit(): void {}
 
   onAddToCart(): void {}
 }
