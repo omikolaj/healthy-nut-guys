@@ -13,6 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CustomSackSelectorComponent } from './products/custom-sack-selector/custom-sack-selector.component';
 import { CustomSackNutritionLabelComponent } from './products/custom-sack-nutrition-label/custom-sack-nutrition-label.component';
 import { ProductDetailContainerComponent } from './products/product-detail-container/product-detail-container.component';
+import { ViewPriceComponent } from './products/view-price/view-price.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProductDetailContainerComponent } from './products/product-detail-conta
     ProductDetailCustomSackComponent,
     CustomSackSelectorComponent,
     CustomSackNutritionLabelComponent,
-    ProductDetailContainerComponent
+    ProductDetailContainerComponent,
+    ViewPriceComponent
   ],
   imports: [CommonModule, SharedModule, ProductListRoutingModule, NgxsModule.forFeature([ProductState])]
 })

@@ -51,7 +51,8 @@ export class ProductDetailContainerComponent implements OnInit {
       viewDetailsProduct = {
         ...viewDetails,
         mixCategories: product.mixCategories,
-        isCustomProduct: true
+        isCustomProduct: true,
+        selectOptions: product.selectOptions
       } as ViewCustomProductDetails;
     } else {
       viewDetailsProduct = {
@@ -75,7 +76,8 @@ export class ProductDetailContainerComponent implements OnInit {
       salePrice: product.salePrice,
       subtitle: product.subtitle,
       imageSrc: product.imageSrc,
-      name: product.name
+      name: product.name,
+      sales: product.sales
     } as ViewDetails;
   }
 }

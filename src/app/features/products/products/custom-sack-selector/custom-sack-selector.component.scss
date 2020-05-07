@@ -1,5 +1,8 @@
 .wrapper {
   .custom-sack {
+    #pointer {
+      cursor: pointer;
+    }
     mat-tree {
       background: #fafafa;
     }

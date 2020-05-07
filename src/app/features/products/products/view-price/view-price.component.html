@@ -1,0 +1,62 @@
+<div class="wrapper">
+
+  <ng-container *ngIf="itemSale?.isOnSale; else regularPrice">
+    <ng-container *ngFor="let sale of itemSale?.sales">
+      <ng-container [ngSwitch]="sale?.type">
+
+      
+
+      <ng-container *ngSwitchCase="offerType.FreeShipping">
+
+        <ng-container [ngTemplateOutlet]="freeShipping" [ngTemplateOutletContext]="{expireDate: moment(sale?.expireDate)}">
+        </ng-container>
+
+      </ng-container>
+
+      <ng-container *ngSwitchCase="offerType.AmountOff">
+
+        <ng-container *ngTemplateOutlet="amountOff">
+        </ng-container>
+
+      </ng-container>
+
+      <ng-container *ngSwitchCase="offerType.PercentOff">
+
+        <ng-container *ngTemplateOutlet="percentOff">
+        </ng-container>
+
+      </ng-container>
+
+    </ng-container>
+    </ng-container>
+
+  </ng-container>
+</div>
+
+<ng-template #regularPrice>
+  <p>${{ itemSale.price }}</p>
+</ng-template>
+
+<ng-template #freeShipping let-expireDate="expireDate">
+  <p><i>Free Shipping, expires on {{expireDate}}</i></p>
+  <ng-container *ngTemplateOutlet="regularPrice"></ng-container>
+
+</ng-template>
+
+<ng-template #percentOff>
+  <p class="price">
+    ${{ itemSale.salePrice }}
+  </p>
+  <p class="price">
+    <s>${{ itemSale.price }}</s>
+  </p>
+</ng-template>
+
+<ng-template #amountOff>
+  <p class="price">
+    ${{ itemSale.salePrice }}
+  </p>
+  <p class="price">
+    <s>${{ itemSale.price }}</s>
+  </p>
+</ng-template>

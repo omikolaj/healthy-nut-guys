@@ -5,8 +5,7 @@
     <mat-card-title>
       {{ itemDetails?.name }}
     </mat-card-title>
-
-    <p>${{ itemDetails?.price }}</p>
+    <thng-view-price [itemSale]="itemSale"></thng-view-price>
     <mat-card-actions>
 
     </mat-card-actions>
@@ -23,7 +22,7 @@
     
     <div class="product-content">
       <div class="custom-selector">
-        <thng-custom-sack-selector></thng-custom-sack-selector>
+        <thng-custom-sack-selector (weightSelectionChange)="onUpdateSelectOption($event)" [customSackForm]="customSackForm" [mixIngredients]="mixIngredients" [selectOptions]="itemDetails?.selectOptions"></thng-custom-sack-selector>
       </div>
       <div class="action-btns">
         <div class="add-to-card">
