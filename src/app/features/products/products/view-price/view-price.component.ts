@@ -28,9 +28,7 @@ export class ViewPriceComponent implements OnInit {
   moment = date => moment(date).format('L');
   constructor() {}
 
-  ngOnInit(): void {
-    console.log('sale', this.itemSale);
-  }
+  ngOnInit(): void {}
 
   get isPercentOff(): boolean {
     if (this.itemSale) {

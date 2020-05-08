@@ -1,7 +1,6 @@
-export interface CustomSelectOption {
-  id?: string;
+import { ProductOption } from './product-option.model';
+
+export interface CustomSelectOption extends ProductOption {
   customProductId?: string;
-  option?: string;
   price?: number;
-  salePrice?: number;
 }

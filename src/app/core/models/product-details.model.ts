@@ -5,4 +5,5 @@ export interface ProductDetails {
   productId?: string;
   labelSrc?: string;
   selectOption?: SelectOption;
+  price?: number;
 }

@@ -6,10 +6,15 @@
   .sack-details {
     display: flex;
     flex-direction: column-reverse;
+    .product-details {
+      order: 0;
+    }
   }
 
-  .spacer {
-    margin: 1.5em;
+  .select-options {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5em;
   }
 
   mat-card {
@@ -31,7 +36,7 @@
   }
 
   .action-btns {
-    margin: 1.75em auto;
+    margin: 0 auto 1.75em;
   }
   .add-to-card {
     display: flex;
@@ -96,18 +101,22 @@
       max-width: 950px;
       margin: 0 auto;
 
+      .spacer {
+        order: 1;
+        margin: 1.5em;
+      }
+
       .product-content {
         width: 50%;
-        .action-btns {
-          width: 450px;
-        }
-        .product-details {
-          order: 1;
-          width: 50%;
-          padding: 0 16px;
-          .item-info {
-            margin-top: 0;
-          }
+        order: 0;
+      }
+
+      .product-details {
+        order: 2;
+        width: 50%;
+        padding: 0 16px;
+        .item-info {
+          margin-top: 0;
         }
       }
     }

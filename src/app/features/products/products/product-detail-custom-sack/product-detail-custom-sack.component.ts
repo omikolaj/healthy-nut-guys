@@ -37,7 +37,7 @@ export class ProductDetailCustomSackComponent implements OnInit {
 
   onAddToCart(): void {}
 
-  onUpdateSelectOption(selectOption): void {
+  onUpdateSelectOption(selectOption: CustomSelectOption): void {
     this.selectOption = selectOption;
     this.itemSale = this.createItemSale();
   }
@@ -46,7 +46,6 @@ export class ProductDetailCustomSackComponent implements OnInit {
     return {
       isOnSale: this.itemDetails.isOnSale,
       price: this.selectOption.price,
-      salePrice: this.selectOption.salePrice,
       sales: this.itemDetails.sales
     } as ViewSale;
   }

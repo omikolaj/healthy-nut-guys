@@ -6,29 +6,40 @@
       {{ itemDetails?.name }}
     </mat-card-title>
 
-    <!-- <p>${{ itemDetails?.price }}</p> -->
+    <thng-view-price [itemSale]="itemSale"></thng-view-price>
     <mat-card-actions>
 
     </mat-card-actions>
   </mat-card>
   <div class="sack-details">
     <div class="product-details">
+      <div class="nutrition-facts">
+        <h4>Nutrition Facts:</h4>
+        <div>
+          <img id="nutitrion-label" [src]="itemDetails?.labelSrc" [alt]="'Nutrion facts for ' + itemDetails?.name">
+        </div>
+      </div>
+    </div>
+    <div class="spacer">
+
+    </div>
+    <div class="product-content">
+
+
       <div class="item-info">
         <div>
           <p>{{itemDetails?.description}}</p>
         </div>
       </div>
-       <div class="nutrition-facts"> 
-          <h4>Nutrition Facts:</h4>   
-          <div>
-          <img id="nutitrion-label" [src]="itemDetails?.labelSrc" [alt]="'Nutrion facts for ' + itemDetails?.name">
-          </div>      
-        </div>
-    </div>    
-    <div class="product-content">
-
-      <div class="spacer">
-        
+    <div class="select-options">
+      <mat-form-field appearance="outline">
+        <mat-label>Sizes</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let productDetails of viewProductDetails" [value]="productDetails?.selectOption">
+            {{productDetails?.selectOption}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
       </div>
       <div class="action-btns">
         <div class="add-to-card">
@@ -38,6 +49,6 @@
       </div>
     </div>
   </div>
-  
+
 
 </div>

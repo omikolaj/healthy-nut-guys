@@ -1,3 +1,4 @@
+import { ProductComponentService } from './../../../../core/products/product-component.service';
 import { MixCategory } from 'app/core/models/mix-category.model';
 import { Category } from 'app/core/models/category.model';
 import { ViewProductDetails } from './../../../../core/models/view-product-details.model';
@@ -11,6 +12,7 @@ import { Product } from 'app/core/models/product.model';
 import { ViewCustomProductDetails } from 'app/core/models/view-custom-product-details.model';
 import { ViewDetails } from 'app/core/models/view-product.model';
 import { Ingredient } from 'app/core/models/ingredient.model';
+import { ProductDetails } from 'app/core/models/product-details.model';
 
 @Component({
   selector: 'thng-product-detail-container',
@@ -66,18 +68,19 @@ export class ProductDetailContainerComponent implements OnInit {
   }
 
   private createProductDetailsView(product: Product | CustomProduct): ViewDetails {
-    return {
+    let viewDetails = {
       isCustomProduct: true,
       id: product.id,
       description: product.description,
       isInStock: product.isInStock,
       isOnSale: product.isOnSale,
-      price: product.price,
-      salePrice: product.salePrice,
       subtitle: product.subtitle,
       imageSrc: product.imageSrc,
-      name: product.name,
-      sales: product.sales
+      name: product.name
     } as ViewDetails;
+    if (product.isOnSale) {
+      viewDetails.sales = product.sales;
+    }
+    return viewDetails;
   }
 }

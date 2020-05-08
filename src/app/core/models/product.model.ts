@@ -18,5 +18,4 @@ export interface Product {
   productDetails?: ProductDetails[];
   tags?: Tag[];
   isInStock?: boolean;
-  salePrice?: number;
 }
