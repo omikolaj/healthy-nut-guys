@@ -78,19 +78,22 @@ export class ProductDetailCustomSackComponent implements OnInit {
   }
 
   private createMixIngredientNodes(): MixIngredientNode[] {
-    return this.itemDetails.mixCategories.map(mix => {
-      return {
-        id: mix.id,
-        name: mix.name,
-        inStock: mix.inStock,
-        children: mix.ingredients.map(i => {
-          return {
-            id: i.id,
-            name: i.name,
-            inStock: i.inStock
-          };
-        })
-      } as MixIngredientNode;
-    });
+    return this.itemDetails.mixCategories
+      .map(mix => {
+        return {
+          id: mix.id,
+          name: mix.name,
+          inStock: mix.inStock,
+          order: mix.order,
+          children: mix.ingredients.map(i => {
+            return {
+              id: i.id,
+              name: i.name,
+              inStock: i.inStock
+            };
+          })
+        } as MixIngredientNode;
+      })
+      .sort((a, b) => (a.order < b.order ? -1 : 0));
   }
 }

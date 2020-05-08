@@ -1,5 +1,7 @@
 <div class="wrapper">
 
+<ng-container *ngIf="!(shopOffer$ | async); else regularPrice">
+
   <ng-container *ngIf="itemSale?.isOnSale; else regularPrice">
     <ng-container *ngFor="let sale of itemSale?.sales">
       <ng-container [ngSwitch]="sale?.type">
@@ -29,6 +31,8 @@
 
     </ng-container>
     </ng-container>
+
+  </ng-container>
 
   </ng-container>
 </div>

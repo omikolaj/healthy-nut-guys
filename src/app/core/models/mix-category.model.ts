@@ -7,4 +7,5 @@ export interface MixCategory {
   name?: string;
   ingredients?: Ingredient[];
   type?: MixCategoryType;
+  order?: number;
 }

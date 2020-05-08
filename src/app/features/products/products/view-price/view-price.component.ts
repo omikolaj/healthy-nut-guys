@@ -1,3 +1,4 @@
+import { SpecialOffer } from 'app/core/models/special-offer.model';
 import { Moment } from 'moment';
 import { SaleItem } from 'app/core/models/sale-item.model';
 import { Offer } from './../../../../core/models/offer.model';
@@ -9,6 +10,9 @@ import { CustomSelectOption } from 'app/core/models/custom-select-option.model';
 import { OfferType } from 'app/core/enum/offer-type.enum';
 import { ViewSale } from 'app/core/models/view-sale.model';
 import * as moment from 'moment';
+import { ShopState } from 'app/shared/store/state/shop.state';
+import { Observable } from 'rxjs';
+import { Select, Selector } from '@ngxs/store';
 
 @Component({
   selector: 'thng-view-price',
@@ -17,6 +21,7 @@ import * as moment from 'moment';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ViewPriceComponent implements OnInit {
+  @Select(ShopState.getShopOffer) shopOffer$: Observable<SpecialOffer>;
   @Input() itemSale: ViewSale;
   offerType = OfferType;
   context = { name: 'World' };

@@ -8,6 +8,7 @@ export interface Ingredient {
 export interface MixIngredientNode {
   id?: string;
   name?: string;
+  order?: number;
   inStock?: boolean;
   children?: MixIngredientNode[];
 }
