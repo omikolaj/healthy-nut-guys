@@ -3,16 +3,17 @@ import { SelectOption } from 'app/core/models/select-option.model';
 import { MixCategoryType } from './../../../../core/models/mix-category-type.enum';
 import { MixCategory } from 'app/core/models/mix-category.model';
 import { shopItems, itemDetails } from './../../product-list.data';
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { ItemDetails } from 'app/core/models/item-details.model';
 import { ActivatedRoute } from '@angular/router';
 import { FeaturesFacadeService } from 'app/features/features-facade.service';
 import * as uuid from 'uuid';
 import { ViewCustomProductDetails } from 'app/core/models/view-custom-product-details.model';
 import { MixIngredientNode } from 'app/core/models/ingredient.model';
-import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { CustomSelectOption } from 'app/core/models/custom-select-option.model';
 import { ViewSale } from 'app/core/models/view-sale.model';
+import { CartItem } from 'app/core/models/cart-item.model';
 
 @Component({
   selector: 'thng-product-detail-custom-sack',
@@ -23,6 +24,7 @@ import { ViewSale } from 'app/core/models/view-sale.model';
 export class ProductDetailCustomSackComponent implements OnInit {
   @Input() itemDetails: ViewCustomProductDetails;
   mixIngredients: MixIngredientNode[] = [];
+  @Output() addItemToCartClicked: EventEmitter<CartItem> = new EventEmitter();
   customSackForm: FormGroup;
   selectOption: CustomSelectOption;
   itemSale: ViewSale;
@@ -35,7 +37,21 @@ export class ProductDetailCustomSackComponent implements OnInit {
     this.initCustomSackForm();
   }
 
-  onAddToCart(): void {}
+  onAddToCart(): void {
+    // do not add to cart if there is nothing inside the mix on hand
+    if (this.customSackForm.controls['mixOnHand'].value < 1) {
+      return;
+    }
+    const cartItem: CartItem = {
+      productId: this.itemDetails.id,
+      imageSrc: this.itemDetails.imageSrc,
+      title: this.itemDetails.name,
+      selectOption: this.selectOption,
+      itemPrice: this.selectOption.price,
+      isCustomProduct: true
+    };
+    this.addItemToCartClicked.emit(cartItem);
+  }
 
   onUpdateSelectOption(selectOption: CustomSelectOption): void {
     this.selectOption = selectOption;

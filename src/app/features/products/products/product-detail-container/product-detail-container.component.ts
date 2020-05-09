@@ -1,7 +1,7 @@
+import { ViewProductDetails } from 'app/core/models/view-product-details.model';
 import { ProductComponentService } from './../../../../core/products/product-component.service';
 import { MixCategory } from 'app/core/models/mix-category.model';
 import { Category } from 'app/core/models/category.model';
-import { ViewProductDetails } from './../../../../core/models/view-product-details.model';
 import { ProductFacadeService } from './../../product-facade.service';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -13,6 +13,9 @@ import { ViewCustomProductDetails } from 'app/core/models/view-custom-product-de
 import { ViewDetails } from 'app/core/models/view-product.model';
 import { Ingredient } from 'app/core/models/ingredient.model';
 import { ProductDetails } from 'app/core/models/product-details.model';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CartItem } from 'app/core/models/cart-item.model';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'thng-product-detail-container',
@@ -22,7 +25,8 @@ import { ProductDetails } from 'app/core/models/product-details.model';
 })
 export class ProductDetailContainerComponent implements OnInit {
   productDetails$: Observable<ViewProductDetails | ViewCustomProductDetails>;
-  constructor(private route: ActivatedRoute, private facade: ProductFacadeService) {}
+  productForm: FormGroup;
+  constructor(private route: ActivatedRoute, private facade: ProductFacadeService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     // get latest from regular products and custom prodcuts
@@ -38,6 +42,24 @@ export class ProductDetailContainerComponent implements OnInit {
       // materialize the type before passing it off to the template
       map(viewDetails => (viewDetails.isCustomProduct ? (viewDetails as ViewCustomProductDetails) : (viewDetails as ViewProductDetails)))
     );
+    this.initForms();
+  }
+
+  onAddItemToCartClicked(cartItem: CartItem): void {
+    cartItem.id = uuid();
+    this.facade.addCartItem(cartItem);
+  }
+
+  private initForms(): void {
+    this.initProductForm();
+  }
+
+  private initProductForm(): void {
+    this.productForm = this.fb.group({
+      selectedWeight: this.fb.control(''),
+      selectOptionId: this.fb.control(''),
+      productId: this.fb.control('')
+    });
   }
 
   // Check if user clicked on custom product (custom sack etc.)

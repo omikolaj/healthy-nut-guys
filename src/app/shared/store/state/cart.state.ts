@@ -33,7 +33,7 @@ export class CartState {
   addItemToCart(ctx: StateContext<CartStateModel>, action: CartActions.AddToCart): void {
     ctx.setState(
       produce((draft: CartStateModel) => {
-        draft.entities.cartItems[action.item.productId] = action.item;
+        draft.entities.cartItems[action.item.id] = action.item;
       })
     );
   }

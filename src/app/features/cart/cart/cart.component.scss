@@ -72,14 +72,14 @@
         }
       }
     }
+  }
 
-    .cart-navigation {
-      display: flex;
-      flex-direction: column;
-      height: 134px;
-      justify-content: space-evenly;
-      margin-bottom: 1.5em;
-    }
+  #cart-navigation {
+    display: flex;
+    flex-direction: column;
+    height: 134px;
+    justify-content: space-evenly;
+    margin-bottom: 1.5em;
   }
 
   .mat-flat-button {
@@ -98,13 +98,14 @@
       #your-cart-title {
         margin-bottom: 3.5rem;
       }
-      .cart-navigation {
-        flex-direction: row;
-        justify-content: flex-end;
-        height: 100%;
-        button:not(:last-child) {
-          margin-right: 6px;
-        }
+    }
+
+    #cart-navigation {
+      flex-direction: row;
+      justify-content: flex-end;
+      height: 100%;
+      button:not(:last-child) {
+        margin-right: 6px;
       }
     }
   }

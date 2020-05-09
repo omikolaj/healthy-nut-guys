@@ -130,6 +130,7 @@ export class CustomSackSelectorComponent implements OnInit {
             this.notificationService.info(
               `${mixOnHandControl.value}` + ' / ' + `${totalWeight}oz.` + ` You have ${totalWeight - mixOnHandControl.value} oz left`
             );
+            mixOnHandControl.markAsDirty();
           }
         } else {
           this.notificationService.info(`${mixOnHandControl.value}` + ' / ' + `${totalWeight}` + 'oz ' + 'your nut sack is full!');

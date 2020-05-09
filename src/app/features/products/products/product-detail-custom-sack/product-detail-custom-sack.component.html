@@ -27,7 +27,7 @@
       <div class="action-btns">
         <div class="add-to-card">
           <button mat-raised-button color="primary" (click)="onAddToCart()"
-            [disabled]="!itemDetails?.isInStock">{{ itemDetails?.isInStock ? 'Add To Cart' : 'Sold Out' }}</button>
+            [disabled]="!itemDetails?.isInStock || !customSackForm.valid">{{ itemDetails?.isInStock ? 'Add To Cart' : 'Sold Out' }}</button>
         </div>
       </div>
     </div>    

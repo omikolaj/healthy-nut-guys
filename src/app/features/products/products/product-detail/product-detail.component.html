@@ -32,14 +32,16 @@
         </div>
       </div>
     <div class="select-options">
+      <ng-container [formGroup]="productForm">
       <mat-form-field appearance="outline">
         <mat-label>Sizes</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let productDetails of viewProductDetails" [value]="productDetails?.selectOption">
-            {{productDetails?.selectOption}}
+        <mat-select (selectionChange)="onWeightSelectionChange($event)" formControlName="selectedWeight">
+          <mat-option *ngFor="let productDetails of viewProductDetails" [value]="productDetails?.selectOption.option">
+            {{productDetails?.selectOption.option}}
           </mat-option>
         </mat-select>
       </mat-form-field>
+      </ng-container>
       </div>
       <div class="action-btns">
         <div class="add-to-card">
