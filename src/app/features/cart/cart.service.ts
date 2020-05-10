@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CartItem } from 'app/core/models/cart-item.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CartService {
   constructor() {}
 
@@ -36,7 +38,26 @@ export class CartService {
     }, new Array<CartItem>());
   }
 
-  getItemTotalPrice(itemPrice: number, quantity: number): number {
-    return itemPrice * quantity;
+  getItemTotalPrice(itemPrice: number, quantity: number): string {
+    return (itemPrice * quantity).toFixed(2);
+  }
+
+  setTotalPriceOnEachItem(cartItems: CartItem[]): CartItem[] {
+    return cartItems.map(c => {
+      return {
+        ...c,
+        selectOption: { ...c.selectOption },
+        totalPrice: (c.itemPrice * c.quantity).toFixed(2)
+      } as CartItem;
+    });
+  }
+
+  setSubtotalPrice(cartItems: CartItem[]): { subtotal: string; items: CartItem[] } {
+    let subtotal: number = 0;
+    cartItems.forEach(cartItem => {
+      subtotal += parseFloat(cartItem.totalPrice);
+    });
+
+    return { subtotal: subtotal.toFixed(2), items: cartItems };
   }
 }

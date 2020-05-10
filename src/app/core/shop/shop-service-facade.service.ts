@@ -1,3 +1,4 @@
+import { CartItem } from './../models/cart-item.model';
 import { ShopState } from '../../shared/store/state/shop.state';
 import { tap, filter, take } from 'rxjs/operators';
 import { Store, Selector, Select } from '@ngxs/store';
@@ -6,12 +7,14 @@ import { Injectable } from '@angular/core';
 import * as Shop from '../../shared/store/actions/shop.actions';
 import { Observable } from 'rxjs';
 import { SpecialOffer } from '../models/special-offer.model';
+import { CartState } from 'app/shared/store/state/cart.state';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopServiceFacadeService {
   @Select(ShopState.getShopOffer) shopOffer$: Observable<SpecialOffer>;
+  @Select(CartState.getCartItems) cartItems$: Observable<CartItem[]>;
 
   constructor(private shopAsync: ShopAsyncService, private store: Store) {}
 

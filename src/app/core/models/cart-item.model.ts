@@ -9,5 +9,5 @@ export interface CartItem {
   itemPrice: number;
   isCustomProduct?: boolean;
   id?: string;
-  totalPrice?: number;
+  totalPrice?: string;
 }

@@ -21,5 +21,4 @@ export interface CustomProduct {
   tags?: Tag[];
   selectOptions?: SelectOption[];
   isInStock?: boolean;
-  salePrice?: number;
 }

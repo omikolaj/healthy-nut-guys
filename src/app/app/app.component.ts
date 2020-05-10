@@ -24,7 +24,7 @@ import { Store as ngrxStore, select } from '@ngrx/store';
 import { CartItem } from 'app/core/models/cart-item.model';
 import { CartState } from 'app/shared/store/state/cart.state';
 import { ShopServiceFacadeService } from '../core/shop/shop-service-facade.service';
-import { map, filter } from 'rxjs/operators';
+import { map, filter, reduce, startWith, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'thng-root',
@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
   stickyHeader$: Observable<boolean>;
   language$: Observable<string>;
   theme$: Observable<string>;
-  @Select(CartState.getCartItems) cartItems$: Observable<CartItem[]>;
+  cartItemsQuantity$ = this.facade.cartItems$.pipe(map(cartItems => cartItems.map(c => c.quantity).reduce((a, b) => a + b, 0)));
 
   constructor(
     private router: Router,

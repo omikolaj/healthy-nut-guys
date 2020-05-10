@@ -36,7 +36,7 @@ import { CartState } from './shared/store/state/cart.state';
       developmentMode: !environment.production,
       selectorOptions: {
         suppressErrors: false,
-        injectContainerState: false
+        injectContainerState: true
       },
       compatibility: {
         strictContentSecurityPolicy: true

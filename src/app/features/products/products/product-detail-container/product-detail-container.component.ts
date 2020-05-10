@@ -1,3 +1,4 @@
+import { NotificationService } from 'app/core/core.module';
 import { ViewProductDetails } from 'app/core/models/view-product-details.model';
 import { ProductComponentService } from './../../../../core/products/product-component.service';
 import { MixCategory } from 'app/core/models/mix-category.model';
@@ -46,8 +47,21 @@ export class ProductDetailContainerComponent implements OnInit {
   }
 
   onAddItemToCartClicked(cartItem: CartItem): void {
-    cartItem.id = uuid();
-    this.facade.addCartItem(cartItem);
+    if (this.facade.cartItems.some(c => c.productId === cartItem.productId) === false) {
+      cartItem.id = uuid();
+      cartItem.quantity = 1;
+      this.facade.addCartItem(cartItem);
+    } else {
+      const existingCartItems = this.facade.cartItems.filter(c => c.productId === cartItem.productId);
+      const existingCartItem = existingCartItems.find(c => c.selectOption.option === cartItem.selectOption.option);
+      if (existingCartItem) {
+        this.facade.incrementCartItemQuantity(existingCartItem);
+      } else {
+        cartItem.id = uuid();
+        cartItem.quantity = 1;
+        this.facade.addCartItem(cartItem);
+      }
+    }
   }
 
   private initForms(): void {

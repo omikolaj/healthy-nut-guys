@@ -1,6 +1,6 @@
 import { CustomProduct } from './../../core/models/custom-product.model';
 import { NotificationService } from 'app/core/core.module';
-import { catchError, map, filter } from 'rxjs/operators';
+import { catchError, map, filter, shareReplay } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { ShopItem } from 'app/core/models/shop-item.model';

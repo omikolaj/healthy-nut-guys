@@ -1,68 +1,75 @@
 <ng-container *ngIf="cartItems$ | async as cartItems">
-<div class="wrapper">
+  <div class="wrapper">
 
-  <div class="logo">
-    <img src="../../../../assets/healthy_nut_guys_logo_w_title.png" alt="Healthy Nut Guys Logo">
-    <mat-divider></mat-divider>
-  </div>
-  <div class="your-cart">
-    <h1 [ngClass]="routeAnimationsElements" id="your-cart-title">Your Cart</h1>
-  <ng-container *ngFor="let cartItem of cartItems">
-    <div class="grid-item">
+    <div class="logo">
+      <img src="../../../../assets/healthy_nut_guys_logo_w_title.png" alt="Healthy Nut Guys Logo">
       <mat-divider></mat-divider>
-      <div [ngClass]="routeAnimationsElements" class="cart-row">
-        <div class="grid-item-details">
-          <img id="product-image" src="../../../../assets/energy_nut_sack.png" alt="">
-          <div class="spacer"></div>
-          <div class=item-summary-details>
-            <h3>{{ cartItem?.title }}</h3>
-            <span>{{ cartItem?.selectOption?.option }}</span>
-            <button mat-flat-button>Remove</button>
-          </div>
-        </div>
-        <div class="item-meta-info">
+    </div>
+    <div class="your-cart">
+      <h1 [ngClass]="routeAnimationsElements" id="your-cart-title">Your Cart</h1>
+      <ng-container [formGroup]="quantityFormGroup">
+        <ng-container *ngFor="let cartItem of cartItems.items; let i = index;">
+          <ng-container formArrayName="quantities">
+          <div class="grid-item">
+            <mat-divider></mat-divider>
+            <div [ngClass]="routeAnimationsElements" class="cart-row">
+              <div class="grid-item-details">
+                <img id="product-image" src="../../../../assets/energy_nut_sack.png" alt="">
+                <div class="spacer"></div>
+                <div class=item-summary-details>
+                  <h3>{{ cartItem?.title }}</h3>
+                  <span>{{ cartItem?.selectOption?.option }}</span>
+                  <button (click)="onRemoveCartItem(cartItem)" mat-flat-button>Remove</button>
+                </div>
+              </div>
+              <div class="item-meta-info">
 
-          <div>
-            <mat-form-field appearance="outline">
-              <mat-label>Price $</mat-label>
-              <input matInput readonly=true [value]="cartItem?.itemPrice" readonly="true">
-            </mat-form-field>
+                <div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Price $</mat-label>
+                    <input matInput readonly=true [value]="cartItem?.itemPrice" readonly="true">
+                  </mat-form-field>
+                </div>
+                <div>
+                  <ng-container [formGroupName]="i">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Quantity</mat-label>
+                    <input type='number' formControlName="quantity" matInput [value]="cartItem?.quantity" required>                    
+                    <mat-error *ngIf="quantityFormGroup['controls']['quantities']['controls'][i]['invalid']">Cannot be less than 1</mat-error>
+                  </mat-form-field>
+                  </ng-container>
+                </div>
+                <div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Total $</mat-label>
+                    <input matInput readonly=true [value]="cartItem?.totalPrice" readonly="true">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <mat-form-field appearance="outline">
-              <mat-label>Quantity</mat-label>
-              <input matInput readonly=true [value]="cartItem?.quantity">
-            </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field appearance="outline">
-              <mat-label>Total $</mat-label>
-              <input matInput readonly=true [value]="cartItem?.totalPrice" readonly="true">
-            </mat-form-field>
-          </div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+      <div [ngClass]="routeAnimationsElements" class="grid-item">
+
+        <mat-divider></mat-divider>
+        <div class="subtotal-info">
+          <mat-form-field appearance="none">
+            <mat-label>Subtotal</mat-label>
+            <input matInput readonly=true [value]="'$' + cartItems?.subtotal" readonly="true">
+          </mat-form-field>
+          <p><i>Taxes and shipping calculated at checkout</i></p>
         </div>
       </div>
     </div>
-</ng-container>
-    <div [ngClass]="routeAnimationsElements" class="grid-item">
-
-      <mat-divider></mat-divider>
-      <div class="subtotal-info">
-        <mat-form-field appearance="none">
-          <mat-label>Subtotal</mat-label>
-          <input matInput readonly=true [value]="'$83.97'" readonly="true">
-        </mat-form-field>
-        <p><i>Taxes and shipping calculated at checkout</i></p>
-      </div>
+    <div [ngClass]="routeAnimationsElements" id="cart-navigation">
+      <button mat-stroked-button color="accent" (click)="onContinueShopping()">Continue Shopping</button>
+      <button mat-raised-button color="accent" (click)="onUpdateCart()" [disabled]="quantityFormGroup['controls']['quantities']['invalid']">Update Cart</button>
+      <button mat-raised-button color="warn" [disabled]="quantityFormGroup['controls']['quantities']['invalid']" (click)="onCheckOut()">
+        <mat-icon>lock</mat-icon>Check Out
+      </button>
     </div>
-  </div>
-  <div [ngClass]="routeAnimationsElements" id="cart-navigation">
-    <button mat-stroked-button color="accent" (click)="onContinueShopping()">Continue Shopping</button>
-    <button mat-raised-button color="accent" (click)="onUpdateCart()">Update Cart</button>
-    <button mat-raised-button color="warn" (click)="onCheckOut()">
-      <mat-icon>lock</mat-icon>Check Out
-    </button>
-  </div>
 
-</div>
+  </div>
 </ng-container>

@@ -79,8 +79,6 @@ export class ProductDetailComponent implements OnInit {
     this.itemSale = viewItemSale;
   }
 
-  onUpdateSelectOption(): void {}
-
   onAddToCart(): void {
     const cartItem: CartItem = {
       productId: this.productForm.value['productId'],
