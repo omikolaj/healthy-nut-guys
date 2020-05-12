@@ -21,11 +21,11 @@ export class ProductsAsyncService {
   constructor(private http: HttpClient) {}
 
   fetchProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>('shop/products', this.headers);
+    return this.http.get<Product[]>('api/shop/products', this.headers);
   }
 
   fetchCustomProducts(): Observable<CustomProduct[]> {
-    return this.http.get<CustomProduct[]>('shop/custom-products', this.headers);
+    return this.http.get<CustomProduct[]>('api/shop/custom-products', this.headers);
   }
 
   fetchItemDetails(id: string): Observable<ItemDetails> {
