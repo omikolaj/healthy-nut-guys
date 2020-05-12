@@ -10,6 +10,6 @@ export class ShopAsyncService {
   constructor(private http: HttpClient) {}
 
   fetchShopOffer(): Observable<SpecialOffer | null> {
-    return this.http.get<SpecialOffer | null>('api/shop/offer');
+    return this.http.get<SpecialOffer | null>('shop/offer');
   }
 }

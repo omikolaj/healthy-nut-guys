@@ -20,7 +20,7 @@ export class AuthService {
     return this.http.post<Token>('login', JSON.stringify(user), this.headers);
   }
 
-  logout(token: Token): Observable<boolean> {
+  logout(): Observable<boolean> {
     return this.http.delete<boolean>('logout');
   }
 }

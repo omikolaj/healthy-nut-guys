@@ -1,3 +1,4 @@
+import { ApiPrefixInterceptor } from './core/http-interceptors/api-prefix.interceptor.service';
 import { ShopState } from './shared/store/state/shop.state';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { LoadingSpinnerComponent } from './app/loading-spinner/loading-spinner.component';
@@ -57,6 +58,11 @@ import { AuthState, AUTH_STATE_TOKEN } from './core/auth/auth.state';
       useClass: HttpStatusInterceptor,
       multi: true,
       deps: [HttpStatusInterceptorService]
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiPrefixInterceptor,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]
