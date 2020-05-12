@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { SignUpComponent } from './features/auth/auth/sign-up/sign-up.component';
+import { Logout } from './core/auth/auth.actions';
+import { LoginComponent } from './features/auth/auth/login/login.component';
 
 const routes: Routes = [
   {
@@ -28,6 +31,10 @@ const routes: Routes = [
     loadChildren: () => import('./features/checkout/checkout.module').then(m => m.CheckoutModule)
   },
   {
+    path: 'auth',
+    loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule)
+  },
+  {
     path: '**',
     redirectTo: 'about'
   }
@@ -40,8 +47,8 @@ const routes: Routes = [
       enableTracing: false,
       useHash: false,
       // enables router events to be triggered on refresh
-      onSameUrlNavigation: 'reload',
-      preloadingStrategy: PreloadAllModules
+      onSameUrlNavigation: 'reload'
+      // preloadingStrategy: PreloadAllModules
     })
   ],
   exports: [RouterModule]

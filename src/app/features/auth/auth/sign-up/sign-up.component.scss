@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  .action-buttons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .form-controls {
+    .mat-form-field {
+      display: block;
+    }
+  }
+}

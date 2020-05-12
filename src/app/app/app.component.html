@@ -19,13 +19,14 @@
         <!-- <a mat-list-item href="https://github.com/tomastrajan/angular-ngrx-material-starter" target="_blank">
           Github
         </a> -->
-                 
+
       </mat-nav-list>
     </mat-sidenav>
 
     <div class="wrapper">
 
-      <div class="toolbar" [style.position]="(stickyHeader$ | async) ? 'fixed' : 'inherit'" [class.mat-elevation-z4]="(stickyHeader$ | async)">
+      <div class="toolbar" [style.position]="(stickyHeader$ | async) ? 'fixed' : 'inherit'"
+        [class.mat-elevation-z4]="(stickyHeader$ | async)">
         <mat-toolbar color="primary">
           <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
             <fa-icon icon="bars"></fa-icon>
@@ -33,12 +34,12 @@
 
           <span routerLink="" class="branding spacer center d-inline d-sm-none">
             <img [src]="logo" />
-            </span>
+          </span>
           <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none">
             <img [src]="logo" /> {{
             'thng.title.short' | translate }}</span>
           <span routerLink="" class="branding spacer d-none d-md-inline">
-            <img [src]="logo"/> {{ 'thng.title.long' | translate
+            <img [src]="logo" /> {{ 'thng.title.long' | translate
             }}</span>
 
           <span class="d-none d-md-inline">
@@ -47,14 +48,12 @@
               {{item.label | translate}}
             </button>
           </span>
-          
-          <button mat-button mat-stroked-button *ngIf="!(isAuthenticated$ | async)" (click)="onLoginClick()">
+
+          <button mat-button mat-stroked-button *ngIf="!(isAuthenticated$ | async)" routerLink="auth/login">
             {{ 'thng.menu.login' | translate }}
           </button>
 
-          <button *ngIf="(isAuthenticated$ | async)"
-                  mat-icon-button
-                  [matMenuTriggerFor]="toolbarUserMenu">
+          <button *ngIf="(isAuthenticated$ | async)" mat-icon-button [matMenuTriggerFor]="toolbarUserMenu">
             <fa-icon icon="user-circle"></fa-icon>
           </button>
           <mat-menu #toolbarUserMenu="matMenu">
@@ -68,7 +67,7 @@
             </button>
           </mat-menu>
 
-          
+
 
           <!----------------------------->
           <!-- Disable the github link -->
@@ -85,17 +84,17 @@
 
           <button mat-icon-button routerLink="cart" class="d-none d-sm-inline">
             <ng-container *ngIf="cartItemsQuantity$ | async; else emptyCart">
-              <mat-icon [matBadge]="cartItemsQuantity$ | async" matBadgeColor="accent">shopping_cart</mat-icon>     
-              </ng-container>
-          </button> 
-          <ng-template #emptyCart>
-            <mat-icon>shopping_cart</mat-icon>
-          </ng-template>
+              <mat-icon [matBadge]="cartItemsQuantity$ | async" matBadgeColor="accent">shopping_cart</mat-icon>
+            </ng-container>
+            <ng-template #emptyCart>
+              <mat-icon>shopping_cart</mat-icon>
+            </ng-template>
+          </button>
 
           <!-------------------------------->
           <!-- Using as padding for overflow -->
           <!-------------------------------->
-          <button mat-icon-button  class="d-none d-sm-inline">
+          <button mat-icon-button class="d-none d-sm-inline">
           </button>
 
           <!-------------------------------->
@@ -112,15 +111,15 @@
         </mat-toolbar>
       </div>
       <thng-loading-spinner *ngIf="loading$ | async"></thng-loading-spinner>
-      <div class="content" [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.data && o.activatedRoute.routeConfig.data.title">        
-        <router-outlet #o="outlet"></router-outlet>        
+      <div class="content"
+        [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.data && o.activatedRoute.routeConfig.data.title">
+        <router-outlet #o="outlet"></router-outlet>
       </div>
 
       <div class="footer">
         <div class="row">
-          <div class="col-sm-12 links">            
-            <a href="https://www.facebook.com/healthynutguys"
-               target="_blank">
+          <div class="col-sm-12 links">
+            <a href="https://www.facebook.com/healthynutguys" target="_blank">
               <fa-icon [icon]="faFacebookF"></fa-icon>
               <span>Facebook</span>
             </a>
@@ -134,9 +133,8 @@
           <div class="col-12 signature">
             &#169; <span class="year">{{year}}</span> - {{ 'thng.title.long' | translate }}
             <br class="d-block d-sm-none">
-            <a [matTooltip]="'thng.footer.changelog' | translate"
-               matTooltipPosition="before"
-               href="https://github.com/tomastrajan/angular-ngrx-material-starter/blob/master/CHANGELOG.md">
+            <a [matTooltip]="'thng.footer.changelog' | translate" matTooltipPosition="before"
+              href="https://github.com/tomastrajan/angular-ngrx-material-starter/blob/master/CHANGELOG.md">
               <fa-icon icon="rocket"></fa-icon>
               {{version}} <span *ngIf="!isProd">[{{envName}}]</span>
             </a>

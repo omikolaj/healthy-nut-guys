@@ -8,7 +8,7 @@
     <div class="your-cart">
       <h1 [ngClass]="routeAnimationsElements" id="your-cart-title">Your Cart</h1>
       <ng-container [formGroup]="quantityFormGroup">
-        <ng-container *ngFor="let cartItem of cartItems.items; let i = index;">
+        <ng-container *ngFor="let cartItem of cartItems.items; let i = index; ">
           <ng-container formArrayName="quantities">
           <div class="grid-item">
             <mat-divider></mat-divider>

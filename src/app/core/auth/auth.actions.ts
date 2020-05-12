@@ -1,4 +1,9 @@
-import { createAction } from '@ngrx/store';
+import { ApplicationUser } from './application-user.model';
+export class Login {
+  static readonly type = '[Auth] Login';
+  constructor(public payload: ApplicationUser) {}
+}
 
-export const authLogin = createAction('[Auth] Login');
-export const authLogout = createAction('[Auth] Logout');
+export class Logout {
+  static readonly type = '[Auth] Logout';
+}

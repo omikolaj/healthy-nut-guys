@@ -16,7 +16,8 @@ import { HttpStatusInterceptor } from './core/http-interceptors/http-status.inte
 import { NgxsModule } from '@ngxs/store';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { environment } from 'environments/environment';
-import { CartState } from './shared/store/state/cart.state';
+import { CartState, CART_STATE_TOKEN } from './shared/store/state/cart.state';
+import { AuthState, AUTH_STATE_TOKEN } from './core/auth/auth.state';
 
 @NgModule({
   imports: [
@@ -32,7 +33,7 @@ import { CartState } from './shared/store/state/cart.state';
     CoreModule,
 
     // NGXS Store
-    NgxsModule.forRoot([CartState, ShopState], {
+    NgxsModule.forRoot([CartState, ShopState, AuthState], {
       developmentMode: !environment.production,
       selectorOptions: {
         suppressErrors: false,
@@ -43,7 +44,7 @@ import { CartState } from './shared/store/state/cart.state';
       }
     }),
     NgxsStoragePluginModule.forRoot({
-      key: CartState
+      key: [CART_STATE_TOKEN, AUTH_STATE_TOKEN]
     }),
 
     // app

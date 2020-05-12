@@ -7,24 +7,11 @@ import { Observable } from 'rxjs';
 import { environment as env } from '../../environments/environment';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
-import {
-  authLogin,
-  authLogout,
-  routeAnimations,
-  LocalStorageService,
-  selectIsAuthenticated,
-  selectSettingsStickyHeader,
-  selectSettingsLanguage,
-  selectEffectiveTheme
-} from '../core/core.module';
-import { actionSettingsChangeAnimationsPageDisabled, actionSettingsChangeLanguage } from '../core/settings/settings.actions';
-import { Loading } from 'app/core/decorators/loading.decorator';
-import { Select, Store } from '@ngxs/store';
+import { routeAnimations, LocalStorageService, selectSettingsStickyHeader, selectEffectiveTheme } from '../core/core.module';
+import { actionSettingsChangeAnimationsPageDisabled } from '../core/settings/settings.actions';
 import { Store as ngrxStore, select } from '@ngrx/store';
-import { CartItem } from 'app/core/models/cart-item.model';
-import { CartState } from 'app/shared/store/state/cart.state';
 import { ShopServiceFacadeService } from '../core/shop/shop-service-facade.service';
-import { map, filter, reduce, startWith, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'thng-root',
@@ -74,7 +61,6 @@ export class AppComponent implements OnInit {
         })
       );
     }
-    this.isAuthenticated$ = this.ngrxStore.pipe(select(selectIsAuthenticated));
     this.stickyHeader$ = this.ngrxStore.pipe(select(selectSettingsStickyHeader));
     // if commented back in don't forget to comment back in HTML template code for this
     // this.language$ = this.store.pipe(select(selectSettingsLanguage));

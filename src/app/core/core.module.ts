@@ -17,14 +17,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
 import { environment } from '../../environments/environment';
-
 import { AppState, reducers, metaReducers, selectRouterState } from './core.state';
-import { AuthEffects } from './auth/auth.effects';
-import { selectIsAuthenticated, selectAuth } from './auth/auth.selectors';
-import { authLogin, authLogout } from './auth/auth.actions';
-import { AuthGuardService } from './auth/auth-guard.service';
 import { TitleService } from './title/title.service';
 import { ROUTE_ANIMATIONS_ELEMENTS, routeAnimations } from './animations/route.animations';
 import { AnimationsService } from './animations/animations.service';
@@ -42,16 +36,11 @@ import { faGithub, faMediumM, faTwitter, faInstagram, faYoutube } from '@fortawe
 
 export {
   TitleService,
-  selectAuth,
-  authLogin,
-  authLogout,
   routeAnimations,
   AppState,
   LocalStorageService,
-  selectIsAuthenticated,
   ROUTE_ANIMATIONS_ELEMENTS,
   AnimationsService,
-  AuthGuardService,
   selectRouterState,
   NotificationService,
   selectEffectiveTheme,
@@ -84,7 +73,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     // ngrx
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([AuthEffects, SettingsEffects, GoogleAnalyticsEffects]),
+    EffectsModule.forRoot([SettingsEffects, GoogleAnalyticsEffects]),
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({

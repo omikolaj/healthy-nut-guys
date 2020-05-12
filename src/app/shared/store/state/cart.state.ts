@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Selector, State, Action, StateContext } from '@ngxs/store';
+import { Selector, State, Action, StateContext, StateToken } from '@ngxs/store';
 import produce from 'immer';
 import { CartItem } from 'app/core/models/cart-item.model';
 import * as CartActions from '../actions/cart.actions';
@@ -13,8 +13,10 @@ export interface CartStateModel {
   };
 }
 
+export const CART_STATE_TOKEN = new StateToken<CartStateModel>('cart');
+
 @State<CartStateModel>({
-  name: 'cart',
+  name: CART_STATE_TOKEN,
   defaults: {
     entities: {
       cartItems: {},
@@ -44,7 +46,7 @@ export class CartState {
   updateCartItemsQuantities(ctx: StateContext<CartStateModel>, action: CartActions.UpdateCartItemsQuantities): void {
     ctx.setState(
       produce((draft: CartStateModel) => {
-        action.payload.map(cartQuantity => {
+        action.payload.forEach(cartQuantity => {
           draft.entities.cartItems[cartQuantity.cartItemId].quantity = parseInt(cartQuantity.quantity);
         });
       })

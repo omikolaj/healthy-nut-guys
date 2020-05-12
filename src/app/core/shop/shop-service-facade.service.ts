@@ -8,6 +8,7 @@ import * as Shop from '../../shared/store/actions/shop.actions';
 import { Observable } from 'rxjs';
 import { SpecialOffer } from '../models/special-offer.model';
 import { CartState } from 'app/shared/store/state/cart.state';
+import { AuthState } from 'app/core/auth/auth.state';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ import { CartState } from 'app/shared/store/state/cart.state';
 export class ShopServiceFacadeService {
   @Select(ShopState.getShopOffer) shopOffer$: Observable<SpecialOffer>;
   @Select(CartState.getCartItems) cartItems$: Observable<CartItem[]>;
-
+  @Select(AuthState.isAuthenticated) isAuthenticated$: Observable<boolean>;
   constructor(private shopAsync: ShopAsyncService, private store: Store) {}
 
   getShopOffer(): void {

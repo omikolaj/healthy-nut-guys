@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-controls">
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input formControlName="email" matInput>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput type="password">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input formControlName="confirmPassword" matInput type="password">
+      </mat-form-field>
+    </div>
+    <div class="action-buttons">
+      <button color="accent" mat-raised-button [disabled]="!signupForm.valid">Sign up</button>
+      <button mat-raised-button type="button" routerLink="login">Switch to Login</button>
+    </div>
+  </form>
+</div>
