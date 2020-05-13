@@ -57,7 +57,7 @@
             <fa-icon icon="user-circle"></fa-icon>
           </button>
           <mat-menu #toolbarUserMenu="matMenu">
-            <button mat-menu-item (click)="onLogoutClick()">
+            <button mat-menu-item routerLink='auth/logout'>
               <mat-icon>power_off</mat-icon>
               <span>{{ 'thng.menu.logout' | translate }}</span>
             </button>
@@ -111,6 +111,7 @@
         </mat-toolbar>
       </div>
       <thng-loading-spinner *ngIf="loading$ | async"></thng-loading-spinner>
+      <thng-acting-spinner *ngIf="acting$ | async"></thng-acting-spinner>
       <div class="content"
         [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.data && o.activatedRoute.routeConfig.data.title">
         <router-outlet #o="outlet"></router-outlet>

@@ -1,9 +1,4 @@
-import {
-  HttpEvent,
-  HttpHandler,
-  HttpInterceptor,
-  HttpRequest
-} from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
@@ -18,10 +13,7 @@ export class HttpStatusInterceptor implements HttpInterceptor {
 
   constructor(private httpStatusService: HttpStatusInterceptorService) {}
 
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.changeStatus(true, req.method);
     return next.handle(req.clone()).pipe(
       catchError(e => {
@@ -43,6 +35,7 @@ export class HttpStatusInterceptor implements HttpInterceptor {
     if (['POST', 'PUT', 'DELETE', 'PATCH'].includes(method)) {
       // if we are loading increment if we are not increment decrement
       val ? this.actingCalls++ : this.actingCalls--;
+      this.httpStatusService.acting = this.actingCalls > 0;
       // if we still have acting requests happening
     } else if (method === 'GET') {
       val ? this.loadingCalls++ : this.loadingCalls--;

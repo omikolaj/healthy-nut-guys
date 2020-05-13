@@ -7,7 +7,7 @@ import { Token } from './token.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthAsyncService {
   headers = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -17,11 +17,10 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(user: ApplicationUser): Observable<Token> {
-    console.log('user', user);
-    return this.http.post<Token>('login', JSON.stringify(user), this.headers);
+    return this.http.post<Token>('api/login', JSON.stringify(user), this.headers);
   }
 
   logout(): Observable<boolean> {
-    return this.http.delete<boolean>('logout');
+    return this.http.delete<boolean>('api/logout');
   }
 }

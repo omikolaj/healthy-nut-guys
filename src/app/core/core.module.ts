@@ -1,3 +1,4 @@
+import { BearerInterceptor } from './http-interceptors/bearer.interceptor';
 import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -33,6 +34,8 @@ import { selectSettingsLanguage, selectEffectiveTheme, selectSettingsStickyHeade
 import { MatButtonModule } from '@angular/material/button';
 import { faCog, faBars, faRocket, faPowerOff, faUserCircle, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faMediumM, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { HttpStatusInterceptor } from './http-interceptors/http-status.interceptor';
+import { HttpStatusInterceptorService } from './http-interceptors/http-status.interceptor.service';
 
 export {
   TitleService,
@@ -94,7 +97,14 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: ErrorHandler, useClass: AppErrorHandler },
-    { provide: RouterStateSerializer, useClass: CustomSerializer }
+    { provide: RouterStateSerializer, useClass: CustomSerializer },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpStatusInterceptor,
+      multi: true,
+      deps: [HttpStatusInterceptorService]
+    },
+    { provide: HTTP_INTERCEPTORS, useClass: BearerInterceptor, multi: true }
   ],
   exports: [
     // angular

@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { AuthFacadeService } from '../../auth-facade.service';
 
 @Component({
   selector: 'thng-logout',
@@ -7,7 +8,9 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LogoutComponent implements OnInit {
-  constructor() {}
+  constructor(private facade: AuthFacadeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.facade.logout();
+  }
 }

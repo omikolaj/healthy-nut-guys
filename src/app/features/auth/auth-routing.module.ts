@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
+import { LogoutComponent } from './auth/logout/logout.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
-import { Logout } from 'app/core/auth/auth.actions';
 
 const routes: Routes = [
   {
@@ -18,7 +18,7 @@ const routes: Routes = [
       },
       {
         path: 'logout',
-        component: Logout
+        component: LogoutComponent
       },
       {
         path: '**',

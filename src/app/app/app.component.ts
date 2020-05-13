@@ -21,6 +21,7 @@ import { map } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
   loading$ = this.httpStatusService.loading$;
+  acting$ = this.httpStatusService.acting$;
   faFacebookF = faFacebookF;
   isProd = env.production;
   envName = env.envName;
@@ -34,7 +35,7 @@ export class AppComponent implements OnInit {
   ];
   navigationSideMenu = [...this.navigation, { link: 'cart', label: 'thng.menu.cart' }];
 
-  isAuthenticated$: Observable<boolean>;
+  isAuthenticated$: Observable<boolean> = this.facade.isAuthenticated$;
   stickyHeader$: Observable<boolean>;
   language$: Observable<string>;
   theme$: Observable<string>;

@@ -1,7 +1,6 @@
 import { ShopState } from './shared/store/state/shop.state';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { LoadingSpinnerComponent } from './app/loading-spinner/loading-spinner.component';
-import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Injector } from '@angular/core';
@@ -10,14 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { setRootInjector } from 'root-injector';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpStatusInterceptorService } from './core/http-interceptors/http-status.interceptor.service';
-import { HttpStatusInterceptor } from './core/http-interceptors/http-status.interceptor';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { environment } from 'environments/environment';
 import { CartState, CART_STATE_TOKEN } from './shared/store/state/cart.state';
 import { AuthState, AUTH_STATE_TOKEN } from './core/auth/auth.state';
+import { ActingSpinnerComponent } from './app/acting-spinner/acting-spinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -28,6 +26,7 @@ import { AuthState, AUTH_STATE_TOKEN } from './core/auth/auth.state';
     // material icon for shopping cart
     MatBadgeModule,
     MatProgressBarModule,
+    MatProgressSpinnerModule,
 
     // core
     CoreModule,
@@ -50,15 +49,8 @@ import { AuthState, AUTH_STATE_TOKEN } from './core/auth/auth.state';
     // app
     AppRoutingModule
   ],
-  declarations: [AppComponent, LoadingSpinnerComponent],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpStatusInterceptor,
-      multi: true,
-      deps: [HttpStatusInterceptorService]
-    }
-  ],
+  declarations: [AppComponent, LoadingSpinnerComponent, ActingSpinnerComponent],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
