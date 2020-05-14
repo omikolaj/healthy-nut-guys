@@ -1,6 +1,8 @@
+import { AuthFacadeService } from './../../auth-facade.service';
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { ConfirmPasswordErrorStateMatcher } from './error-state-matcher';
+import { ApplicationUser } from 'app/core/auth/application-user.model';
 
 @Component({
   selector: 'thng-sign-up',
@@ -13,13 +15,22 @@ export class SignUpComponent implements OnInit {
   hide = true;
   matcher = new ConfirmPasswordErrorStateMatcher();
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private facade: AuthFacadeService) {}
 
   ngOnInit(): void {
     this.initSignUpForm();
   }
 
-  onSubmit(): void {}
+  onSubmit(): void {
+    const password = this.signupForm.controls['passwords'].get('password').value;
+    const newUser = this.signupForm.value as ApplicationUser;
+    if (newUser) {
+      if (password) {
+        newUser.password = password;
+        this.facade.signUp(newUser);
+      }
+    }
+  }
 
   getErrorMessage(control: AbstractControl): string {
     if (control.hasError('required')) {

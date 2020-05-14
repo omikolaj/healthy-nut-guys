@@ -1,9 +1,9 @@
+import { ApplicationUser } from './../../core/auth/application-user.model';
 import { NotificationService } from './../../core/notifications/notification.service';
 import { Router, Params } from '@angular/router';
 import { Store, Select } from '@ngxs/store';
 import { Injectable } from '@angular/core';
 import { AuthState } from 'app/core/auth/auth.state';
-import { ApplicationUser } from 'app/core/auth/application-user.model';
 import { AuthAsyncService } from 'app/core/auth/auth-async.service';
 import { tap, catchError } from 'rxjs/operators';
 import * as Auth from '../../core/auth/auth.actions';
@@ -23,6 +23,27 @@ export class AuthFacadeService {
       .pipe(
         tap(token =>
           this.store.dispatch(new Auth.Login({ email: user.email, access_token: token.access_token, expire_date: token.expire_date } as LoggedIn))
+        ),
+        tap(token => {
+          const payload = this.decodeJwt(token.access_token);
+          this.router.navigate(['../users', `${payload['sub']}`, 'dashboard']);
+        }),
+        catchError(err => {
+          if (err['status'] === 401) {
+            this.notification.error('Email or password are incorrect');
+          }
+          return NEVER;
+        })
+      )
+      .subscribe();
+  }
+
+  signUp(newUser: ApplicationUser): void {
+    this.authAsync
+      .signUp(newUser)
+      .pipe(
+        tap(token =>
+          this.store.dispatch(new Auth.Login({ email: newUser.email, access_token: token.access_token, expire_date: token.expire_date } as LoggedIn))
         ),
         tap(token => {
           const payload = this.decodeJwt(token.access_token);
