@@ -6,14 +6,14 @@
           <mat-label>E-mail</mat-label>
           <input formControlName="email" matInput>
           <mat-icon matSuffix>email</mat-icon>
-          <mat-error></mat-error>
+          <mat-error *ngIf="loginForm['controls']['email'].invalid">{{ getErrorMessage(loginForm['controls']['email']) }}</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="standard">
           <mat-label>Password</mat-label>
           <input [type]="hide ? 'password' : 'text'" formControlName="password" matInput type="password">          
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>          
-          <mat-error></mat-error>
+          <mat-error *ngIf="loginForm['controls']['password'].invalid">{{ getErrorMessage(loginForm['controls']['password']) }}</mat-error>
         </mat-form-field>
 
         <div class="action-buttons">
