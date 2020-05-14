@@ -14,6 +14,7 @@ import { tap } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  hide = true;
   constructor(private fb: FormBuilder, private facade: AuthFacadeService) {}
 
   ngOnInit(): void {

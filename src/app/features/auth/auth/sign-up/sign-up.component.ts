@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class SignUpComponent implements OnInit {
   signupForm: FormGroup;
-
+  hide = true;
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
