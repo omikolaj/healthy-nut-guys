@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="login-form">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+    <form [formGroup]="loginForm" novalidate>
       <div class="form-controls">
         <mat-form-field appearance="standard">
           <mat-label>E-mail</mat-label>
@@ -17,8 +17,9 @@
         </mat-form-field>
 
         <div class="action-buttons">
-          <button color="primary" mat-raised-button [disabled]="!loginForm.valid">Login</button>
-          <button [routerLink]="['../sign-up']" mat-raised-button type="button">Switch to Sign up</button>
+          <button color="primary" (click)="onSubmit()" mat-raised-button [disabled]="!loginForm.valid">Login</button>
+          <button color="warn" [routerLink]="['../password-recovery']" mat-raised-button>Forgot password?</button>
+          <button [routerLink]="['../sign-up']" mat-raised-button type="button">Register</button>
         </div>
       </div>
     </form>

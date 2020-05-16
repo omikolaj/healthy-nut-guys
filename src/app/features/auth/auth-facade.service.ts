@@ -1,3 +1,4 @@
+import { LocalStorageService } from './../../core/local-storage/local-storage.service';
 import { ApplicationUser } from './../../core/auth/application-user.model';
 import { NotificationService } from './../../core/notifications/notification.service';
 import { Router, Params } from '@angular/router';
@@ -15,7 +16,13 @@ import * as jwt_decode from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthFacadeService {
-  constructor(private router: Router, private store: Store, private authAsync: AuthAsyncService, private notification: NotificationService) {}
+  constructor(
+    private router: Router,
+    private store: Store,
+    private authAsync: AuthAsyncService,
+    private notification: NotificationService,
+    private localStorage: LocalStorageService
+  ) {}
 
   login(user: ApplicationUser): void {
     this.authAsync
@@ -38,6 +45,13 @@ export class AuthFacadeService {
       .subscribe();
   }
 
+  recoverPassword(email: string): void {
+    this.authAsync
+      .recoverPassword(email)
+      .pipe(tap(_ => this.notification.info('Please check your email for recovery link')))
+      .subscribe();
+  }
+
   signUp(newUser: ApplicationUser): void {
     this.authAsync
       .signUp(newUser)
@@ -50,9 +64,7 @@ export class AuthFacadeService {
           this.router.navigate(['../users', `${payload['sub']}`, 'dashboard']);
         }),
         catchError(err => {
-          if (err['status'] === 401) {
-            this.notification.error('Email or password are incorrect');
-          }
+          this.notification.error('Error occured signing up');
           return NEVER;
         })
       )
@@ -64,11 +76,13 @@ export class AuthFacadeService {
       .logout()
       .pipe(
         tap(_ => this.store.dispatch(new Auth.Logout())),
+        tap(_ => this.localStorage.removeItem('auth')),
         tap(_ => {
           this.notification.success("You've been logged out");
           this.router.navigate(['/about']);
         }),
         catchError(err => {
+          this.localStorage.removeItem('auth');
           this.router.navigate(['/about']);
           this.notification.success("You've been logged out");
           return NEVER;

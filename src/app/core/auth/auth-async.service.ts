@@ -20,6 +20,10 @@ export class AuthAsyncService {
     return this.http.post<Token>('api/login', JSON.stringify(user), this.headers);
   }
 
+  recoverPassword(email: string): Observable<void> {
+    return this.http.post<void>('api/password-recovery', JSON.stringify(email), this.headers);
+  }
+
   signUp(newUser: ApplicationUser): Observable<Token> {
     return this.http.post<Token>('api/signup', JSON.stringify(newUser), this.headers);
   }

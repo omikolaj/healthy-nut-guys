@@ -18,11 +18,7 @@ export class LocalStorageService {
           .map(key =>
             key
               .split('-')
-              .map((token, index) =>
-                index === 0
-                  ? token
-                  : token.charAt(0).toUpperCase() + token.slice(1)
-              )
+              .map((token, index) => (index === 0 ? token : token.charAt(0).toUpperCase() + token.slice(1)))
               .join('')
           );
         let currentStateRef = state;
@@ -40,11 +36,11 @@ export class LocalStorageService {
   }
 
   setItem(key: string, value: any) {
-    localStorage.setItem(`${APP_PREFIX}${key}`, JSON.stringify(value));
+    localStorage.setItem(key, JSON.stringify(value));
   }
 
   getItem(key: string) {
-    return JSON.parse(localStorage.getItem(`${APP_PREFIX}${key}`));
+    return JSON.parse(localStorage.getItem(key));
   }
 
   removeItem(key: string) {
