@@ -1,7 +1,7 @@
 import { LocalStorageService } from './../../core/local-storage/local-storage.service';
 import { ApplicationUser } from './../../core/auth/application-user.model';
 import { NotificationService } from './../../core/notifications/notification.service';
-import { Router, Params } from '@angular/router';
+import { Router, Params, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { Store, Select } from '@ngxs/store';
 import { Injectable } from '@angular/core';
 import { AuthState } from 'app/core/auth/auth.state';
@@ -19,6 +19,7 @@ export class AuthFacadeService {
   constructor(
     private router: Router,
     private store: Store,
+    private route: ActivatedRoute,
     private authAsync: AuthAsyncService,
     private notification: NotificationService,
     private localStorage: LocalStorageService
@@ -48,8 +49,24 @@ export class AuthFacadeService {
   recoverPassword(email: string): void {
     this.authAsync
       .recoverPassword(email)
-      .pipe(tap(_ => this.notification.info('Please check your email for recovery link')))
+      .pipe(tap(_ => this.notification.infoExplicit('Please check your email for recovery link', 7000)))
       .subscribe();
+  }
+
+  resetPassword(newPassword: string): void {
+    const userId = this.route.snapshot.queryParamMap.get('userId');
+    const code = this.route.snapshot.queryParamMap.get('code');
+    if (userId) {
+      if (code) {
+        this.authAsync
+          .resetPassword(userId, code, newPassword)
+          .pipe(
+            tap(_ => this.notification.infoExplicit('Password successfully updated', 7000)),
+            tap(_ => this.router.navigate(['auth/login'], { queryParams: { userId: null, code: null }, queryParamsHandling: 'merge' }))
+          )
+          .subscribe();
+      }
+    }
   }
 
   signUp(newUser: ApplicationUser): void {

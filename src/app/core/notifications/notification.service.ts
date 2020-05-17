@@ -21,9 +21,23 @@ export class NotificationService {
     });
   }
 
+  infoExplicit(message: string, duration: number) {
+    this.show(message, {
+      duration: duration,
+      panelClass: 'info-notification-overlay'
+    });
+  }
+
   success(message: string) {
     this.show(message, {
       duration: 2000,
+      panelClass: 'success-notification-overlay'
+    });
+  }
+
+  successExplicit(message: string, duration: number) {
+    this.show(message, {
+      duration: duration,
       panelClass: 'success-notification-overlay'
     });
   }

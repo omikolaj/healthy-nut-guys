@@ -1,22 +1,22 @@
 <div class="wrapper">
   <div class="login-form">
-    <form [formGroup]="loginForm" novalidate>
+    <form [formGroup]="loginForm" novalidate [ngClass]="routeAnimationsElements">
       <div class="form-controls">
-        <mat-form-field appearance="standard">
+        <mat-form-field appearance="standard" [ngClass]="routeAnimationsElements">
           <mat-label>E-mail</mat-label>
           <input formControlName="email" matInput>
           <mat-icon matSuffix>email</mat-icon>
           <mat-error *ngIf="loginForm['controls']['email'].invalid">{{ getErrorMessage(loginForm['controls']['email']) }}</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="standard">
+        <mat-form-field appearance="standard" [ngClass]="routeAnimationsElements">
           <mat-label>Password</mat-label>
           <input [type]="hide ? 'password' : 'text'" formControlName="password" matInput type="password">          
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>          
           <mat-error *ngIf="loginForm['controls']['password'].invalid">{{ getErrorMessage(loginForm['controls']['password']) }}</mat-error>
         </mat-form-field>
 
-        <div class="action-buttons">
+        <div class="action-buttons" [ngClass]="routeAnimationsElements">
           <button color="primary" (click)="onSubmit()" mat-raised-button [disabled]="!loginForm.valid">Login</button>
           <button color="warn" [routerLink]="['../password-recovery']" mat-raised-button>Forgot password?</button>
           <button [routerLink]="['../sign-up']" mat-raised-button type="button">Register</button>

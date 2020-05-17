@@ -1,8 +1,9 @@
 import { AuthFacadeService } from './../../auth-facade.service';
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
-import { ConfirmPasswordErrorStateMatcher } from './error-state-matcher';
 import { ApplicationUser } from 'app/core/auth/application-user.model';
+import { ROUTE_ANIMATIONS_ELEMENTS } from 'app/core/core.module';
+import { requireLength, checkPasswords, ConfirmPasswordErrorStateMatcher } from '../auth-validators';
 
 @Component({
   selector: 'thng-sign-up',
@@ -11,6 +12,7 @@ import { ApplicationUser } from 'app/core/auth/application-user.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SignUpComponent implements OnInit {
+  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
   signupForm: FormGroup;
   hide = true;
   matcher = new ConfirmPasswordErrorStateMatcher();
@@ -49,26 +51,11 @@ export class SignUpComponent implements OnInit {
       email: this.fb.control('', [Validators.required, Validators.email]),
       passwords: this.fb.group(
         {
-          password: this.fb.control('', [Validators.required, this.requireLength()]),
+          password: this.fb.control('', [Validators.required, requireLength()]),
           confirmPassword: this.fb.control('', Validators.required)
         },
-        { validators: this.checkPasswords() }
+        { validators: checkPasswords() }
       )
     });
-  }
-
-  private checkPasswords(): ValidatorFn {
-    return (group: FormGroup): { [key: string]: any } | null => {
-      let pass = group.get('password').value;
-      let confirmPass = group.get('confirmPassword').value;
-      return pass === confirmPass ? null : { notSame: true };
-    };
-  }
-
-  private requireLength(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
-      const pass: string = control.value;
-      return pass.length > 7 ? null : { tooShort: true };
-    };
   }
 }

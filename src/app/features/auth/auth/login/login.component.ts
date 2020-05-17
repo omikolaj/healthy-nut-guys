@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthFacadeService } from './../../auth-facade.service';
 import { Store } from '@ngxs/store';
 import { ApplicationUser } from './../../../../core/auth/application-user.model';
@@ -5,6 +6,7 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import * as Auth from '../../../../core/auth/auth.actions';
 import { tap } from 'rxjs/operators';
+import { ROUTE_ANIMATIONS_ELEMENTS } from 'app/core/core.module';
 
 @Component({
   selector: 'thng-login',
@@ -13,11 +15,13 @@ import { tap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
+  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
   loginForm: FormGroup;
   hide = true;
-  constructor(private fb: FormBuilder, private facade: AuthFacadeService) {}
+  constructor(private fb: FormBuilder, private facade: AuthFacadeService, private router: Router) {}
 
   ngOnInit(): void {
+    console.log('router', this.router.url);
     this.initLoginForm();
   }
 

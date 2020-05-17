@@ -24,6 +24,10 @@ export class AuthAsyncService {
     return this.http.post<void>('api/password-recovery', JSON.stringify(email), this.headers);
   }
 
+  resetPassword(userId: string, code: string, newPassword: string): Observable<boolean> {
+    return this.http.post<boolean>(`api/password-reset?userId=${userId}&code=${code}`, JSON.stringify(newPassword), this.headers);
+  }
+
   signUp(newUser: ApplicationUser): Observable<Token> {
     return this.http.post<Token>('api/signup', JSON.stringify(newUser), this.headers);
   }

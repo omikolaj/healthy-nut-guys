@@ -1,6 +1,8 @@
 import { AuthFacadeService } from './../../auth-facade.service';
-import { FormBuilder, FormGroup, AbstractControl, Validators, FormControl } from '@angular/forms';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ROUTE_ANIMATIONS_ELEMENTS } from 'app/core/core.module';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { checkPasswords, requireLength, ConfirmPasswordErrorStateMatcher } from '../auth-validators';
 
 @Component({
   selector: 'thng-password-reset',
@@ -9,26 +11,36 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PasswordResetComponent implements OnInit {
-  email: FormControl = this.fb.control('', [Validators.required, Validators.email]);
-
+  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
+  passwordResetForm: FormGroup;
+  hide = true;
+  matcher = new ConfirmPasswordErrorStateMatcher();
   constructor(private fb: FormBuilder, private facade: AuthFacadeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.initPasswordResetForm();
+  }
 
   onSubmit(): void {
-    const email = this.email.value;
-    if (email) {
-      this.facade.recoverPassword(email);
+    const password = this.passwordResetForm.controls['password'].value;
+    if (password) {
+      this.facade.resetPassword(password);
     }
   }
 
-  getErrorMessage(): string {
-    if (this.email.hasError('required')) {
-      return 'You must provide a value';
+  getErrorMessage(control: AbstractControl): string {
+    if (control.hasError('required')) {
+      return 'This field is required';
     }
-    if (this.email.hasError('email')) {
-      return 'Not a valid email';
-    }
-    return '';
+  }
+
+  initPasswordResetForm(): void {
+    this.passwordResetForm = this.fb.group(
+      {
+        password: this.fb.control('', [Validators.required, requireLength()]),
+        confirmPassword: this.fb.control('', Validators.required)
+      },
+      { validators: checkPasswords() }
+    );
   }
 }
