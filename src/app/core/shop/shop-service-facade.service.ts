@@ -17,6 +17,9 @@ export class ShopServiceFacadeService {
   @Select(ShopState.getShopOffer) shopOffer$: Observable<SpecialOffer>;
   @Select(CartState.getCartItems) cartItems$: Observable<CartItem[]>;
   @Select(AuthState.isAuthenticated) isAuthenticated$: Observable<boolean>;
+  get userId(): string {
+    return this.store.selectSnapshot(AuthState.getUserId);
+  }
   constructor(private shopAsync: ShopAsyncService, private store: Store) {}
 
   getShopOffer(): void {

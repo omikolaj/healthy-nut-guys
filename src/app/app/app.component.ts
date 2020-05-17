@@ -12,6 +12,8 @@ import { actionSettingsChangeAnimationsPageDisabled } from '../core/settings/set
 import { Store as ngrxStore, select } from '@ngrx/store';
 import { ShopServiceFacadeService } from '../core/shop/shop-service-facade.service';
 import { map } from 'rxjs/operators';
+import { Store } from '@ngxs/store';
+import { AuthState } from 'app/core/auth/auth.state';
 
 @Component({
   selector: 'thng-root',
@@ -84,6 +86,7 @@ export class AppComponent implements OnInit {
   }
 
   onDashboardClick(): void {
-    this.router.navigate(['users', `${1}`, 'dashboard']);
+    const userId = this.facade.userId;
+    this.router.navigate(['users', `${userId}`, 'dashboard']);
   }
 }

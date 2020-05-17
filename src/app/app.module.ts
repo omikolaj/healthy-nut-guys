@@ -16,6 +16,7 @@ import { CartState, CART_STATE_TOKEN } from './shared/store/state/cart.state';
 import { AuthState, AUTH_STATE_TOKEN } from './core/auth/auth.state';
 import { ActingSpinnerComponent } from './app/acting-spinner/acting-spinner.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { UserState } from './shared/store/state/user.state';
 
 @NgModule({
   imports: [
@@ -32,7 +33,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     CoreModule,
 
     // NGXS Store
-    NgxsModule.forRoot([CartState, ShopState, AuthState], {
+    NgxsModule.forRoot([CartState, ShopState, AuthState, UserState], {
       developmentMode: !environment.production,
       selectorOptions: {
         suppressErrors: false,

@@ -29,9 +29,17 @@ export class AuthFacadeService {
     this.authAsync
       .login(user)
       .pipe(
-        tap(token =>
-          this.store.dispatch(new Auth.Login({ email: user.email, access_token: token.access_token, expire_date: token.expire_date } as LoggedIn))
-        ),
+        tap(token => {
+          const payload = this.decodeJwt(token.access_token);
+          this.store.dispatch(
+            new Auth.Login({
+              email: user.email,
+              access_token: token.access_token,
+              expire_date: token.expire_date,
+              id: payload['sub']
+            } as LoggedIn)
+          );
+        }),
         tap(token => {
           const payload = this.decodeJwt(token.access_token);
           this.router.navigate(['../users', `${payload['sub']}`, 'dashboard']);

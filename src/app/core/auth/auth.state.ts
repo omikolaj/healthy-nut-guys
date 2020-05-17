@@ -9,6 +9,7 @@ export interface AuthStateModel {
   token: string | null;
   email: string | null;
   expiry_date: number | null;
+  userId: string | null;
 }
 
 export const AUTH_STATE_TOKEN = new StateToken<AuthStateModel>('auth');
@@ -18,7 +19,8 @@ export const AUTH_STATE_TOKEN = new StateToken<AuthStateModel>('auth');
   defaults: {
     token: null,
     email: null,
-    expiry_date: null
+    expiry_date: null,
+    userId: null
   }
 })
 @Injectable()
@@ -36,6 +38,11 @@ export class AuthState {
   }
 
   @Selector()
+  static getUserId(state: AuthStateModel): string | null {
+    return state.userId;
+  }
+
+  @Selector()
   static isTokenValid(state: AuthStateModel): boolean {
     return true;
   }
@@ -47,6 +54,7 @@ export class AuthState {
         draft.token = action.payload.access_token;
         draft.email = action.payload.email;
         draft.expiry_date = action.payload.expire_date;
+        draft.userId = action.payload.id;
       })
     );
   }
@@ -58,6 +66,7 @@ export class AuthState {
         draft.token = null;
         draft.email = null;
         draft.expiry_date = null;
+        draft.userId = null;
       })
     );
   }

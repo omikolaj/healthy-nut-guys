@@ -17,12 +17,6 @@
 @import './app/app/app.component.scss-theme';
 @import './app/shared/big-input/big-input/big-input.component.scss-theme';
 @import './app/features/about/about/about.component.scss-theme';
-@import './app/features/examples/notifications/components/notifications.component.scss-theme';
-@import './app/features/examples/todos/components/todos-container.component.scss-theme';
-@import './app/features/examples/stock-market/components/stock-market-container.component.scss-theme';
-@import './app/features/examples/theming/parent/parent.component.scss-theme';
-@import './app/features/examples/theming/child/child.component.scss-theme';
-@import './app/features/examples/examples/examples.component.scss-theme';
 @import './app/features/products/products/product-detail/product-detail.component.scss-theme.scss';
 @import './app/features/cart/cart/cart.component.scss-theme.scss';
 
@@ -30,13 +24,6 @@
   @include thng-styles-reset-theme($theme);
   @include thng-app-component-theme($theme);
   @include thng-about-component-theme($theme);
-  @include thng-big-input-component-theme($theme);
-  @include thng-notifications-component-theme($theme);
-  @include thng-todos-container-component-theme($theme);
-  @include thng-stock-market-container-component-theme($theme);
-  @include thng-parent-component-theme($theme);
-  @include thng-child-component-theme($theme);
-  @include thng-examples-component-theme($theme);
   @include thng-product-detail-component-theme($theme);
   @include thng-cart-component-theme($theme);
 }
